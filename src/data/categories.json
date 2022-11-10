@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Pizzas",
+		"items": ["Extra Large Pepperoni Pizza", "Large Pepperoni Pizza", "Medium Pepperoni Pizza", "Small Pepperoni Pizza", "Extra Large Hawaiian Pizza", "Large Hawaiian Pizza", "Medium Hawaiian Pizza", "Small Hawaiian Pizza", "Extra Large Vegetarian Pizza", "Large Vegetarian Pizza", "Medium Vegetarian Pizza", "Small Vegetarian Pizza"]
+    },
+    {
+        "name": "Popular",
+        "items": ["Large Pepperoni Pizza"]
+    },   
+    {
+        "name": "Appetizers",
+        "items": ["Small Pepperoni Pizza"]
+    },
+	{
+        "name": "Burgers",
+        "items": ["Small Pepperoni Pizza"]
+    },
+
+	{
+        "name": "Desserts",
+        "items": ["Small Pepperoni Pizza"]
+    },
+	{
+        "name": "Drinks",
+        "items": ["Small Pepperoni Pizza"]
+    }
+]

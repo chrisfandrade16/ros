@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Extra Large Pepperoni Pizza",
+        "cost": 19.84,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"size": "16''",
+        "img": "../img/pepperoni.jpg"
+    },
+	{
+        "name": "Large Pepperoni Pizza",
+        "cost": 15.12,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"size": "14''", 
+        "img": "../img/pepperoni.jpg"
+    },
+	{
+        "name": "Medium Pepperoni Pizza",
+        "cost": 10.63,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"size": "12''",
+        "img": "../img/pepperoni.jpg"
+    },  
+	{
+        "name": "Small Pepperoni Pizza",
+        "cost": 7.73,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"size": "10''",
+        "img": "../img/pepperoni.jpg"
+	},
+    {
+        "name": "Extra Large Hawaiian Pizza",
+        "cost": 19.84,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"size": "16''",
+        "img": ""
+    },
+	{
+        "name": "Large Hawaiian Pizza",
+        "cost": 15.12,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"size": "14''", 
+        "img": ""
+    },
+	{
+        "name": "Medium Hawaiian Pizza",
+        "cost": 10.63,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"size": "12''",
+        "img": ""
+    },  
+	{
+        "name": "Small Hawaiian Pizza",
+        "cost": 7.93,
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"size": "10''",
+        "img": ""
+	},
+	{
+        "name": "Extra Large Vegetarian Pizza",
+        "cost": 19.84,
+		"ingredients": ["Veggies"],
+		"size": "16''",
+        "img": ""
+    },
+	{
+        "name": "Large Vegetarian Pizza",
+        "cost": 15.12,
+		"ingredients": ["Veggies"],
+		"size": "14''", 
+        "img": ""
+    },
+	{
+        "name": "Medium Vegetarian Pizza",
+        "cost": 10.63,
+		"ingredients": ["Veggies"],
+		"size": "12''",
+        "img": ""
+    },  
+	{
+        "name": "Small Vegetarian Pizza",
+        "cost": 7.93,
+		"ingredients": ["Veggies"],
+		"size": "10''",
+        "img": ""
+	}
+]
