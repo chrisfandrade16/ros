@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# ROS (Restaurant Ordering System)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application for customers and stuff to manage restaurant orders.
 
-## Available Scripts
+# Development Process
 
-In the project directory, you can run:
+To setup the environment...
 
-### `npm start`
+1. Run "git clone https://github.com/chrisfandrade16/ros.git" on your computer
+2. Run "cd ros" to enter the application's directory
+3. Install the "Prettier" extension on your text editor for consistent formatting
+4. Go to Code -> Preferences -> Settings, search "Format on Save", and check that box
+5. Select and right-click any code, click "Format Document", and choose "Prettier" as your default formatter
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To create your branch...
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Run "git checkout master" to enter master branch
+2. Run "git pull" to get latest changes
+3. Run "git branch < your_branch_name >" to create your branch based on the latest master branch
+4. Run "git checkout < your_branch_name >" to enter your branch
 
-### `npm test`
+To run your branch...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Run "npm install" at root directory to install required libraries
+2. Run "npm run start" at root directory to run a local development server for viewing the compiled application live in browser
 
-### `npm run build`
+To save your branch...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Add desired changes to code
+2. Run "git add \*" from root directory to stage all your changes
+3. Run "git commit -m < your_commit_message >" to commit your changes
+4. Run "git push" to push your changes to your branch
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To merge your branch...
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Run "git checkout master" to enter the master branch
+2. Run "git pull" to get latest changes
+3. Run "git checkout < your_branch_name > to enter your brnach
+4. Run "git rebase master" to get all the new changes from master onto your branch before merging
+5. Run "git rebase --skip" continuously until the rebase is no longer in progress (this is to skip a coomit-by-commit conflicts in favour of seeing all merge conflicts at once)
+6. Use your text editor to solve the merge conflicts
+7. Run "npm run build" to update the build (a static compiled single HTML file of the application)
+8. Run "git add \*", "git commit -m < your_commit_message >", and "git push" to stage, commit, and push your resolved conflicts to your branch
+9. Submit a pull request on GitHub to get confirmation before merging your branch into the master branch
