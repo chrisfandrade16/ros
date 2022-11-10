@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import CostCounter from "./CostCounter";
 
-export default function MenuItem({ info }) {
+export default function MenuItem({ info, setTotalCost, clear }) {
   return (
     <div className="menu-item">
       <img
@@ -16,7 +16,12 @@ export default function MenuItem({ info }) {
         <div>{info.ingredients}</div>
         {info.size && <div>Size: {info.size}</div>}
       </div>
-      <CostCounter name={info.name} cost={info.cost} />
+      <CostCounter
+        name={info.name}
+        cost={info.cost}
+        setTotalCost={setTotalCost}
+        clear={clear}
+      />
     </div>
   );
 }
