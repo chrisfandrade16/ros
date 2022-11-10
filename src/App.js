@@ -17,7 +17,7 @@ function App() {
         >
           Menu Cart My Orders About Us Staff Login
         </div>
-        {/*<Menu />*/}
+        <Menu />
       </header>
     </div>
   );

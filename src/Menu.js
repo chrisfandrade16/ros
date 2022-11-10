@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import MenuItem from "./components/MenuItem";
 import ParseJSON from "./ParseJSON";
@@ -7,6 +7,9 @@ export const data = new ParseJSON();
 export default function Menu() {
   const [data] = useState(new ParseJSON());
   const [activeCategory, setActiveCategory] = useState(data.getFirstCategory());
+  const [totalCost, setTotalCost] = useState(
+    parseInt(sessionStorage.getItem("total")) || 0
+  );
 
   return (
     <div id="menu-container">
@@ -28,9 +31,9 @@ export default function Menu() {
         ))}
       </div>
       <div id="menu-footer">
-        <div style={{ height: "8vh", userSelect: "none" }}>
-          check me out and clear all selected
-        </div>
+        <button style={{ height: "6vh", margin: "0.5%" }}>
+          Checkout - ${totalCost}
+        </button>
       </div>
     </div>
   );

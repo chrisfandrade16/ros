@@ -66,3 +66,9 @@
 .item-desc {
   flex-grow: 1;
 }
+
+#menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

@@ -14,8 +14,9 @@ export default function MenuItem({ info }) {
       <div className="item-desc" style={{ userSelect: "none" }}>
         <div>{info.name}</div>
         <div>{info.ingredients}</div>
+        {info.size && <div>Size: {info.size}</div>}
       </div>
-      <CostCounter cost={info.cost} />
+      <CostCounter name={info.name} cost={info.cost} />
     </div>
   );
 }
