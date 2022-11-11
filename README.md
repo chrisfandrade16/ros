@@ -37,8 +37,9 @@ To merge your branch...
 2. Run "git pull" to get latest changes
 3. Run "git checkout < your_branch_name > to enter your brnach
 4. Run "git rebase master" to get all the new changes from master onto your branch before merging
-5. Run "git rebase --skip" continuously until the rebase is no longer in progress (this is to skip a coomit-by-commit conflicts in favour of seeing all merge conflicts at once)
-6. Use your text editor to solve the merge conflicts
-7. Run "npm run build" to update the build (a static compiled single HTML file of the application)
-8. Run "git add \*", "git commit -m < your_commit_message >", and "git push" to stage, commit, and push your resolved conflicts to your branch
-9. Submit a pull request on GitHub to get confirmation before merging your branch into the master branch
+5. Run "git rebase --skip" continuously until the rebase is no longer in progress (this is to skip all coomit-by-commit conflicts in favour of seeing all merge conflicts at once)
+6. Run "git pull" to bring all commits from the master branch into your branch, and see all merge conflicts if any
+7. Use your text editor to solve all merge conflicts if any
+8. Run "npm run build" to update the build (compiles a static single HTML file of the whole application)
+9. Run "git add \*", "git commit -m < your_commit_message >", and "git push" to stage, commit, and push your resolved conflicts to your branch
+10. Submit a pull request on GitHub to get confirmation before merging your branch into the master branch
