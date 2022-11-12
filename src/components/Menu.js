@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import "../styles/Menu.scss";
 import MenuItem from "./MenuItem";
 import ParseJSON from "../utils/ParseJSON";
+import * as constants from "../utils/constants";
 export const data = new ParseJSON();
 
-export default function Menu() {
+export default function Menu({ setCurrentPageTab }) {
   const [data] = useState(new ParseJSON());
   const [activeCategory, setActiveCategory] = useState(data.getFirstCategory());
   const [totalCost, setTotalCost] = useState(
@@ -32,7 +33,11 @@ export default function Menu() {
             key={name}
             className="menu-category"
             active={name === activeCategory ? "true" : "false"}
-            onClick={() => setActiveCategory(name)}
+            onClick={() => {
+              setActiveCategory(name);
+              const scroll = document.getElementById("menu-item-container");
+              scroll.scrollTop = 0;
+            }}
           >
             <div>{name}</div>
           </div>
@@ -50,7 +55,9 @@ export default function Menu() {
       </div>
       <div id="menu-footer">
         <button onClick={() => setClear(true)}>Clear</button>
-        <button>Checkout - ${totalCost.toFixed(2)}</button>
+        <button onClick={() => setCurrentPageTab(constants.PAGE_TABS.CART)}>
+          Checkout - ${totalCost.toFixed(2)}
+        </button>
       </div>
     </div>
   );
