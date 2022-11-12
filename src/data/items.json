@@ -2,7 +2,7 @@
     {
         "name": "Extra Large Pepperoni Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos","Pepperoni"],
 		"size": "16''",
         "img": "../img/p1.png",
         "low": "../img/low_p1.jpg"
@@ -10,7 +10,7 @@
 	{
         "name": "Large Pepperoni Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos","Pepperoni"],
 		"size": "14''", 
         "img": "../img/p1.png",
         "low": "../img/low_p1.jpg"
@@ -26,7 +26,7 @@
 	{
         "name": "Small Pepperoni Pizza",
         "cost": 7.73,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos","Pepperoni"],
 		"size": "10''",
         "img": "../img/p1.png",
         "low": "../img/low_p1.jpg"
@@ -34,7 +34,7 @@
     {
         "name": "Extra Large Hawaiian Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "16''",
         "img": "../img/p5.png",
         "low": "../img/low_p5.jpg"
@@ -42,7 +42,7 @@
 	{
         "name": "Large Hawaiian Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "14''", 
         "img": "../img/p5.png",
         "low": "../img/low_p5.jpg"
@@ -50,7 +50,7 @@
 	{
         "name": "Medium Hawaiian Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "12''",
         "img": "../img/p5.png",
         "low": "../img/low_p5.jpg"

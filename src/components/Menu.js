@@ -3,6 +3,7 @@ import "../styles/Menu.scss";
 import MenuItem from "./MenuItem";
 import ParseJSON from "../utils/ParseJSON";
 import * as constants from "../utils/constants";
+import { Scrollbars } from "react-custom-scrollbars-2";
 export const data = new ParseJSON();
 
 export default function Menu({ setCurrentPageTab }) {
@@ -25,6 +26,15 @@ export default function Menu({ setCurrentPageTab }) {
     }
   }, [clear]);
 
+  const renderThumb = ({ style, ...props }) => {
+    const thumbStyle = {
+      backgroundColor: `grey`,
+    };
+    return (
+      <div className="bar" style={{ ...style, ...thumbStyle }} {...props} />
+    );
+  };
+
   return (
     <div id="menu-container">
       <div id="menu-categories">
@@ -35,7 +45,9 @@ export default function Menu({ setCurrentPageTab }) {
             active={name === activeCategory ? "true" : "false"}
             onClick={() => {
               setActiveCategory(name);
-              const scroll = document.getElementById("menu-item-container");
+              const scroll = document
+                .getElementById("menu-item-container")
+                .getElementsByTagName("div")[0];
               scroll.scrollTop = 0;
             }}
           >
@@ -43,7 +55,8 @@ export default function Menu({ setCurrentPageTab }) {
           </div>
         ))}
       </div>
-      <div id="menu-item-container">
+
+      <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
         {data.getCategoryItems(activeCategory).map((name) => (
           <MenuItem
             key={name}
@@ -52,10 +65,14 @@ export default function Menu({ setCurrentPageTab }) {
             clear={clear}
           />
         ))}
-      </div>
+      </Scrollbars>
+
       <div id="menu-footer">
         <button onClick={() => setClear(true)}>Clear</button>
-        <button onClick={() => setCurrentPageTab(constants.PAGE_TABS.CART)}>
+        <button
+          onClick={() => setCurrentPageTab(constants.PAGE_TABS.CART)}
+          disabled={totalCost === 0}
+        >
           Checkout - ${totalCost.toFixed(2)}
         </button>
       </div>
