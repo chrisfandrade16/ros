@@ -52,7 +52,7 @@
 
 #menu-footer {
     display: flex;
-    height: 20%;
+    min-height: 8vh;
     justify-content: flex-end;
     align-items: center;
     border-top: 1px solid black;

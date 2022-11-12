@@ -21,7 +21,11 @@ const App = () => {
           height="small-tab-height"
         />
       ) : null}
-      {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
+      {currentPageTab == constants.PAGE_TABS.MENU ? (
+        <Menu setCurrentPageTab={setCurrentPageTab} />
+      ) : (
+        ""
+      )}
       {currentPageTab == constants.PAGE_TABS.CART
         ? "Put cart page component here"
         : ""}
