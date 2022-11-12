@@ -17,29 +17,33 @@ export default function CostCounter({ name, cost, setTotalCost, clear }) {
   return (
     <div className="cost-counter" style={{ userSelect: "none" }}>
       <div>${cost}</div>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-          setTotalCost(
-            (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
-          );
-        }}
-      >
-        +
-      </button>
-      {count}
-      <button
-        onClick={() => {
-          if (count > 0) {
-            setCount(count - 1);
+      <div className="cost-incrementer">
+        <button
+          style={{ marginRight: "5px" }}
+          onClick={() => {
+            setCount(count + 1);
             setTotalCost(
-              (prevTotal) => Math.round((prevTotal - cost) * 100) / 100
+              (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
             );
-          }
-        }}
-      >
-        -
-      </button>
+          }}
+        >
+          +
+        </button>
+        {count}
+        <button
+          style={{ marginLeft: "5px" }}
+          onClick={() => {
+            if (count > 0) {
+              setCount(count - 1);
+              setTotalCost(
+                (prevTotal) => Math.round((prevTotal - cost) * 100) / 100
+              );
+            }
+          }}
+        >
+          -
+        </button>
+      </div>
     </div>
   );
 }
