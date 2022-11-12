@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../App.css";
+import "../styles/Menu.scss";
 
 export default function CostCounter({ name, cost, setTotalCost, clear }) {
   const [count, setCount] = useState(

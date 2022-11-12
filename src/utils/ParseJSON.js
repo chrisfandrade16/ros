@@ -1,7 +1,7 @@
 class ParseJSON {
   constructor() {
-    this.categoryJSON = require(`./data/categories.json`);
-    this.itemJSON = require(`./data/items.json`);
+    this.categoryJSON = require(`../data/categories.json`);
+    this.itemJSON = require(`../data/items.json`);
   }
   getFirstCategory() {
     return this.categoryJSON[0].name;

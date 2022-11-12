@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import MenuItem from "./components/MenuItem";
-import ParseJSON from "./ParseJSON";
+import "../styles/Menu.scss";
+import MenuItem from "./MenuItem";
+import ParseJSON from "../utils/ParseJSON";
 export const data = new ParseJSON();
 
 export default function Menu() {
@@ -50,9 +50,7 @@ export default function Menu() {
       </div>
       <div id="menu-footer">
         <button onClick={() => setClear(true)}>Clear</button>
-        <button style={{ height: "6vh", margin: "0.5%" }}>
-          Checkout - ${totalCost.toFixed(2)}
-        </button>
+        <button>Checkout - ${totalCost.toFixed(2)}</button>
       </div>
     </div>
   );

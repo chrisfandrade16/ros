@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../styles/Menu.scss";
 import CostCounter from "./CostCounter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
