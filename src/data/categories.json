@@ -5,20 +5,20 @@
     },
     {
         "name": "Popular",
-        "items": ["Large Pepperoni Pizza"]
+        "items": ["Chicken Tenders"]
     },   
     {
         "name": "Appetizers",
-        "items": ["Small Pepperoni Pizza"]
+        "items": ["Chicken Tenders", "Chicken Wings", "Fries", "Red Soup", "Green Soup"]
     },
 	{
         "name": "Burgers",
-        "items": ["Small Pepperoni Pizza"]
+        "items": ["Double Cheese Burger with Bacon", "Cheese Burger", "Deluxe Burger", "Smash Burger", "Beast Burger"]
     },
 
 	{
         "name": "Desserts",
-        "items": ["Small Pepperoni Pizza"]
+        "items": ["Chocolate Cake", "Tiramisu", "Assorted Macaroons", "Pancake"]
     },
 	{
         "name": "Drinks",
