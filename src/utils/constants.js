@@ -6,6 +6,8 @@ export const PAGE_TABS = {
     MY_ORDERS: 2,
     ABOUT_US: 3,
     STAFF_LOGIN: 4,
+    VIEW_ORDERS: 5,
+    CHANGE_MENU: 6,
 }
 
 export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {

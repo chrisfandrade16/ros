@@ -8,6 +8,7 @@ import Cart from "./components/Cart";
 import Staff from "./components/Staff";
 import 'bootstrap/dist/css/bootstrap.css'
 
+import StaffLogin from "./components/StaffLogin";
 
 const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -26,7 +27,7 @@ const App = () => {
         />
       ) : null}
       {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART? <Cart /> : ""}
+      {currentPageTab == constants.PAGE_TABS.CART ? <Cart /> : ""}
       {currentPageTab == constants.PAGE_TABS.MENU ? (
         <Menu setCurrentPageTab={setCurrentPageTab} />
       ) : (
@@ -42,7 +43,13 @@ const App = () => {
         ? "Put about us page component here"
         : ""}
       {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN
-        ? <Staff />
+        ? (<StaffLogin setCurrentPageTab={setCurrentPageTab} />)
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS
+        ? (<Staff setCurrentPageTab={setCurrentPageTab} />)
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.CHANGE_MENU
+        ? "Put change menu page component here"
         : ""}
     </div>
   );
