@@ -4,6 +4,9 @@ import Navigator from "./components/navigatior";
 import * as constants from "./utils/constants";
 import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
+import Cart from "./components/Cart";
+import 'bootstrap/dist/css/bootstrap.css'
+
 
 const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -22,9 +25,7 @@ const App = () => {
         />
       ) : null}
       {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART
-        ? "Put cart page component here"
-        : ""}
+      {currentPageTab == constants.PAGE_TABS.CART? <Cart /> : ""}
       {currentPageTab == constants.PAGE_TABS.MY_ORDERS
         ? "Put my orders page component here"
         : ""}
