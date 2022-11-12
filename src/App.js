@@ -4,6 +4,7 @@ import Navigator from "./components/navigatior";
 import * as constants from "./utils/constants";
 import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
+import StaffLogin from "./components/StaffLogin";
 
 const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -36,7 +37,13 @@ const App = () => {
         ? "Put about us page component here"
         : ""}
       {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN
-        ? "Put staff login page component here"
+        ? (<StaffLogin setCurrentPageTab={setCurrentPageTab} />)
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS
+        ? "Put view orders page component here"
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.CHANGE_MENU
+        ? "Put change menu page component here"
         : ""}
     </div>
   );
