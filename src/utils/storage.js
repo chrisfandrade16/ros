@@ -1,12 +1,12 @@
 import * as constants from "./constants"
 
 export const storage = {
-    customerName: "John Doe",
-    customerTable: 6,
+    customerName: "",
+    customerTable: "",
     restaurantName: "McPizza",
 }
 
 export const flags = {
     isLoading: false,
-    isSignedIn: true,
+    isSignedIn: false,
 }
