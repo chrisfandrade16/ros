@@ -26,6 +26,14 @@ const App = () => {
       ) : null}
       {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
       {currentPageTab == constants.PAGE_TABS.CART? <Cart /> : ""}
+      {currentPageTab == constants.PAGE_TABS.MENU ? (
+        <Menu setCurrentPageTab={setCurrentPageTab} />
+      ) : (
+        ""
+      )}
+      {/* {currentPageTab == constants.PAGE_TABS.CART
+        ? "Put cart page component here"
+        : ""} */}
       {currentPageTab == constants.PAGE_TABS.MY_ORDERS
         ? "Put my orders page component here"
         : ""}
