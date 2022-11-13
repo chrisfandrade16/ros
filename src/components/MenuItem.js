@@ -4,13 +4,13 @@ import CostCounter from "./CostCounter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-export default function MenuItem({ info, setTotalCost, clear }) {
+export default function MenuItem({ info, setTotalCost, setTotalItems, clear }) {
   return (
     <div className="menu-item">
       <LazyLoadImage
         src={info.img}
-        width={175}
-        height={150}
+        width={150}
+        height={125}
         alt={info.name}
         style={{ alignSelf: "center" }}
         placeholderSrc={info.low}
@@ -25,6 +25,7 @@ export default function MenuItem({ info, setTotalCost, clear }) {
         name={info.name}
         cost={info.cost}
         setTotalCost={setTotalCost}
+        setTotalItems={setTotalItems}
         clear={clear}
       />
     </div>

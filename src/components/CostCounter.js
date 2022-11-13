@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Menu.scss";
 
-export default function CostCounter({ name, cost, setTotalCost, clear }) {
+export default function CostCounter({
+  name,
+  cost,
+  setTotalCost,
+  setTotalItems,
+  clear,
+}) {
   const [count, setCount] = useState(
     parseInt(sessionStorage.getItem(name)) || 0
   );
@@ -25,6 +31,11 @@ export default function CostCounter({ name, cost, setTotalCost, clear }) {
             setTotalCost(
               (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
             );
+            sessionStorage.setItem(
+              "totalItems",
+              parseInt(sessionStorage.getItem("totalItems") + 1)
+            );
+            setTotalItems((prevTotal) => prevTotal + 1);
           }}
         >
           +
@@ -38,6 +49,11 @@ export default function CostCounter({ name, cost, setTotalCost, clear }) {
               setTotalCost(
                 (prevTotal) => Math.round((prevTotal - cost) * 100) / 100
               );
+              sessionStorage.setItem(
+                "totalItems",
+                parseInt(sessionStorage.getItem("totalItems") - 1)
+              );
+              setTotalItems((prevTotal) => prevTotal - 1);
             }
           }}
         >
