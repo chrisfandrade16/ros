@@ -8,25 +8,25 @@ import Cart from "./components/Cart";
 import Staff from "./components/Staff";
 import 'bootstrap/dist/css/bootstrap.css'
 
+import StaffLogin from "./components/StaffLogin";
+import StartScreen from "./components/StartScreen";
 
 const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
-    constants.PAGE_TABS.MENU
+    constants.PAGE_TABS.START_SCREEN
   );
 
   return (
     <div className="ros">
-      <Header />
-      {flags.isSignedIn ? (
-        <Navigator
-          tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
-          activeTab={currentPageTab}
-          activeTabStyle="highlight-tab"
-          height="small-tab-height"
-        />
-      ) : null}
+      <Header setCurrentPageTab={setCurrentPageTab} />
+      <Navigator
+        tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
+        activeTab={currentPageTab}
+        activeTabStyle="highlight-tab"
+        height="small-tab-height"
+      />
       {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART? <Cart /> : ""}
+      {currentPageTab == constants.PAGE_TABS.CART ? <Cart /> : ""}
       {currentPageTab == constants.PAGE_TABS.MENU ? (
         <Menu setCurrentPageTab={setCurrentPageTab} />
       ) : (
@@ -42,7 +42,16 @@ const App = () => {
         ? "Put about us page component here"
         : ""}
       {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN
-        ? <Staff />
+        ? (<StaffLogin setCurrentPageTab={setCurrentPageTab} />)
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS
+        ? (<Staff setCurrentPageTab={setCurrentPageTab} />)
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.CHANGE_MENU
+        ? "Put change menu page component here"
+        : ""}
+      {currentPageTab == constants.PAGE_TABS.START_SCREEN
+        ? <StartScreen setCurrentPageTab={setCurrentPageTab} />
         : ""}
     </div>
   );
