@@ -2,6 +2,7 @@ class ParseJSON {
   constructor() {
     this.categoryJSON = require(`../data/categories.json`);
     this.itemJSON = require(`../data/items.json`);
+    this.cartItemJSON = require(`../data/cartItems.json`);
     this.orderCategoryJSON = require(`../data/orderCategories.json`);
     this.orderJSON = require(`../data/orders.json`);
   }
@@ -63,6 +64,16 @@ class ParseJSON {
     for (const key of this.itemJSON) {
       if (key.name === name) return key.cost;
     }
+  }
+
+  getCartItems(namesList){
+    let items = []
+    for (const key of this.cartItemJSON){
+      if(namesList.includes(key.name)){
+        items.push(key)
+      }
+    }
+    return items
   }
 }
 

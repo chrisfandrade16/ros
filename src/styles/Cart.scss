@@ -1,0 +1,79 @@
+.cartItem{
+    height: 164px;
+    margin: 0.5%;
+    padding: 0.5%;
+    display: flex;
+}
+
+.cartItemDesc{
+    padding-left: 15px;;
+    width: 30%;
+
+}
+
+.basketMiddle{
+    width: 30%;
+    padding-top: 10px;
+}
+
+.cartItemCost{
+    padding-bottom: 10px;
+    padding-left: 27px;
+}
+
+.cartItemCount{
+    display: inline-flex;
+}
+
+.itemCount{
+    padding:10px;
+}
+
+.basketLeft{
+    padding: 48px;
+
+}
+
+.trashIcon{
+    padding-top: 57px;
+    width: 8%;
+    padding-left: 19px;
+}
+
+.basketFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.backButton{
+    padding-top: 97px;
+    padding-left: 10px;
+
+}
+
+.orderSummary{
+    width: 22%;
+    padding-right: 44px;
+    padding-bottom: 16px;
+}
+
+.footerMid{
+    width: 45%;
+}
+
+.footerOptions{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 90px;
+
+}
+
+
+
+#tipRow{
+    display: flex;
+}
+
+.tipOptions{
+    padding-left: 32px;
+}

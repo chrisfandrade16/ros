@@ -1,0 +1,47 @@
+import React, { useState, useEffect } from "react";
+import ParseJSON from "../utils/ParseJSON";
+import Basket from "./Basket";
+
+
+export const data = new ParseJSON();
+
+
+export default function Cart() {
+   
+   const [cartItems, setCartItems] = useState(data.getCartItems(["Large Pepperoni Pizza", "Chicken Wings", "Cheese Burger"]))
+
+   const onAdd = (itemName) => {
+        const exists = cartItems.find((x) => x.name === itemName);
+        if(exists){
+            setCartItems(
+                cartItems.map((x) =>
+                x.name === itemName ? {...exists, count: parseInt(exists.count) + 1} : x
+                )
+            );
+        }
+   }
+
+
+   const onRemove = (itemName) => {
+    const exists = cartItems.find((x) => x.name === itemName);
+    if(exists.count === 1){
+        setCartItems(cartItems.filter((x) => x.name !== itemName))
+    }
+    else{
+        setCartItems(
+            cartItems.map((x) =>
+            x.name === itemName ? {...exists, count: parseInt(exists.count) - 1} : x
+            )
+        );
+    }
+}
+
+  return (
+    <div id="cart-container">
+        {cartItems.length !== 0 && <div>Your Cart</div>}
+
+        <Basket cartItems={cartItems} onAdd={onAdd} onRemove = {onRemove}></Basket>
+      
+    </div>
+  );
+}
