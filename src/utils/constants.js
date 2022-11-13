@@ -8,6 +8,7 @@ export const PAGE_TABS = {
     STAFF_LOGIN: 4,
     VIEW_ORDERS: 5,
     CHANGE_MENU: 6,
+    START_SCREEN: 7,
 }
 
 export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {

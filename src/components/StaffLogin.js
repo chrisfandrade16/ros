@@ -20,6 +20,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
     return (
         <div id="staff-login-container">
             <div className="form">
+                <h1 className="form_header">Staff Login</h1>
                 <div className="form_field" key="staffId">
                     <label className="form_label">
                         Staff ID Number
