@@ -1,4 +1,4 @@
-import { storage } from "./storage";
+import { storage, flags } from "./storage";
 
 export const EMPTY_FUNCTION = () => {};
 
@@ -20,11 +20,17 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
       onClick: () => {
         setCurrentPageTab(PAGE_TABS.MENU);
       },
+      getIsDisabled: () => {
+        return !flags.isSignedIn;
+      },
     },
     {
       text: "Cart",
       onClick: () => {
         setCurrentPageTab(PAGE_TABS.CART);
+      },
+      getIsDisabled: () => {
+        return !flags.isSignedIn;
       },
     },
     {
@@ -32,11 +38,17 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
       onClick: () => {
         setCurrentPageTab(PAGE_TABS.MY_ORDERS);
       },
+      getIsDisabled: () => {
+        return !flags.isSignedIn;
+      },
     },
     {
       text: "About Us",
       onClick: () => {
         setCurrentPageTab(PAGE_TABS.ABOUT_US);
+      },
+      getIsDisabled: () => {
+        return !flags.isSignedIn;
       },
     },
     {

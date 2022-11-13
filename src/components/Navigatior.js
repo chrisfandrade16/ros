@@ -13,8 +13,12 @@ const Navigator = (props) => {
       {tabs.map((tab, index) => {
         return (
           <div
-            className={`tw-flex-1 hover:tw-bg-slate-300 tw-text-center tw-duration-300 tw-cursor-pointer ${
+            className={`tw-flex-1 tw-text-center tw-duration-300  ${
               activeTab === index ? `!tw-bg-orange-200` : ""
+            } ${
+              tab.getIsDisabled && tab.getIsDisabled()
+                ? "tw-cursor-not-allowed tw-text-slate-400"
+                : "tw-cursor-pointer hover:tw-bg-slate-300"
             }`}
             onClick={tab.onClick ? tab.onClick : constants.EMPTY_FUNCTION}
           >
