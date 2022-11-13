@@ -5,6 +5,7 @@ import * as constants from "./utils/constants";
 import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
+import Staff from "./components/Staff";
 import 'bootstrap/dist/css/bootstrap.css'
 
 
@@ -41,7 +42,7 @@ const App = () => {
         ? "Put about us page component here"
         : ""}
       {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN
-        ? "Put staff login page component here"
+        ? <Staff />
         : ""}
     </div>
   );
