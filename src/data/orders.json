@@ -1,0 +1,86 @@
+[
+    {
+        "order": 615847,
+        "total": 61.23,
+        "status": "In Progress",
+        "customer": "John",
+        "table": 6,
+        "server": "James",
+        "orderTime": "5:45 pm",
+        "items": [
+            "Extra Large Pepperoni Pizza",
+            "Extra Large Hawaiian Pizza",
+            "Large Vegetarian Pizza"
+        ]
+    },
+    {
+        "order": 218426,
+        "total": 12.84,
+        "status": "In Progress",
+        "customer": "Sarah",
+        "table": 2,
+        "server": "Bill",
+        "orderTime": "5:40 pm",
+        "items": [
+            "Chicken Wings",
+            "Fries"
+        ]
+    },
+    {
+        "order": 419857,
+        "total": 16.48,
+        "status": "In Progress",
+        "customer": "Tom",
+        "table": 5,
+        "server": "Emily",
+        "orderTime": "5:39 pm",
+        "items": [
+            "Green Soup",
+            "Smash Burger",
+            "Chocolate Cake",
+            "Pancake"
+        ]
+    },
+    {
+        "order": 910347,
+        "total": 5.68,
+        "status": "Completed",
+        "customer": "Bob",
+        "table": 1,
+        "server": "Jack",
+        "orderTime": "5:20 pm",
+        "items": [
+            "Double Cheese Burger with Bacon"
+        ]
+    },
+    {
+        "order": 604817,
+        "total": 15.48,
+        "status": "Completed",
+        "customer": "Peter",
+        "table": 8,
+        "server": "Emily",
+        "orderTime": "5:15 pm",
+        "items": [
+            "Chicken Tenders",
+            "Cheese Burger",
+            "Smash Burger"
+        ]
+    },
+    {
+        "order": 662847,
+        "total": 26.81,
+        "status": "Completed",
+        "customer": "Greg",
+        "table": 3,
+        "server": "Dan",
+        "orderTime": "5:04 pm",
+        "items": [
+            "Small Vegetarian Pizza",
+            "Chicken Tenders",
+            "Double Cheese Burger with Bacon",
+            "Chocolate Cake",
+            "Pancake"
+        ]
+    }
+]
