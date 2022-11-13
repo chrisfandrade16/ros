@@ -12,38 +12,6 @@
   height: 64px;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: 3px;
-}
-
-.spaced {
-  justify-content: space-between;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.header {
-  padding: 6px;
-}
-
-.highlight-tab {
-  background-color: lightblue;
-}
-
 .pointer-tab::after {
   content:'';
   position: absolute;
@@ -83,8 +51,4 @@
       background-color: white;
       color: black;
   }
-}
-
-.full-border {
-  border: 1px solid lightslategrey;
 }

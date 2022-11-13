@@ -1,13 +1,12 @@
 import { useState } from "react";
-import Header from "./components/header";
-import Navigator from "./components/navigatior";
+import Header from "./components/Header";
+import Navigator from "./components/Navigatior";
 import * as constants from "./utils/constants";
 import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Staff from "./components/Staff";
-import 'bootstrap/dist/css/bootstrap.css'
-
+import "bootstrap/dist/css/bootstrap.css";
 
 const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -26,7 +25,7 @@ const App = () => {
         />
       ) : null}
       {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART? <Cart /> : ""}
+      {currentPageTab == constants.PAGE_TABS.CART ? <Cart /> : ""}
       {currentPageTab == constants.PAGE_TABS.MENU ? (
         <Menu setCurrentPageTab={setCurrentPageTab} />
       ) : (
@@ -41,9 +40,7 @@ const App = () => {
       {currentPageTab == constants.PAGE_TABS.ABOUT_US
         ? "Put about us page component here"
         : ""}
-      {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN
-        ? <Staff />
-        : ""}
+      {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN ? <Staff /> : ""}
     </div>
   );
 };
