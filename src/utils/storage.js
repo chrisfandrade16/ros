@@ -1,12 +1,13 @@
-import * as constants from "./constants"
+import * as constants from "./constants";
 
 export const storage = {
-    customerName: "",
-    customerTable: "",
-    restaurantName: "McPizza",
-}
+  customerName: "",
+  customerTable: "",
+  restaurantMenu: {},
+  restaurantName: "McPizza",
+};
 
 export const flags = {
-    isLoading: false,
-    isSignedIn: false,
-}
+  isLoading: false,
+  isSignedIn: false,
+};

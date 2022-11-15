@@ -1,6 +1,7 @@
 import { storage, flags } from "./storage";
 
 export const EMPTY_FUNCTION = () => {};
+export const EMPTY_STRING = "";
 
 export const PAGE_TABS = {
   MENU: 0,
