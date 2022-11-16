@@ -55,9 +55,9 @@ export default function Basket(props) {
         <div class="basketMiddle">
           <div class="cartItemCost">${item.cost}</div>
             <div class="cartItemCount">
-                <Button onClick={() => onAdd(item.name)}>+</Button>
+                <Button variant="outline-primary" onClick={() => onAdd(item.name)}>+</Button>
               <div class="itemCount">{item.count}</div>
-                <Button onClick={()=> onRemove(item.name)}>-</Button>
+                <Button variant="outline-primary" onClick={()=> onRemove(item.name)}>-</Button>
             </div>
 
 
@@ -87,7 +87,7 @@ export default function Basket(props) {
                   <option value="2">In person</option>
                 </Form.Select>
               </div>
-              <div class="submitButton"><Button variant="success">Submit Order</Button>{' '}</div>
+              <div class="submitButton"><Button variant="outline-success">Submit Order</Button>{' '}</div>
           </div>
           
           
