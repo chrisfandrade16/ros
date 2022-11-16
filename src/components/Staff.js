@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Menu.scss";
 import OrderItem from "./OrderItem";
-import ParseJSON from "../utils/ParseJSON";
 import { Scrollbars } from "react-custom-scrollbars-2";
-export const data = new ParseJSON();
 
-export default function Staff() {
-  const [data] = useState(new ParseJSON());
+export default function Staff({ data, setData }) {
   const [activeCategory, setActiveCategory] = useState(data.getFirstOrderCategory());
 
   const renderThumb = ({ style, ...props }) => {
@@ -44,6 +41,8 @@ export default function Staff() {
           <OrderItem
             key={order}
             info={data.getOrderInfo(order)}
+            data={data}
+            setData={setData}
           />
         ))}
       </Scrollbars>
