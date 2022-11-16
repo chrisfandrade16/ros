@@ -6,6 +6,7 @@ import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Staff from "./components/Staff";
+import ParseJSON from "./utils/ParseJSON";
 import "bootstrap/dist/css/bootstrap.css";
 
 import StaffLogin from "./components/StaffLogin";
@@ -15,6 +16,8 @@ const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
     constants.PAGE_TABS.START_SCREEN
   );
+  
+  const [data, setData] = useState(new ParseJSON());
 
   return (
     <div className="ros">
@@ -25,10 +28,10 @@ const App = () => {
         activeTabStyle="highlight-tab"
         height="small-tab-height"
       />
-      {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART ? <Cart /> : ""}
+      {currentPageTab == constants.PAGE_TABS.MENU ? <Menu data={data}/> : ""}
+      {currentPageTab == constants.PAGE_TABS.CART ? <Cart data={data}/> : ""}
       {currentPageTab == constants.PAGE_TABS.MENU ? (
-        <Menu setCurrentPageTab={setCurrentPageTab} />
+        <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
       ) : (
         ""
       )}
@@ -47,7 +50,7 @@ const App = () => {
         ""
       )}
       {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS ? (
-        <Staff setCurrentPageTab={setCurrentPageTab} />
+        <Staff setCurrentPageTab={setCurrentPageTab} data={data} setData={setData} />
       ) : (
         ""
       )}
