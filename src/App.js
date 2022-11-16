@@ -6,6 +6,9 @@ import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Staff from "./components/Staff";
+import MyOrders from "./components/MyOrders";
+import ParseJSON from "./utils/ParseJSON";
+import AboutUs from "./components/AboutUs";
 import "bootstrap/dist/css/bootstrap.css";
 
 import StaffLogin from "./components/StaffLogin";
@@ -16,6 +19,8 @@ const App = () => {
     constants.PAGE_TABS.START_SCREEN
   );
 
+  const [data, setData] = useState(new ParseJSON());
+
   return (
     <div className="ros">
       <Header setCurrentPageTab={setCurrentPageTab} />
@@ -25,10 +30,10 @@ const App = () => {
         activeTabStyle="highlight-tab"
         height="small-tab-height"
       />
-      {currentPageTab == constants.PAGE_TABS.MENU ? <Menu /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART ? <Cart /> : ""}
+      {currentPageTab == constants.PAGE_TABS.MENU ? <Menu data={data} /> : ""}
+      {currentPageTab == constants.PAGE_TABS.CART ? <Cart data={data} /> : ""}
       {currentPageTab == constants.PAGE_TABS.MENU ? (
-        <Menu setCurrentPageTab={setCurrentPageTab} />
+        <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
       ) : (
         ""
       )}
@@ -36,10 +41,11 @@ const App = () => {
         ? "Put cart page component here"
         : ""} */}
       {currentPageTab == constants.PAGE_TABS.MY_ORDERS
-        ? "Put my orders page component here"
+        ? (<MyOrders />)
         : ""}
-      {currentPageTab == constants.PAGE_TABS.ABOUT_US
-        ? "Put about us page component here"
+      {currentPageTab == constants.PAGE_TABS.ABOUT_US ? (
+        <AboutUs />
+      )
         : ""}
       {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN ? (
         <StaffLogin setCurrentPageTab={setCurrentPageTab} />
@@ -47,7 +53,7 @@ const App = () => {
         ""
       )}
       {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS ? (
-        <Staff setCurrentPageTab={setCurrentPageTab} />
+        <Staff setCurrentPageTab={setCurrentPageTab} data={data} setData={setData} />
       ) : (
         ""
       )}

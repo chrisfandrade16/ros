@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ParseJSON from "../utils/ParseJSON";
 import Basket from "./Basket";
 
-
-export const data = new ParseJSON();
-
-
-export default function Cart() {
+export default function Cart({data}) {
    
    const [cartItems, setCartItems] = useState(data.getCartItems(["Large Pepperoni Pizza", "Chicken Wings", "Cheese Burger"]))
 
