@@ -6,6 +6,7 @@ import { storage, flags } from "./utils/storage";
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
 import Staff from "./components/Staff";
+import MyOrders from "./components/MyOrders";
 import ParseJSON from "./utils/ParseJSON";
 import AboutUs from "./components/AboutUs";
 import "bootstrap/dist/css/bootstrap.css";
@@ -40,7 +41,7 @@ const App = () => {
         ? "Put cart page component here"
         : ""} */}
       {currentPageTab == constants.PAGE_TABS.MY_ORDERS
-        ? "Put my orders page component here"
+        ? (<MyOrders />)
         : ""}
       {currentPageTab == constants.PAGE_TABS.ABOUT_US ? (
         <AboutUs />
