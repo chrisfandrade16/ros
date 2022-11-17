@@ -29,23 +29,21 @@ const App = () => {
         activeTab={currentPageTab}
         activeHighlightTab={true}
       />
-      {currentPageTab == constants.PAGE_TABS.MENU ? (
-        <Menu data={data} setCurrentPageTab={setCurrentPageTab} />
+      {currentPageTab === constants.PAGE_TABS.MENU ? (
+        <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
       ) : (
         ""
       )}
-      {currentPageTab == constants.PAGE_TABS.CART ? <Cart data={data} /> : ""}
-      {/* {currentPageTab == constants.PAGE_TABS.CART
-        ? "Put cart page component here"
-        : ""} */}
-      {currentPageTab == constants.PAGE_TABS.MY_ORDERS ? <MyOrders /> : ""}
-      {currentPageTab == constants.PAGE_TABS.ABOUT_US ? <AboutUs /> : ""}
-      {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN ? (
+      {currentPageTab === constants.PAGE_TABS.CART ? <Cart data={data} /> : ""}
+
+      {currentPageTab === constants.PAGE_TABS.MY_ORDERS ? <MyOrders /> : ""}
+      {currentPageTab === constants.PAGE_TABS.ABOUT_US ? <AboutUs /> : ""}
+      {currentPageTab === constants.PAGE_TABS.STAFF_LOGIN ? (
         <StaffLogin setCurrentPageTab={setCurrentPageTab} />
       ) : (
         ""
       )}
-      {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS ? (
+      {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS ? (
         <Staff
           setCurrentPageTab={setCurrentPageTab}
           data={data}
@@ -54,10 +52,10 @@ const App = () => {
       ) : (
         ""
       )}
-      {currentPageTab == constants.PAGE_TABS.CHANGE_MENU
+      {currentPageTab === constants.PAGE_TABS.CHANGE_MENU
         ? "Put change menu page component here"
         : ""}
-      {currentPageTab == constants.PAGE_TABS.START_SCREEN ? (
+      {currentPageTab === constants.PAGE_TABS.START_SCREEN ? (
         <StartScreen setCurrentPageTab={setCurrentPageTab} />
       ) : (
         ""

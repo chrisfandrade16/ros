@@ -35,10 +35,6 @@ export default function CostCounter({
               setTotalCost(
                 (prevTotal) => Math.round((prevTotal - cost) * 100) / 100
               );
-              sessionStorage.setItem(
-                "totalItems",
-                parseInt(sessionStorage.getItem("totalItems") - 1)
-              );
               setTotalItems((prevTotal) => prevTotal - 1);
             }
           }}
