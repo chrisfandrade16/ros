@@ -6,6 +6,9 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import Button from "components/Button";
 import Navigator from "./Navigatior";
 import { storage } from "utils/storage";
+import { InputGroup, Input, InputLeftElement } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+import { matchSorter } from "match-sorter";
 
 export default function Menu({ data, setCurrentPageTab }) {
   const [currentCategoryTab, setCurrentCategoryTab] = useState(
@@ -19,6 +22,8 @@ export default function Menu({ data, setCurrentPageTab }) {
   const [totalItems, setTotalItems] = useState(
     parseInt(sessionStorage.getItem("totalItems")) || 0
   );
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     sessionStorage.setItem("totalCost", totalCost);
@@ -66,23 +71,42 @@ export default function Menu({ data, setCurrentPageTab }) {
         useTextAsId={true}
       />
       <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
-        {data.getCategoryItems(currentCategoryTab).map((name) => (
+        {matchSorter(data.getCategoryPattern(currentCategoryTab), search, {
+          keys: ["name", "ingredients"],
+        }).map((obj) => (
           <MenuItem
-            key={name}
-            info={data.getItemInfo(name)}
+            key={obj.name}
+            info={data.getItemInfo(obj.name)}
             setTotalCost={setTotalCost}
             setTotalItems={setTotalItems}
             clear={clear}
           />
         ))}
       </Scrollbars>
-      <div id="menu-footer">
+      <div className="menu-footer tw-flex tw-justify-around">
+        <InputGroup style={{ width: "20%" }}>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<SearchIcon color="gray.300" />}
+          />
+          <Input
+            type="search"
+            placeholder="Search for item"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </InputGroup>
         <Button
           color="red"
           content="Clear Selections"
           disabled={totalItems === 0}
           onClick={() => setClear(true)}
         />
+        <div style={{ width: "150px" }}>
+          <p align="left">Total Items: {totalItems}</p>
+          <p align="left">
+            Total Cost:&nbsp;&nbsp;&nbsp;${totalCost.toFixed(2)}
+          </p>
+        </div>
         <Button
           color="green"
           content="Go to Cart"
