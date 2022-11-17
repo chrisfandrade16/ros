@@ -1,0 +1,47 @@
+.order-item {
+    height: 20vh;
+    width: 46vw;
+    margin: 0.5vw;
+    padding: 0.5vw;
+    display: flex;
+    font-size: 1.5vh;
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.view-orders {
+    margin-left: 1.5vw
+}
+
+.view-order-container {
+    display: flex;
+    flex-direction: column;
+    width: 48.5vw;
+    height: 20vh;
+    border: 1px solid black;
+    padding: 0.5vw;
+    flex-shrink: 1;
+}
+
+.status-heading {
+    margin-bottom: 1vw;
+    font-size: 2vh
+}
+
+.item-listing {
+    display: flex;
+    font-size: 2vh;
+    flex-shrink: 1;
+}
+
+.title-header {
+    font-size: 3vh;
+    margin-bottom: 2vh;
+}
+
+.dropdown-toggle {
+    background-color: wheat !important;
+    color: black !important;
+    width: 47vw;
+    margin-top: 0.5vh;
+}

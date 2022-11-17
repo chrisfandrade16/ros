@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Menu.scss";
 import MenuItem from "./MenuItem";
-import ParseJSON from "../utils/ParseJSON";
 import * as constants from "../utils/constants";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
-export const data = new ParseJSON();
 
-export default function Menu({ setCurrentPageTab }) {
-  const [data] = useState(new ParseJSON());
+export default function Menu({ setCurrentPageTab, data }) {
   const [activeCategory, setActiveCategory] = useState(data.getFirstCategory());
   const [totalCost, setTotalCost] = useState(
     parseFloat(sessionStorage.getItem("totalCost")) || 0
