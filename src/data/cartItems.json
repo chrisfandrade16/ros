@@ -111,7 +111,7 @@
         "cost": 8.33,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/app1.jpg",
+        "img": "../img/app1.png",
         "count":"2"
 
 	},
@@ -120,7 +120,7 @@
         "cost": 6.57,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/app3.jpg",
+        "img": "../img/app3.png",
         "count":"2"
 
 	},
@@ -129,7 +129,7 @@
         "cost": 4.99,
 		"ingredients": ["Potatos"],
 		"size": "",
-        "img": "../img/app2.jpg",
+        "img": "../img/app2.png",
         "count":"2"
 
 	},
@@ -138,7 +138,7 @@
         "cost": 7.41,
 		"ingredients": ["Tomatos"],
 		"size": "",
-        "img": "../img/app4.jpg",
+        "img": "../img/app4.png",
         "count":"2"
 
 	},
@@ -147,7 +147,7 @@
         "cost": 7.41,
 		"ingredients": ["Green stuff"],
 		"size": "",
-        "img": "../img/app5.jpg",
+        "img": "../img/app5.png",
         "count":"2"
 
 	},
@@ -201,7 +201,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des1.jpg",
+        "img": "../img/des1.png",
         "count":"2"
 
 	},
@@ -210,7 +210,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des2.jpg",
+        "img": "../img/des2.png",
         "count":"2"
 
 	},
@@ -219,7 +219,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des3.jpg",
+        "img": "../img/des3.png",
         "count":"2"
 
 	},
@@ -228,7 +228,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des4.jpg",
+        "img": "../img/des4.png",
         "count":"2"
 
 	}

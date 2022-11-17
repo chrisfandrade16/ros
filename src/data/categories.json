@@ -1,27 +1,26 @@
 [
     {
-        "name": "Pizzas",
-		"items": ["Extra Large Pepperoni Pizza", "Large Pepperoni Pizza", "Medium Pepperoni Pizza", "Small Pepperoni Pizza", "Extra Large Hawaiian Pizza", "Large Hawaiian Pizza", "Medium Hawaiian Pizza", "Small Hawaiian Pizza", "Extra Large Vegetarian Pizza", "Large Vegetarian Pizza", "Medium Vegetarian Pizza", "Small Vegetarian Pizza"]
-    },
-    {
         "name": "Popular",
         "items": ["Chicken Tenders"]
-    },   
+    },
     {
         "name": "Appetizers",
         "items": ["Chicken Tenders", "Chicken Wings", "Fries", "Red Soup", "Green Soup"]
+    },
+    {
+        "name": "Pizzas",
+		"items": ["Extra Large Pepperoni Pizza", "Large Pepperoni Pizza", "Medium Pepperoni Pizza", "Small Pepperoni Pizza", "Extra Large Hawaiian Pizza", "Large Hawaiian Pizza", "Medium Hawaiian Pizza", "Small Hawaiian Pizza", "Extra Large Vegetarian Pizza", "Large Vegetarian Pizza", "Medium Vegetarian Pizza", "Small Vegetarian Pizza"]
     },
 	{
         "name": "Burgers",
         "items": ["Double Cheese Burger with Bacon", "Cheese Burger", "Deluxe Burger", "Smash Burger"]
     },
-
-	{
-        "name": "Desserts",
-        "items": ["Chocolate Cake", "Tiramisu", "Assorted Macaroons", "Pancake"]
-    },
 	{
         "name": "Drinks",
         "items": ["Small Pepperoni Pizza"]
+    },
+	{
+        "name": "Desserts",
+        "items": ["Chocolate Cake", "Tiramisu", "Assorted Macaroons", "Pancake"]
     }
 ]
