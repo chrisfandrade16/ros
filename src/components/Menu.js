@@ -11,8 +11,9 @@ import Navigator from "./Navigatior";
 import { storage } from "utils/storage";
 
 export default function Menu({ data, setCurrentPageTab }) {
+  const currentRestaurant = storage.restaurants[storage.currentRestaurant];
   const [currentCategoryTab, setCurrentCategoryTab] = useState(
-    Object.keys(storage.restaurantMenu)[0]
+    Object.keys(currentRestaurant.restaurantMenu)[0]
   );
   const [totalCost, setTotalCost] = useState(
     parseFloat(sessionStorage.getItem("totalCost")) || 0
@@ -55,7 +56,7 @@ export default function Menu({ data, setCurrentPageTab }) {
   return (
     <div id="menu-container">
       <Navigator
-        tabs={Object.keys(storage.restaurantMenu).map((category) => {
+        tabs={Object.keys(currentRestaurant.restaurantMenu).map((category) => {
           return {
             text: category,
             onClick: () => {
