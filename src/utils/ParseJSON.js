@@ -3,7 +3,6 @@ class ParseJSON {
     this.categoryJSON = require(`../data/categories.json`);
     this.itemJSON = require(`../data/items.json`);
     this.cartItemJSON = require(`../data/cartItems.json`);
-    this.orderCategoryJSON = require(`../data/orderCategories.json`);
     this.orderJSON = require(`../data/orders.json`);
   }
   getFirstCategory() {
@@ -21,19 +20,21 @@ class ParseJSON {
       if (key.name === name) return key.items;
     }
   }
-  getFirstOrderCategory() {
-    return this.orderCategoryJSON[0].name;
-  }
-  getOrderCategoryNames() {
-    let orderCategories = [];
-    for (const key of this.orderCategoryJSON) {
-      orderCategories.push(key.name);
-    }
-    return orderCategories;
-  }
-  getOrderCategoryItems(name) {
-    for (const key of this.orderCategoryJSON) {
-      if (key.name === name) return key.items;
+  getCategoryPattern(name) {
+    for (const key of this.categoryJSON) {
+      if (key.name === name) {
+        let objList = [];
+        for (const item of key.items) {
+          for (const k of this.itemJSON) {
+            if (k.name === item)
+              objList.push({
+                name: item,
+                ingredients: k.ingredients.join(" "),
+              });
+          }
+        }
+        return objList;
+      }
     }
   }
   getItemInfo(name) {
@@ -60,20 +61,37 @@ class ParseJSON {
     }
     return orders;
   }
+  getOrderCategoryItems(name) {
+    let search = [];
+    if(name === "In Progress") {
+      search = ['Preparing Food', "Delivering to Table"];
+    } else {
+      search = ["Completed"];
+    }
+    
+    const orders = [];
+    for (const key of this.orderJSON) {
+      if (search.includes(key.status)) {
+        orders.push(key.order);
+      };
+    }
+
+    return orders;
+  }
   getCost(name) {
     for (const key of this.itemJSON) {
       if (key.name === name) return key.cost;
     }
   }
 
-  getCartItems(namesList){
-    let items = []
-    for (const key of this.cartItemJSON){
-      if(namesList.includes(key.name)){
-        items.push(key)
+  getCartItems(namesList) {
+    let items = [];
+    for (const key of this.cartItemJSON) {
+      if (namesList.includes(key.name)) {
+        items.push(key);
       }
     }
-    return items
+    return items;
   }
 }
 

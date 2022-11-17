@@ -32,6 +32,7 @@ const Header = (props) => {
       <div
         className="tw-flex tw-flex-row tw-items-center tw-flex tw-flex-1 tw-justify-center"
         onClick={() => setHome(true)}
+        style={{ cursor: "pointer" }}
       >
         <div className="tw-text-5xl tw-ml-[30px]">
           {currentRestaurant.restaurantName}

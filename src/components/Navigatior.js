@@ -11,7 +11,7 @@ const Navigator = (props) => {
 
   return (
     <div
-      className={`tw-flex tw-flex-row tw-justify-between tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-mb-[20px]`}
+      className={`tw-flex tw-flex-row tw-justify-between tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-mb-[20px] tw-select-none`}
     >
       {tabs.map((tab, index) => {
         const {

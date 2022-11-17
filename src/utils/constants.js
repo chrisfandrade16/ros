@@ -52,12 +52,6 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         return !flags.isSignedIn;
       },
     },
-    {
-      text: "Staff Login",
-      onClick: () => {
-        setCurrentPageTab(PAGE_TABS.STAFF_LOGIN);
-      },
-    },
   ];
 };
 
