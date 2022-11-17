@@ -37,15 +37,30 @@ const OwnerPageMenu = (props) => {
   const currentRestaurant = storage.restaurants[storage.currentRestaurant];
 
   const [editingItem, setEditingItem] = useState(null);
+  const [addingItem, setAddingItem] = useState(null);
 
   return (
-    <div>
+    <div className="tw-flex tw-flex-col tw-gap-[20px]">
       {editingItem ? (
         <OwnerPageMenuModal
           editingItem={editingItem}
           setEditingItem={setEditingItem}
         />
       ) : null}
+      {addingItem ? (
+        <OwnerPageMenuModal
+          editingItem={addingItem}
+          setEditingItem={setAddingItem}
+        />
+      ) : null}
+      <Button
+        color="blue"
+        content="Add Menu Item"
+        onClick={() => {
+          setAddingItem({});
+        }}
+        className="tw-w-[350px]"
+      />
       {Object.keys(currentRestaurant.restaurantMenu).map((category) => {
         return (
           <div className="tw-mb-[20px]">
@@ -119,7 +134,7 @@ const OwnerPageMenuModal = (props) => {
         ) {
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
             editingItem.category
-          ].push(editingItem);
+          ].unshift(editingItem);
         } else {
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
             editingItem.category
@@ -136,10 +151,38 @@ const OwnerPageMenuModal = (props) => {
       renderBody={() => {
         return (
           <div className="tw-flex tw-flex-row tw-gap-[30px] tw-items-center">
-            <img
-              className="tw-w-[150px] tw-h-[125px]"
-              src={editingItem.img}
-            ></img>
+            <div className="tw-flex tw-flex-col tw-gap-[30px] tw-items-center">
+              {editingItem.img ? (
+                <img
+                  className="tw-w-[150px] tw-h-[125px]"
+                  src={editingItem.img}
+                ></img>
+              ) : null}
+              {
+                <>
+                  <Button
+                    color="blue"
+                    content={
+                      <label htmlFor="owner-page-menu-input-file">
+                        Upload Image
+                      </label>
+                    }
+                  />
+
+                  <input
+                    type="file"
+                    id="owner-page-menu-input-file"
+                    onChange={(event) => {
+                      const url = URL.createObjectURL(event.target.files[0]);
+                      setEditingItem({
+                        ...editingItem,
+                        img: url,
+                      });
+                    }}
+                  ></input>
+                </>
+              }
+            </div>
             <div className="tw-flex tw-flex-col tw-gap-[12px]">
               <Input
                 value={editingItem.category}
@@ -478,7 +521,7 @@ const OwnerPageAccountModal = (props) => {
         setEmployeePassword("");
       }}
       onConfirm={() => {
-        currentRestaurant.restaurantEmployees.push({
+        currentRestaurant.restaurantEmployees.unshift({
           username: employeeUsername,
           password: employeePassword,
         });

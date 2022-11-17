@@ -36,3 +36,9 @@
 .password {
   -webkit-text-security: disc;
 }
+
+#owner-page-menu-input-file {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
