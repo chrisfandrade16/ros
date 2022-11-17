@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/index.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import ParseJSON from "utils/ParseJSON";
 import { storage } from "utils/storage";
 

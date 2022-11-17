@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
 import "../styles/Menu.scss";
 
-export default function CostCounter({ name, cost, setTotalCost, clear }) {
+export default function CostCounter({
+  name,
+  cost,
+  setTotalCost,
+  setTotalItems,
+  clear,
+}) {
   const [count, setCount] = useState(
     parseInt(sessionStorage.getItem(name)) || 0
   );
@@ -18,31 +25,43 @@ export default function CostCounter({ name, cost, setTotalCost, clear }) {
     <div className="cost-counter" style={{ userSelect: "none" }}>
       <div>${cost}</div>
       <div className="cost-incrementer">
-        <button
-          style={{ marginRight: "5px" }}
+        <Button
+          style={{ marginRight: "10px" }}
+          variant="success"
           onClick={() => {
             setCount(count + 1);
             setTotalCost(
               (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
             );
+            sessionStorage.setItem(
+              "totalItems",
+              parseInt(sessionStorage.getItem("totalItems") + 1)
+            );
+            setTotalItems((prevTotal) => prevTotal + 1);
           }}
         >
           +
-        </button>
+        </Button>
         {count}
-        <button
-          style={{ marginLeft: "5px" }}
+        <Button
+          style={{ marginLeft: "10px" }}
+          variant="danger"
           onClick={() => {
             if (count > 0) {
               setCount(count - 1);
               setTotalCost(
                 (prevTotal) => Math.round((prevTotal - cost) * 100) / 100
               );
+              sessionStorage.setItem(
+                "totalItems",
+                parseInt(sessionStorage.getItem("totalItems") - 1)
+              );
+              setTotalItems((prevTotal) => prevTotal - 1);
             }
           }}
         >
           -
-        </button>
+        </Button>
       </div>
     </div>
   );
