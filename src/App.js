@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <ChakraProvider>
-      <div className="ros">
+      <div className="ros tw-px-[40px] tw-py-[30px]">
         <Header setCurrentPageTab={setCurrentPageTab} />
         {currentPageTab !== constants.PAGE_TABS.START_SCREEN && (
           <Navigator
@@ -53,7 +53,6 @@ const App = () => {
           <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
         )}
         {currentPageTab === constants.PAGE_TABS.CART && <Cart data={data} />}
-
         {currentPageTab === constants.PAGE_TABS.MY_ORDERS && <MyOrders />}
         {currentPageTab === constants.PAGE_TABS.ABOUT_US && <AboutUs />}
         {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS && (

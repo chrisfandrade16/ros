@@ -1,12 +1,14 @@
 .pointer-tab::after {
   content:'';
   position: absolute;
-  top: 100%;
+  top: 109%;
   left: 50%;
   width: 0;
   height: 0;
-  margin-left: -50px;
-  border-top: solid 50px lightslategrey;
-  border-left: solid 50px transparent;
-  border-right: solid 50px transparent;
+  margin-left: -10px;
+  border-top: solid 10px #CBD5E1;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+  transition: 0.5s;
+  animation: slide-in 0.5s forwards;
 }

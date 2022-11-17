@@ -3,12 +3,14 @@ import "../styles/Menu.scss";
 import MenuItem from "./MenuItem";
 import * as constants from "../utils/constants";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import Button from "react-bootstrap/Button";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
+import Button from "components/Button";
+import Navigator from "./Navigatior";
+import { storage } from "utils/storage";
 
-export default function Menu({ setCurrentPageTab, data }) {
-  const [activeCategory, setActiveCategory] = useState(data.getFirstCategory());
+export default function Menu({ data, setCurrentPageTab }) {
+  const [currentCategoryTab, setCurrentCategoryTab] = useState(
+    Object.keys(storage.restaurantMenu)[0]
+  );
   const [totalCost, setTotalCost] = useState(
     parseFloat(sessionStorage.getItem("totalCost")) || 0
   );
@@ -32,7 +34,6 @@ export default function Menu({ setCurrentPageTab, data }) {
       setTotalCost(0);
       setTotalItems(0);
       setClear(false);
-      setShow(false);
     }
   }, [clear]);
 
@@ -45,30 +46,27 @@ export default function Menu({ setCurrentPageTab, data }) {
     );
   };
 
-  const [show, setShow] = useState(false);
-
   return (
     <div id="menu-container">
-      <div id="menu-categories">
-        {data.getCategoryNames().map((name) => (
-          <div
-            key={name}
-            className="menu-category"
-            active={name === activeCategory ? "true" : "false"}
-            onClick={() => {
-              setActiveCategory(name);
+      <Navigator
+        tabs={Object.keys(storage.restaurantMenu).map((category) => {
+          return {
+            text: category,
+            onClick: () => {
+              setCurrentCategoryTab(category);
               const scroll = document
                 .getElementById("menu-item-container")
                 .getElementsByTagName("div")[0];
               scroll.scrollTop = 0;
-            }}
-          >
-            <div>{name}</div>
-          </div>
-        ))}
-      </div>
+            },
+          };
+        })}
+        activeTab={currentCategoryTab}
+        activePointerTab={true}
+        useTextAsId={true}
+      />
       <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
-        {data.getCategoryItems(activeCategory).map((name) => (
+        {data.getCategoryItems(currentCategoryTab).map((name) => (
           <MenuItem
             key={name}
             info={data.getItemInfo(name)}
@@ -79,34 +77,18 @@ export default function Menu({ setCurrentPageTab, data }) {
         ))}
       </Scrollbars>
       <div id="menu-footer">
-        <OverlayTrigger
-          placement="left"
-          show={totalCost > 0 ? show : false}
-          rootClose
-          overlay={
-            <Popover>
-              <Popover.Body>
-                <Button variant="danger" onClick={() => setClear(true)}>
-                  Clear {totalItems} items?
-                </Button>
-              </Popover.Body>
-            </Popover>
-          }
-        >
-          <Button
-            variant="secondary"
-            onClick={() => setShow(!show)}
-            onBlur={() => setShow(false)}
-          >
-            Clear
-          </Button>
-        </OverlayTrigger>
-        <button
+        <Button
+          color="red"
+          content="Clear Selections"
+          disabled={totalItems === 0}
+          onClick={() => setClear(true)}
+        />
+        <Button
+          color="green"
+          content="Go to Cart"
           onClick={() => setCurrentPageTab(constants.PAGE_TABS.CART)}
           disabled={totalCost === 0}
-        >
-          Checkout - ${totalCost.toFixed(2)}
-        </button>
+        />
       </div>
     </div>
   );
