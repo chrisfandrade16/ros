@@ -15,12 +15,16 @@ export default function Menu({ setCurrentPageTab, data }) {
   const [clear, setClear] = useState(false);
 
   const [totalItems, setTotalItems] = useState(
-    sessionStorage.getItem("totalItems") || 0
+    parseInt(sessionStorage.getItem("totalItems")) || 0
   );
 
   useEffect(() => {
     sessionStorage.setItem("totalCost", totalCost);
   }, [totalCost]);
+
+  useEffect(() => {
+    sessionStorage.setItem("totalItems", totalItems);
+  }, [totalItems]);
 
   useEffect(() => {
     if (clear) {
