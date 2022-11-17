@@ -3,7 +3,6 @@ class ParseJSON {
     this.categoryJSON = require(`../data/categories.json`);
     this.itemJSON = require(`../data/items.json`);
     this.cartItemJSON = require(`../data/cartItems.json`);
-    this.orderCategoryJSON = require(`../data/orderCategories.json`);
     this.orderJSON = require(`../data/orders.json`);
   }
   getFirstCategory() {
@@ -18,21 +17,6 @@ class ParseJSON {
   }
   getCategoryItems(name) {
     for (const key of this.categoryJSON) {
-      if (key.name === name) return key.items;
-    }
-  }
-  getFirstOrderCategory() {
-    return this.orderCategoryJSON[0].name;
-  }
-  getOrderCategoryNames() {
-    let orderCategories = [];
-    for (const key of this.orderCategoryJSON) {
-      orderCategories.push(key.name);
-    }
-    return orderCategories;
-  }
-  getOrderCategoryItems(name) {
-    for (const key of this.orderCategoryJSON) {
       if (key.name === name) return key.items;
     }
   }
@@ -58,6 +42,23 @@ class ParseJSON {
     for (const key of this.orderJSON) {
       orders.push(key);
     }
+    return orders;
+  }
+  getOrderCategoryItems(name) {
+    let search = [];
+    if(name === "In Progress") {
+      search = ['Preparing Food', "Delivering to Table"];
+    } else {
+      search = ["Completed"];
+    }
+    
+    const orders = [];
+    for (const key of this.orderJSON) {
+      if (search.includes(key.status)) {
+        orders.push(key.order);
+      };
+    }
+
     return orders;
   }
   getCost(name) {
