@@ -9,10 +9,10 @@ import Staff from "./components/Staff";
 import MyOrders from "./components/MyOrders";
 import ParseJSON from "./utils/ParseJSON";
 import AboutUs from "./components/AboutUs";
-import "bootstrap/dist/css/bootstrap.css";
-
 import StaffLogin from "./components/StaffLogin";
 import StartScreen from "./components/StartScreen";
+import { ChakraProvider } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 const App = () => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -22,46 +22,51 @@ const App = () => {
   const [data, setData] = useState(new ParseJSON());
 
   return (
-    <div className="ros">
-      <Header setCurrentPageTab={setCurrentPageTab} />
-      <Navigator
-        tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
-        activeTab={currentPageTab}
-        activeTabStyle="highlight-tab"
-        height="small-tab-height"
-      />
-      {currentPageTab === constants.PAGE_TABS.MENU ? (
-        <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
-      ) : (
-        ""
-      )}
-      {currentPageTab === constants.PAGE_TABS.CART ? <Cart data={data} /> : ""}
+    <ChakraProvider>
+      <div className="ros">
+        <Header setCurrentPageTab={setCurrentPageTab} />
+        {currentPageTab !== constants.PAGE_TABS.START_SCREEN && (
+          <Navigator
+            tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
+            activeTab={currentPageTab}
+            activeTabStyle="highlight-tab"
+            height="small-tab-height"
+          />
+        )}
+        {currentPageTab === constants.PAGE_TABS.START_SCREEN && (
+          <Tabs size="lg" align="center">
+            <TabList>
+              <Tab>Customer</Tab>
+              <Tab>Staff</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                <StartScreen setCurrentPageTab={setCurrentPageTab} />
+              </TabPanel>
+              <TabPanel>
+                <StaffLogin setCurrentPageTab={setCurrentPageTab} />
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        )}
+        {currentPageTab === constants.PAGE_TABS.MENU && (
+          <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
+        )}
+        {currentPageTab === constants.PAGE_TABS.CART && <Cart data={data} />}
 
-      {currentPageTab === constants.PAGE_TABS.MY_ORDERS ? <MyOrders /> : ""}
-      {currentPageTab === constants.PAGE_TABS.ABOUT_US ? <AboutUs /> : ""}
-      {currentPageTab === constants.PAGE_TABS.STAFF_LOGIN ? (
-        <StaffLogin setCurrentPageTab={setCurrentPageTab} />
-      ) : (
-        ""
-      )}
-      {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS ? (
-        <Staff
-          setCurrentPageTab={setCurrentPageTab}
-          data={data}
-          setData={setData}
-        />
-      ) : (
-        ""
-      )}
-      {currentPageTab === constants.PAGE_TABS.CHANGE_MENU
-        ? "Put change menu page component here"
-        : ""}
-      {currentPageTab === constants.PAGE_TABS.START_SCREEN ? (
-        <StartScreen setCurrentPageTab={setCurrentPageTab} />
-      ) : (
-        ""
-      )}
-    </div>
+        {currentPageTab === constants.PAGE_TABS.MY_ORDERS && <MyOrders />}
+        {currentPageTab === constants.PAGE_TABS.ABOUT_US && <AboutUs />}
+        {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS && (
+          <Staff
+            setCurrentPageTab={setCurrentPageTab}
+            data={data}
+            setData={setData}
+          />
+        )}
+        {currentPageTab === constants.PAGE_TABS.CHANGE_MENU &&
+          "Put change menu page component here"}
+      </div>
+    </ChakraProvider>
   );
 };
 

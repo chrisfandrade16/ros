@@ -26,7 +26,7 @@ export default function CostCounter({
       <div>${cost}</div>
       <div className="cost-incrementer">
         <Button
-          style={{ marginRight: "10px" }}
+          style={{ marginRight: "10px", width: "40px" }}
           variant="success"
           onClick={() => {
             setCount(count + 1);
@@ -40,7 +40,7 @@ export default function CostCounter({
         </Button>
         {count}
         <Button
-          style={{ marginLeft: "10px" }}
+          style={{ marginLeft: "10px", width: "40px" }}
           variant="danger"
           onClick={() => {
             if (count > 0) {

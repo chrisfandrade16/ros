@@ -27,9 +27,10 @@ const Header = (props) => {
       <div
         className="tw-flex tw-flex-row tw-items-center"
         onClick={() => setHome(true)}
+        style={{ cursor: "pointer" }}
       >
         <div className="tw-text-5xl">{storage.restaurantName}</div>
-        <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} />
+        <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} alt="logo" />
       </div>
       {flags.isSignedIn ? <button></button> : null}
     </div>
