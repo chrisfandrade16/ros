@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import "../styles/Menu.scss";
-import { Button, Table, Modal } from 'react-bootstrap';
-import Select from 'react-select'
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Button from "components/Button";
+import {
+  Table, Tbody, Tr, Td, TableContainer,
+  Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter
+} from '@chakra-ui/react';
+import Select from "react-select";
 
 export default function OrderItem({ info, data, setData }) {
-
   const options = [
     { value: "Preparing Food", label: "Preparing Food" },
     { value: "Delivering to Table", label: "Delivering to Table" },
     { value: "Completed", label: "Completed" }
-  ]
+  ];
 
   const createItemRows = function () {
-    let counter = 0;
     return info.items.map(item => {
       return (
-        <tr>
-          <td>{counter++}</td>
-          <td>{item.name}</td>
-          <td>{item.amount}</td>
-          <td>{data.getItemInfo(item.name).cost}</td>
-        </tr>
+        <Tr>
+          <Td>{item.name}</Td>
+          <Td>{item.amount}</Td>
+          <Td>{data.getItemInfo(item.name).cost}</Td>
+        </Tr>
       )
     });
   }
@@ -54,67 +55,95 @@ export default function OrderItem({ info, data, setData }) {
 
   return (
     <div className="menu-item">
-      <Table>
-        <tr>
-          <td>Order: #{info.order}</td>
-          <td>Table: #{info.table}</td>
-        </tr>
-        <tr>
-          <td>Total: ${info.total}</td>
-          <td>Server: {info.server}</td>
-        </tr>
-        <tr>
-          <td>
-            Status:
-            <Select className="form_select" defaultValue={{ value: info.status, label: info.status }} options={options} onChange={(options) => onChangeOrderStatus(options.value)} />
-          </td>
-          <td>Order Time: {info.orderTime}</td>
-        </tr>
-        <tr>
-          <td>Customer: {info.customer}</td>
-        </tr>
-      </Table>
-      <Button variant="primary" onClick={viewItemsShow}>View Items</Button>
-      <Button variant="secondary" onClick={cancelOrderShow}>Cancel Order</Button>
-      <Modal show={viewItems} onHide={viewItemsClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Order: #{info.order}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-
-          <Table>
-            <tr>
-              <th>#</th>
-              <th>Item</th>
-              <th>Amount</th>
-              <th>Price</th>
-            </tr>
-            {createItemRows()}
+      <div className="item-desc">
+        <TableContainer>
+          <Table variant='simple'>
+            <Tbody>
+              <Tr>
+                <Td>Order: #{info.order}</Td>
+                <Td>Order Time: {info.orderTime}</Td>
+              </Tr>
+              <Tr>
+                <Td>Customer: {info.customer}</Td>
+                <Td>Server: {info.server}</Td>
+              </Tr>
+              <Tr>
+                <Td>Table: #{info.table}</Td>
+                <Td>Total: ${info.total}</Td>
+              </Tr>
+            </Tbody>
           </Table>
-        </Modal.Body>
-        <Modal.Footer>
-          Status: {info.status}
-          Total: {info.total}
-        </Modal.Footer>
-      </Modal>
+        </TableContainer>
+      </div>
 
-      <Modal
-        show={cancelOrder}
-        onHide={cancelOrderClose}
-        centered
-        backdrop="static"
-        keyboard={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Order: #{info.order}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Are you sure you would like to cancel this order?
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={onCancelOrder}>Yes</Button>
-          <Button variant="secondary" onClick={cancelOrderClose}>No </Button>
-        </Modal.Footer>
-      </Modal>
+      <div className="item-desc">
+        Status
+        <Select className="form_select" defaultValue={{ value: info.status, label: info.status }} options={options} onChange={(options) => onChangeOrderStatus(options.value)} />
+      </div>
+
+      <div className="item-desc">
+        <Button
+          color="blue"
+          content="View Items"
+          disabled={false}
+          onClick={viewItemsShow}
+        />
+        <Button
+          color="red"
+          content="Cancel Order"
+          disabled={false}
+          onClick={cancelOrderShow}
+        />
+
+        <Modal isOpen={viewItems} onClose={viewItemsClose} isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Order: #{info.order}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Table>
+                <Tr>
+                  <th>Item</th>
+                  <th>Amount</th>
+                  <th>Price</th>
+                </Tr>
+                {createItemRows()}
+              </Table>
+            </ModalBody>
+
+            <ModalFooter>
+              Status: {info.status}
+              Total: ${info.total}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+
+        <Modal isOpen={cancelOrder} onClose={cancelOrderClose} isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Order: #{info.order}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              Are you sure you would like to cancel this order?
+            </ModalBody>
+
+            <ModalFooter>
+              <Button
+                color="blue"
+                content="Yes"
+                disabled={false}
+                onClick={onCancelOrder}
+              />
+              <Button
+                color="green"
+                content="No"
+                disabled={false}
+                onClick={cancelOrderClose}
+              />
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </div>
     </div>
   );
 }

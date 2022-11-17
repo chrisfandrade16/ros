@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/StaffLogin.scss";
 import * as constants from "../utils/constants";
+import Button from "components/Button";
 
 export default function StaffLogin({ setCurrentPageTab }) {
     const [staffID, setStaffID] = useState("")
@@ -33,7 +34,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
                     </label>
                     <input className="form_input" type="password" id="password" />
                 </div>
-                <input className="btn" type="submit" onClick={() => setLogin(true)}></input>
+                <Button color="blue" content="Submit" onClick={() => setLogin(true)} />
             </div>
         </div>
     );

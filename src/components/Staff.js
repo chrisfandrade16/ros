@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/Menu.scss";
 import OrderItem from "./OrderItem";
 import { Scrollbars } from "react-custom-scrollbars-2";
+import Navigator from "./Navigatior";
 
 export default function Staff({ data, setData }) {
-  const [activeCategory, setActiveCategory] = useState(data.getFirstOrderCategory());
+  const [activeCategory, setActiveCategory] = useState("In Progress");
 
   const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
@@ -17,24 +18,23 @@ export default function Staff({ data, setData }) {
 
   return (
     <div id="menu-container">
-      <div id="menu-categories">
-        {data.getOrderCategoryNames().map((name) => (
-          <div
-            key={name}
-            className="menu-category"
-            active={name === activeCategory ? "true" : "false"}
-            onClick={() => {
-              setActiveCategory(name);
+      <Navigator
+        tabs={["In Progress", "Completed"].map((category) => {
+          return {
+            text: category,
+            onClick: () => {
+              setActiveCategory(category);
               const scroll = document
                 .getElementById("menu-item-container")
                 .getElementsByTagName("div")[0];
               scroll.scrollTop = 0;
-            }}
-          >
-            <div>{name}</div>
-          </div>
-        ))}
-      </div>
+            },
+          };
+        })}
+        activeTab={activeCategory}
+        activePointerTab={true}
+        useTextAsId={true}
+      />
 
       <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
         {data.getOrderCategoryItems(activeCategory).map((order) => (
