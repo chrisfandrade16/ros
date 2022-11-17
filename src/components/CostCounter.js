@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "components/Button";
 import "../styles/Menu.scss";
+import { Tooltip } from "@chakra-ui/react";
 
 export default function CostCounter({
   name,
@@ -26,40 +27,57 @@ export default function CostCounter({
       className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly"
       style={{ userSelect: "none" }}
     >
-      <div>${cost}</div>
+      <p>${cost}</p>
       <div className="tw-flex tw-flex-row tw-gap-[12px] tw-items-center">
-        <Button
-          style={{ marginLeft: "10px", width: "40px" }}
-          variant="danger"
-          content="-"
-          color="red"
-          disabled={count === 0}
-          onClick={() => {
-            if (count > 0) {
-              setCount(count - 1);
-              setTotalCost(
-                (prevTotal) => Math.round((prevTotal - cost) * 100) / 100
-              );
-              setTotalItems((prevTotal) => prevTotal - 1);
-            }
-          }}
-        />
-        {count}
-        <Button
-          content="+"
-          color="green"
-          onClick={() => {
-            setCount(count + 1);
-            setTotalCost(
-              (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
-            );
-            sessionStorage.setItem(
-              "totalItems",
-              parseInt(sessionStorage.getItem("totalItems") + 1)
-            );
-            setTotalItems((prevTotal) => prevTotal + 1);
-          }}
-        />
+        <Tooltip
+          hasArrow
+          isDisabled={count === 0}
+          label={`"crtl" click to remove ${count < 5 ? count : "5"}`}
+          aria-label="A tooltip"
+        >
+          <span>
+            <Button
+              width="8"
+              content="-"
+              color="red"
+              disabled={count === 0}
+              onClick={(e) => {
+                if (count > 0) {
+                  let multi = e.ctrlKey ? (count < 5 ? count : 5) : 1;
+                  setCount(count - 1 * multi);
+                  setTotalCost(
+                    (prevTotal) =>
+                      Math.round((prevTotal - cost * multi) * 100) / 100
+                  );
+                  setTotalItems((prevTotal) => prevTotal - 1 * multi);
+                }
+              }}
+            />
+          </span>
+        </Tooltip>
+        <p style={{ width: "30px" }}>{count}</p>
+        <Tooltip
+          hasArrow
+          label={`"crtl" click to add 5`}
+          aria-label="A tooltip"
+        >
+          <span>
+            <Button
+              width="8"
+              content="+"
+              color="green"
+              onClick={(e) => {
+                let multi = e.ctrlKey ? 5 : 1;
+                setCount(count + 1 * multi);
+                setTotalCost(
+                  (prevTotal) =>
+                    Math.round((prevTotal + cost * multi) * 100) / 100
+                );
+                setTotalItems((prevTotal) => prevTotal + 1 * multi);
+              }}
+            />
+          </span>
+        </Tooltip>
       </div>
     </div>
   );
