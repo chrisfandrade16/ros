@@ -29,9 +29,10 @@ const Header = (props) => {
       <div
         className="tw-flex tw-flex-row tw-items-center tw-flex tw-flex-1 tw-justify-center"
         onClick={() => setHome(true)}
+        style={{ cursor: "pointer" }}
       >
         <div className="tw-text-5xl tw-ml-[30px]">{storage.restaurantName}</div>
-        <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} />
+        <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} alt="logo" />
       </div>
       {flags.isSignedIn ? (
         <div className="tw-flex tw-flex-1 tw-justify-end tw-ml-auto">

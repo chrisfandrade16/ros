@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import Button from "react-bootstrap/Button";
 import Button from "components/Button";
 import "../styles/Menu.scss";
 
@@ -23,12 +22,18 @@ export default function CostCounter({
   }, [clear]);
 
   return (
-    <div className="cost-counter" style={{ userSelect: "none" }}>
+    <div
+      className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly"
+      style={{ userSelect: "none" }}
+    >
       <div>${cost}</div>
       <div className="tw-flex tw-flex-row tw-gap-[12px] tw-items-center">
         <Button
+          style={{ marginLeft: "10px", width: "40px" }}
+          variant="danger"
           content="-"
           color="red"
+          disabled={count === 0}
           onClick={() => {
             if (count > 0) {
               setCount(count - 1);
@@ -38,7 +43,7 @@ export default function CostCounter({
               setTotalItems((prevTotal) => prevTotal - 1);
             }
           }}
-        ></Button>
+        />
         {count}
         <Button
           content="+"
@@ -54,7 +59,7 @@ export default function CostCounter({
             );
             setTotalItems((prevTotal) => prevTotal + 1);
           }}
-        ></Button>
+        />
       </div>
     </div>
   );

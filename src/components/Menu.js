@@ -3,10 +3,7 @@ import "../styles/Menu.scss";
 import MenuItem from "./MenuItem";
 import * as constants from "../utils/constants";
 import { Scrollbars } from "react-custom-scrollbars-2";
-//import Button from "react-bootstrap/Button";
 import Button from "components/Button";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import Navigator from "./Navigatior";
 import { storage } from "utils/storage";
 
@@ -37,7 +34,6 @@ export default function Menu({ data, setCurrentPageTab }) {
       setTotalCost(0);
       setTotalItems(0);
       setClear(false);
-      setShow(false);
     }
   }, [clear]);
 
@@ -49,8 +45,6 @@ export default function Menu({ data, setCurrentPageTab }) {
       <div className="bar" style={{ ...style, ...thumbStyle }} {...props} />
     );
   };
-
-  const [show, setShow] = useState(false);
 
   return (
     <div id="menu-container">
@@ -83,32 +77,18 @@ export default function Menu({ data, setCurrentPageTab }) {
         ))}
       </Scrollbars>
       <div id="menu-footer">
-        <OverlayTrigger
-          placement="left"
-          show={totalCost > 0 ? show : false}
-          rootClose
-          overlay={
-            <Popover>
-              <Popover.Body>
-                <Button variant="danger" onClick={() => setClear(true)}>
-                  Clear {totalItems} items?
-                </Button>
-              </Popover.Body>
-            </Popover>
-          }
-        >
-          <Button
-            color="red"
-            content="Clear Selections"
-            onClick={() => setShow(!show)}
-          ></Button>
-        </OverlayTrigger>
+        <Button
+          color="red"
+          content="Clear Selections"
+          disabled={totalItems === 0}
+          onClick={() => setClear(true)}
+        />
         <Button
           color="green"
           content="Go to Cart"
           onClick={() => setCurrentPageTab(constants.PAGE_TABS.CART)}
           disabled={totalCost === 0}
-        ></Button>
+        />
       </div>
     </div>
   );
