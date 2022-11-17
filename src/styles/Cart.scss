@@ -64,7 +64,7 @@
 .footerOptions{
     display: flex;
     justify-content: space-around;
-    padding-top: 90px;
+    padding-top: 10px;
 
 }
 
@@ -76,4 +76,12 @@
 
 .tipOptions{
     padding-left: 32px;
+}
+
+.orderSummaryRow{
+    display: flex;
+}
+
+.orderSummaryTitle{
+    width: 53px;
 }

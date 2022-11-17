@@ -3,7 +3,7 @@ import Basket from "./Basket";
 
 export default function Cart({data}) {
    
-   const [cartItems, setCartItems] = useState(data.getCartItems(["Large Pepperoni Pizza", "Chicken Wings", "Cheese Burger"]))
+   const [cartItems, setCartItems] = useState(data.getCartItems(["Large Pepperoni Pizza", "Small Pepperoni Pizza", "Cheese Burger"]))
 
    const onAdd = (itemName) => {
         const exists = cartItems.find((x) => x.name === itemName);
@@ -33,8 +33,6 @@ export default function Cart({data}) {
 
   return (
     <div id="cart-container">
-        {cartItems.length !== 0 && <div>Your Cart</div>}
-
         <Basket cartItems={cartItems} onAdd={onAdd} onRemove = {onRemove}></Basket>
       
     </div>

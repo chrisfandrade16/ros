@@ -74,35 +74,29 @@ export default function Basket(props) {
       {cartItems.length !== 0 &&
 
         <div class="basketFooter">
-          <div class="backButton"> <Button variant="outline-primary">Back to Main Menu</Button>{' '}</div>
 
-        <div class="footerMid">
-
-          <div class="footerOptions"> 
-            <div class="paymentOptions">
-                <Form.Select onChange={handleChange} aria-label="Default select example">
-                  <option >Payment Option</option>
-                  <option  value="Debit">Debit</option>
-                  <option value="1">Credit</option>
-                  <option value="2">In person</option>
-                </Form.Select>
-              </div>
-              <div class="submitButton"><Button variant="outline-success">Submit Order</Button>{' '}</div>
-          </div>
+        <div class="footerMid"></div>
           
-          
-        </div>
-          
-
-
-          
-
           <div class="orderSummary">
             <ListGroup>
-              <ListGroup.Item>Cost: ${totalCost.toFixed(2)}</ListGroup.Item>
-              <ListGroup.Item>Tax: ${taxPrice.toFixed(2)}</ListGroup.Item>
+              <ListGroup.Item>
+                <div class="orderSummaryRow">
+                  <div class="orderSummaryTitle">Cost:</div>
+                  <div class="orderSummaryValue">${totalCost.toFixed(2)}</div>
+                </div>
+                 
+                </ListGroup.Item>
+              <ListGroup.Item>
+                <div class="orderSummaryRow">
+                  <div class="orderSummaryTitle">Tax:</div>
+                  <div class="orderSummaryValue">${taxPrice.toFixed(2)}</div>
+                </div>
+                </ListGroup.Item>
               <ListGroup.Item id="tipRow">
-                Tip: ${tipAmount.toFixed(2)} 
+                <div class="orderSummaryRow">
+                  <div class="orderSummaryTitle">Tip:</div>
+                  <div class="orderSummaryValue">${tipAmount.toFixed(2)}</div>
+                </div>
                 <div class="tipOptions">
                   <Form.Select size="sm" onChange={onChangeTipAmount}>
                     <option value="0">Tip Amount</option>
@@ -113,8 +107,24 @@ export default function Basket(props) {
                   </Form.Select>
               </div>
               </ListGroup.Item>
-              <ListGroup.Item>Total: ${cartTotal.toFixed(2)}</ListGroup.Item>
+              <ListGroup.Item><div class="orderSummaryRow">
+                  <div class="orderSummaryTitle">Total:</div>
+                  <div class="orderSummaryValue">${cartTotal.toFixed(2)}</div>
+                </div>
+              </ListGroup.Item>
             </ListGroup> 
+
+            <div class="footerOptions"> 
+              <div class="paymentOptions">
+                  <Form.Select onChange={handleChange} aria-label="Default select example">
+                    <option >Payment Option</option>
+                    <option  value="Debit">Debit</option>
+                    <option value="1">Credit</option>
+                    <option value="2">In person</option>
+                  </Form.Select>
+                </div>
+                <div class="submitButton"><Button variant="outline-success">Submit Order</Button>{' '}</div>
+            </div>
           </div>
 
         </div>
