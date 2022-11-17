@@ -23,6 +23,7 @@
   background-size: 10px 10px;
   background-repeat: no-repeat;
   cursor: pointer;
+  margin-right: 2px;
 
   &:hover {
     height: 12px;
@@ -30,4 +31,8 @@
     background-size: 12px 12px;
     transition: 0.2s;
   }
+}
+
+.password {
+  -webkit-text-security: disc;
 }

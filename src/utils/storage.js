@@ -20,6 +20,10 @@ export const storage = {
           username: "Bob",
           password: "Bobbie",
         },
+        {
+          username: "Joe",
+          password: "Biden",
+        },
       ],
       restaurantMenu: {},
     },

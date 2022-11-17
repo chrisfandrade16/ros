@@ -11,6 +11,7 @@ const Input = (props) => {
     onChange = () => {},
     hasError = false,
     errorMessage = "",
+    className = "",
   } = props;
 
   return (
@@ -18,7 +19,6 @@ const Input = (props) => {
       <input
         value={value}
         onChange={(event) => {
-          console.log(event.target.value);
           return onChange(event.target.value);
         }}
         type="search"
@@ -26,7 +26,7 @@ const Input = (props) => {
           hasError
             ? "tw-border-b-[#eb9486] hover:tw-border-b-[#eb9486] focus:tw-border-[#eb9486]"
             : ""
-        }`}
+        } ${className}`}
       />
       {hasError ? (
         <div className="tw-text-xs tw-text-[#eb9486]">{errorMessage}</div>
