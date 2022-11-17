@@ -22,38 +22,35 @@ const App = () => {
   const [data, setData] = useState(new ParseJSON());
 
   return (
-    <div className="ros">
+    <div className="ros tw-px-[40px] tw-py-[30px]">
       <Header setCurrentPageTab={setCurrentPageTab} />
       <Navigator
         tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
         activeTab={currentPageTab}
-        activeTabStyle="highlight-tab"
-        height="small-tab-height"
+        activeHighlightTab={true}
       />
-      {currentPageTab == constants.PAGE_TABS.MENU ? <Menu data={data} /> : ""}
-      {currentPageTab == constants.PAGE_TABS.CART ? <Cart data={data} /> : ""}
       {currentPageTab == constants.PAGE_TABS.MENU ? (
-        <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
+        <Menu data={data} setCurrentPageTab={setCurrentPageTab} />
       ) : (
         ""
       )}
+      {currentPageTab == constants.PAGE_TABS.CART ? <Cart data={data} /> : ""}
       {/* {currentPageTab == constants.PAGE_TABS.CART
         ? "Put cart page component here"
         : ""} */}
-      {currentPageTab == constants.PAGE_TABS.MY_ORDERS
-        ? (<MyOrders />)
-        : ""}
-      {currentPageTab == constants.PAGE_TABS.ABOUT_US ? (
-        <AboutUs />
-      )
-        : ""}
+      {currentPageTab == constants.PAGE_TABS.MY_ORDERS ? <MyOrders /> : ""}
+      {currentPageTab == constants.PAGE_TABS.ABOUT_US ? <AboutUs /> : ""}
       {currentPageTab == constants.PAGE_TABS.STAFF_LOGIN ? (
         <StaffLogin setCurrentPageTab={setCurrentPageTab} />
       ) : (
         ""
       )}
       {currentPageTab == constants.PAGE_TABS.VIEW_ORDERS ? (
-        <Staff setCurrentPageTab={setCurrentPageTab} data={data} setData={setData} />
+        <Staff
+          setCurrentPageTab={setCurrentPageTab}
+          data={data}
+          setData={setData}
+        />
       ) : (
         ""
       )}

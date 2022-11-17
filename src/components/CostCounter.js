@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
+import Button from "components/Button";
 import "../styles/Menu.scss";
 
 export default function CostCounter({
@@ -24,28 +25,10 @@ export default function CostCounter({
   return (
     <div className="cost-counter" style={{ userSelect: "none" }}>
       <div>${cost}</div>
-      <div className="cost-incrementer">
+      <div className="tw-flex tw-flex-row tw-gap-[12px] tw-items-center">
         <Button
-          style={{ marginRight: "10px" }}
-          variant="success"
-          onClick={() => {
-            setCount(count + 1);
-            setTotalCost(
-              (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
-            );
-            sessionStorage.setItem(
-              "totalItems",
-              parseInt(sessionStorage.getItem("totalItems") + 1)
-            );
-            setTotalItems((prevTotal) => prevTotal + 1);
-          }}
-        >
-          +
-        </Button>
-        {count}
-        <Button
-          style={{ marginLeft: "10px" }}
-          variant="danger"
+          content="-"
+          color="red"
           onClick={() => {
             if (count > 0) {
               setCount(count - 1);
@@ -59,9 +42,23 @@ export default function CostCounter({
               setTotalItems((prevTotal) => prevTotal - 1);
             }
           }}
-        >
-          -
-        </Button>
+        ></Button>
+        {count}
+        <Button
+          content="+"
+          color="green"
+          onClick={() => {
+            setCount(count + 1);
+            setTotalCost(
+              (prevTotal) => Math.round((prevTotal + cost) * 100) / 100
+            );
+            sessionStorage.setItem(
+              "totalItems",
+              parseInt(sessionStorage.getItem("totalItems") + 1)
+            );
+            setTotalItems((prevTotal) => prevTotal + 1);
+          }}
+        ></Button>
       </div>
     </div>
   );

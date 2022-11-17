@@ -40,8 +40,10 @@
 
 .menu-item {
     height: 150px;
-    border: 1px solid black;
-    margin: 0.5%;
+    width: 98%;
+    border: 2px solid #CBD5E1;
+    border-radius: 4px;
+    margin-bottom: 10px;
     padding: 0.5%;
     display: flex;
     justify-content: space-evenly;
@@ -57,7 +59,8 @@
     justify-content: flex-end;
     align-items: center;
     border-top: 1px solid black;
-    padding: 1%
+    padding: 1%;
+    gap: 12px;
 }
 
 .cost-counter {
