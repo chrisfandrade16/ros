@@ -18,7 +18,7 @@ export default function MenuItem({ info, setTotalCost, setTotalItems, clear }) {
       />
       <div className="item-desc" style={{ userSelect: "none" }}>
         <div>{info.name}</div>
-        <div>{info.ingredients}</div>
+        <div>Ingredients: {info.ingredients.join(", ")}</div>
         {info.size && <div>Size: {info.size}</div>}
       </div>
       <CostCounter

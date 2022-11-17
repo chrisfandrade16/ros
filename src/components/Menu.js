@@ -80,26 +80,23 @@ export default function Menu({ setCurrentPageTab }) {
       <div id="menu-footer">
         <OverlayTrigger
           placement="left"
-          onFocusOut={() => setShow(false)}
-          show={show}
+          show={totalCost > 0 ? show : false}
           rootClose
           overlay={
             <Popover>
               <Popover.Body>
-                {totalCost > 0 ? (
-                  <Button variant="danger" onClick={() => setClear(true)}>
-                    Clear {totalItems} items?
-                  </Button>
-                ) : (
-                  <Button variant="success" onClick={() => setShow(false)}>
-                    No items in cart
-                  </Button>
-                )}
+                <Button variant="danger" onClick={() => setClear(true)}>
+                  Clear {totalItems} items?
+                </Button>
               </Popover.Body>
             </Popover>
           }
         >
-          <Button variant="secondary" onClick={() => setShow(!show)}>
+          <Button
+            variant="secondary"
+            onClick={() => setShow(!show)}
+            onBlur={() => setShow(false)}
+          >
             Clear
           </Button>
         </OverlayTrigger>
