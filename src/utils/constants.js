@@ -52,10 +52,42 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         return !flags.isSignedIn;
       },
     },
+  ];
+};
+
+export const OWNER_PAGE_TABS = {
+  MENU_ITEMS: 0,
+  CONTACT_INFO: 1,
+  ACCOUNTS: 2,
+};
+
+export const OWNER_PAGE_TABS_CONFIGS = (setCurrentPageTab) => {
+  return [
     {
-      text: "Staff Login",
+      text: "Menu Items",
       onClick: () => {
-        setCurrentPageTab(PAGE_TABS.STAFF_LOGIN);
+        setCurrentPageTab(OWNER_PAGE_TABS.MENU_ITEMS);
+      },
+      getIsDisabled: () => {
+        return false;
+      },
+    },
+    {
+      text: "Contact Info",
+      onClick: () => {
+        setCurrentPageTab(OWNER_PAGE_TABS.CONTACT_INFO);
+      },
+      getIsDisabled: () => {
+        return false;
+      },
+    },
+    {
+      text: "Accounts",
+      onClick: () => {
+        setCurrentPageTab(OWNER_PAGE_TABS.ACCOUNTS);
+      },
+      getIsDisabled: () => {
+        return false;
       },
     },
   ];
