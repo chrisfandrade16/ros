@@ -7,6 +7,7 @@ const Button = (props) => {
     color = "blue",
     disabled = false,
     width = "",
+    className = "",
   } = props;
 
   return (
@@ -27,7 +28,7 @@ const Button = (props) => {
               /*hover:tw-text-[#9ed8db]*/ ""
             } hover:tw-bg-[#9ed8db]`
           : ""
-      } ${width !== "" ? `tw-w-${width}` : ""}`}
+      } ${width ? `tw-w-${width}` : ""} ${className}`}
       onClick={disabled ? () => {} : onClick}
     >
       {content}

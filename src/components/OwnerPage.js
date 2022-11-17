@@ -6,6 +6,7 @@ import Button from "components/Button";
 import Modal from "components/Modal";
 import edit_pencil from "images/image_edit_pencil.png";
 import delete_trash from "images/image_delete_trash.png";
+import Input from "components/Input";
 
 const OwnerPage = (props) => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -31,9 +32,16 @@ const OwnerPageMenu = (props) => {
 
   const [editingItem, setEditingItem] = useState(null);
 
+  console.log(editingItem);
+
   return (
     <div>
-      {editingItem ? <OwnerPageEditModal /> : null}
+      {editingItem ? (
+        <OwnerPageEditModal
+          editingItem={editingItem}
+          setEditingItem={setEditingItem}
+        />
+      ) : null}
       {Object.keys(currentRestaurant.restaurantMenu).map((category) => {
         return (
           <div className="tw-mb-[20px]">
@@ -61,6 +69,7 @@ const OwnerPageMenu = (props) => {
                       onClick={() => {
                         setEditingItem({
                           ...item,
+                          key: category,
                           category: category,
                           index: index,
                         });
@@ -95,21 +104,47 @@ const OwnerPageEditModal = (props) => {
         });
       }}
       onConfirm={() => {
-        storage.restaurants[storage.currentRestaurant].restaurantMenu[
-          editingItem.category
-        ][editingItem.index] = editingItem;
+        if (editingItem.category === editingItem.key) {
+          storage.restaurants[storage.currentRestaurant].restaurantMenu[
+            editingItem.category
+          ][editingItem.index] = editingItem;
+        } else if (
+          storage.restaurants[storage.currentRestaurant].restaurantMenu[
+            editingItem.category
+          ]
+        ) {
+          storage.restaurants[storage.currentRestaurant].restaurantMenu[
+            editingItem.category
+          ].push(editingItem);
+        } else {
+          storage.restaurants[storage.currentRestaurant].restaurantMenu[
+            editingItem.category
+          ] = [editingItem];
+        }
+        setEditingItem(null);
       }}
+      confirmDisabled={
+        !editingItem.category ||
+        !editingItem.name ||
+        !editingItem.description ||
+        !editingItem.cost
+      }
       renderBody={() => {
         return (
-          <div className="tw-flex tw-flex-row">
-            <img className="tw-w-[125px]" src={editingItem.img}></img>
-            <div className="tw-flex tw-flex-col tw-gap-[3px]">
-              {/*<Input
+          <div className="tw-flex tw-flex-row tw-gap-[30px] tw-items-center">
+            <img
+              className="tw-w-[150px] tw-h-[125px]"
+              src={editingItem.img}
+            ></img>
+            <div className="tw-flex tw-flex-col tw-gap-[12px]">
+              <Input
                 value={editingItem.category}
                 onChange={(value) => {
+                  console.log(value);
                   setEditingItem({ ...editingItem, category: value });
                 }}
                 hasError={!editingItem.category}
+                errorMessage={"Category cannot be empty"}
               />
               <Input
                 value={editingItem.name}
@@ -117,6 +152,7 @@ const OwnerPageEditModal = (props) => {
                   setEditingItem({ ...editingItem, name: value });
                 }}
                 hasError={!editingItem.name}
+                errorMessage={"Name cannot be empty"}
               />
               <Input
                 value={editingItem.description}
@@ -124,6 +160,7 @@ const OwnerPageEditModal = (props) => {
                   setEditingItem({ ...editingItem, description: value });
                 }}
                 hasError={!editingItem.description}
+                errorMessage={"Description cannot be empty"}
               />
               <Input
                 value={editingItem.cost}
@@ -131,7 +168,8 @@ const OwnerPageEditModal = (props) => {
                   setEditingItem({ ...editingItem, cost: value });
                 }}
                 hasError={!editingItem.cost}
-            />*/}
+                errorMessage={"Cost cannot be empty"}
+              />
             </div>
             <div className="tw-ml-auto tw-self-center">
               <Button
@@ -144,7 +182,7 @@ const OwnerPageEditModal = (props) => {
                 }
                 onClick={() => {
                   storage.restaurants[storage.currentRestaurant].restaurantMenu[
-                    editingItem.category
+                    editingItem.key
                   ].splice(editingItem.index, 1);
                   setEditingItem(null);
                 }}
