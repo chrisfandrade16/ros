@@ -97,51 +97,55 @@ export default function OrderItem({ info, data, setData }) {
 
         <Modal isOpen={viewItems} onClose={viewItemsClose} isCentered>
           <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Order: #{info.order}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Table>
-                <Tr>
-                  <th>Item</th>
-                  <th>Amount</th>
-                  <th>Price</th>
-                </Tr>
-                {createItemRows()}
-              </Table>
-            </ModalBody>
+          <div className="order-table">
+            <ModalContent>
+              <ModalHeader>Order: #{info.order}</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Table>
+                  <Tr>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                  </Tr>
+                  {createItemRows()}
+                </Table>
+              </ModalBody>
 
-            <ModalFooter>
-              Status: {info.status}
-              Total: ${info.total}
-            </ModalFooter>
-          </ModalContent>
+              <ModalFooter>
+                Status: {info.status}
+                Total: ${info.total}
+              </ModalFooter>
+            </ModalContent>
+          </div>
         </Modal>
 
-        <Modal isOpen={cancelOrder} onClose={cancelOrderClose} isCentered>
+        <Modal className="order-table" isOpen={cancelOrder} onClose={cancelOrderClose} isCentered>
           <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Order: #{info.order}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              Are you sure you would like to cancel this order?
-            </ModalBody>
+          <div className="order-table">
+            <ModalContent>
+              <ModalHeader>Order: #{info.order}</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                Are you sure you would like to cancel this order?
+              </ModalBody>
 
-            <ModalFooter>
-              <Button
-                color="blue"
-                content="Yes"
-                disabled={false}
-                onClick={onCancelOrder}
-              />
-              <Button
-                color="green"
-                content="No"
-                disabled={false}
-                onClick={cancelOrderClose}
-              />
-            </ModalFooter>
-          </ModalContent>
+              <ModalFooter>
+                <Button
+                  color="blue"
+                  content="Yes"
+                  disabled={false}
+                  onClick={onCancelOrder}
+                />
+                <Button
+                  color="green"
+                  content="No"
+                  disabled={false}
+                  onClick={cancelOrderClose}
+                />
+              </ModalFooter>
+            </ModalContent>
+          </div>
         </Modal>
       </div>
     </div>
