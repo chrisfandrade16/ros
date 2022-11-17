@@ -10,7 +10,6 @@ export default function MenuItem({ info, setTotalCost, setTotalItems, clear }) {
       <LazyLoadImage
         src={info.img}
         width={150}
-        height={125}
         alt={info.name}
         style={{ alignSelf: "center" }}
         placeholderSrc={info.low}
