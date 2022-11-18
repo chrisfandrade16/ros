@@ -1,13 +1,73 @@
 .about-us-container {
-    width: 50vw;
+    display: flex;
+    padding-top: 3vh;
+}
+
+.text-container {
+    width: 79.5vw;
     height: 50vh;
-    margin-left: 2vw;
+    padding: 0.5vw;
 }
 
 .about-us-heading {
-    margin-top: 3vh;
+    font-weight: bold;
+    font-size: 4vh;
+
 }
 
 .about-us-text {
     margin-top: 0.5vh;
+    margin-bottom: 5vh;
+    font-size: 2vh;
+}
+
+#contact {
+    margin-bottom: 0vh;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#contact:hover {
+    margin-bottom: 0vh;
+    font-size: 2.3vh;
+    color: #FFB4A2;
+    cursor: pointer;
+}
+
+.horizontal-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-section {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5vw;
+}
+
+.image {
+    float: left;
+    object-position: 0vh 0vw;
+    height: auto;
+    max-width: 25vw;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    border: 2px solid;
+}
+
+.image-b {
+    height: auto;
+    max-width: 20vw;
+    margin-bottom: 2vh;
+    margin-top: 0vh;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.image-b:hover {
+    height: auto;
+    max-width: 25vw;
+    margin-bottom: 2vh;
+    margin-top: -5vh;
+    border: 2px solid #FFB4A2;
 }
