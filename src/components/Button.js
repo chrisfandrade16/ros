@@ -1,4 +1,5 @@
 import * as constants from "utils/constants";
+import { motion } from "framer-motion";
 
 const Button = (props) => {
   const {
@@ -12,7 +13,9 @@ const Button = (props) => {
   } = props;
 
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: disabled ? 1 : 1.1 }}
+      whileTap={{ scale: disabled ? 1 : 0.9 }}
       className={`tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-px-[8px] tw-py-[8px] tw-duration-200 ${
         disabled
           ? "!tw-cursor-not-allowed tw-border-[#7e7f9a] tw-text-[#7e7f9a]"
@@ -29,11 +32,13 @@ const Button = (props) => {
               /*hover:tw-text-[#9ed8db]*/ ""
             } hover:tw-bg-[#9ed8db]`
           : ""
-      } ${height ? `tw-h-${height}` : ""} ${width ? `tw-w-${width}` : ""} ${className}`}
+      } ${height ? `tw-h-${height}` : ""} ${
+        width ? `tw-w-${width}` : ""
+      } ${className}`}
       onClick={disabled ? () => {} : onClick}
     >
       {content}
-    </button>
+    </motion.button>
   );
 };
 
