@@ -3,7 +3,7 @@ import "../styles/Cart.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import emptyCart from "images/emptyCart.png";
 import {
-  List, ListItem, Select, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Input,   extendTheme, InputRightAddon, InputGroup
+  List, ListItem, Select, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Input,   extendTheme, InputRightAddon, InputGroup, Divider
 
 } from '@chakra-ui/react';
 
@@ -69,7 +69,12 @@ export default function Basket(props) {
 
 
     <div class="basket">
+      <div class="cartHeader">
+          <div class="itemNameHeader">ITEM NAME</div>
+          <div class="itemCostHeader">ITEM COST</div>
+        </div>
       <div class="basketItems">
+        <Divider orientation='horizontal' />
         {cartItems.map((item) => (
             <div className="cartItem">
               <div class="trashIcon">
@@ -114,6 +119,7 @@ export default function Basket(props) {
           ))}
         {cartItems.length === 0 && <div><img class="cartEmpty" src={emptyCart}></img></div>}
       </div>
+      <Divider orientation='horizontal' />
 
       {cartItems.length !== 0 && (
         <div class="basketFooter">

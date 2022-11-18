@@ -3,12 +3,36 @@
     margin: 0.5%;
     padding: 0.5%;
     display: flex;
+    border: #868686;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.cartHeader{
+    display: flex;
+    border: #414d5d;
+    color: #d0c7d9;
+    padding: 5px;
+
+}
+
+.itemNameHeader{
+    margin-left: 24%;
+}
+
+.itemCostHeader{
+    margin-left: 53%;
+    border: 1px white;
 }
 
 .cartItemDesc{
     padding-left: 15px;;
     width: 30%;
 
+}
+
+.basket{
+    background: #242434;
 }
 
 .basketMiddle{
@@ -42,7 +66,7 @@
 
 .basketFooter{
     justify-content: end;
-    padding-top: 10px;
+    margin-top: 10px;
     padding-right: 10px;
 }
 
@@ -86,10 +110,8 @@
 }
 
 .basketItems{
-    border-radius: 24px;
     overflow-x: scroll;
-    height: 530px;
-    background-color: #35354b;
+    height: 520px;
 }
 
 .cartEmpty{
