@@ -11,6 +11,7 @@ import ParseJSON from "./utils/ParseJSON";
 import AboutUs from "./components/AboutUs";
 import StaffLogin from "./components/StaffLogin";
 import StartScreen from "./components/StartScreen";
+import OwnerPage from "components/OwnerPage";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
@@ -29,8 +30,7 @@ const App = () => {
           <Navigator
             tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
             activeTab={currentPageTab}
-            activeTabStyle="highlight-tab"
-            height="small-tab-height"
+            activeHighlightTab={true}
           />
         )}
         {currentPageTab === constants.PAGE_TABS.START_SCREEN && (
@@ -62,8 +62,7 @@ const App = () => {
             setData={setData}
           />
         )}
-        {currentPageTab === constants.PAGE_TABS.CHANGE_MENU &&
-          "Put change menu page component here"}
+        {currentPageTab === constants.PAGE_TABS.CHANGE_MENU && <OwnerPage />}
       </div>
     </ChakraProvider>
   );

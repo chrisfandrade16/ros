@@ -5,6 +5,7 @@ import Button from "components/Button";
 import * as constants from "utils/constants";
 
 const Header = (props) => {
+  const currentRestaurant = storage.restaurants[storage.currentRestaurant];
   const [getHelpLabel, setGetHelpLabel] = useState("Get Help");
   const [home, setHome] = useState(false);
   useEffect(() => {
@@ -19,9 +20,11 @@ const Header = (props) => {
       {flags.isSignedIn ? (
         <>
           <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-justify-center tw-mr-auto">
-            <div className="tw-text-sm">Name: {storage.customerName}</div>
             <div className="tw-text-sm">
-              Table Number: {storage.customerTable}
+              Name: {storage.currentCustomerName}
+            </div>
+            <div className="tw-text-sm">
+              Table Number: {storage.currentCustomerTable}
             </div>
           </div>
         </>
@@ -31,8 +34,10 @@ const Header = (props) => {
         onClick={() => setHome(true)}
         style={{ cursor: "pointer" }}
       >
-        <div className="tw-text-5xl tw-ml-[30px]">{storage.restaurantName}</div>
-        <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} alt="logo" />
+        <div className="tw-text-5xl tw-ml-[30px]">
+          {currentRestaurant.restaurantName}
+        </div>
+        <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} />
       </div>
       {flags.isSignedIn ? (
         <div className="tw-flex tw-flex-1 tw-justify-end tw-ml-auto">

@@ -54,3 +54,41 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
     },
   ];
 };
+
+export const OWNER_PAGE_TABS = {
+  MENU_ITEMS: 0,
+  CONTACT_INFO: 1,
+  ACCOUNT: 2,
+};
+
+export const OWNER_PAGE_TABS_CONFIGS = (setCurrentPageTab) => {
+  return [
+    {
+      text: "Menu Items",
+      onClick: () => {
+        setCurrentPageTab(OWNER_PAGE_TABS.MENU_ITEMS);
+      },
+      getIsDisabled: () => {
+        return false;
+      },
+    },
+    {
+      text: "Contact Info",
+      onClick: () => {
+        setCurrentPageTab(OWNER_PAGE_TABS.CONTACT_INFO);
+      },
+      getIsDisabled: () => {
+        return false;
+      },
+    },
+    {
+      text: "Account",
+      onClick: () => {
+        setCurrentPageTab(OWNER_PAGE_TABS.ACCOUNT);
+      },
+      getIsDisabled: () => {
+        return false;
+      },
+    },
+  ];
+};
