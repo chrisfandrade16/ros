@@ -24,16 +24,13 @@ export default function CostCounter({
   }, [clear]);
 
   return (
-    <div
-      className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly"
-      style={{ userSelect: "none" }}
-    >
+    <div className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly tw-select-none">
       <p>${cost}</p>
       <div className="tw-flex tw-flex-row tw-gap-[12px] tw-items-center">
         <Tooltip
           hasArrow
           isDisabled={count === 0}
-          label={`"crtl" click to remove ${count < 5 ? count : "5"}`}
+          label={`"CRTL" click to remove ${count < 5 ? count : "5"}`}
           aria-label="A tooltip"
         >
           <span>
@@ -56,12 +53,10 @@ export default function CostCounter({
             />
           </span>
         </Tooltip>
-        <p style={{ width: "30px" }}>{count}</p>
-        <Tooltip
-          hasArrow
-          label={`"crtl" click to add 5`}
-          aria-label="A tooltip"
-        >
+        <div className="tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-w-[30px]">
+          {count}
+        </div>
+        <Tooltip hasArrow label={`"CRTL" click to add 5`}>
           <span>
             <Button
               content={<AddIcon w={3} h={3} />}

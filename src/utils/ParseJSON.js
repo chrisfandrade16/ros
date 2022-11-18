@@ -37,6 +37,19 @@ class ParseJSON {
       }
     }
   }
+  getOtherCategoryPattern(name) {
+    let categories = [];
+    for (const key of this.categoryJSON) {
+      if (key.name !== name) {
+        for (const item of key.items) {
+          for (const k of this.itemJSON) {
+            if (k.name === item) categories.push(key.name);
+          }
+        }
+        return categories;
+      }
+    }
+  }
   getItemInfo(name) {
     for (const key of this.itemJSON) {
       if (key.name === name) return key;
@@ -63,17 +76,17 @@ class ParseJSON {
   }
   getOrderCategoryItems(name) {
     let search = [];
-    if(name === "In Progress") {
-      search = ['Preparing Food', "Delivering to Table"];
+    if (name === "In Progress") {
+      search = ["Preparing Food", "Delivering to Table"];
     } else {
       search = ["Completed"];
     }
-    
+
     const orders = [];
     for (const key of this.orderJSON) {
       if (search.includes(key.status)) {
         orders.push(key.order);
-      };
+      }
     }
 
     return orders;

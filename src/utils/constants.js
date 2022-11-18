@@ -8,10 +8,9 @@ export const PAGE_TABS = {
   CART: 1,
   MY_ORDERS: 2,
   ABOUT_US: 3,
-  STAFF_LOGIN: 4,
-  VIEW_ORDERS: 5,
-  CHANGE_MENU: 6,
-  START_SCREEN: 7,
+  VIEW_ORDERS: 4,
+  CHANGE_MENU: 5,
+  START_SCREEN: 6,
 };
 
 export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
