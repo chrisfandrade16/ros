@@ -58,7 +58,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
 export const OWNER_PAGE_TABS = {
   MENU_ITEMS: 0,
   CONTACT_INFO: 1,
-  ACCOUNTS: 2,
+  ACCOUNT: 2,
 };
 
 export const OWNER_PAGE_TABS_CONFIGS = (setCurrentPageTab) => {
@@ -82,9 +82,9 @@ export const OWNER_PAGE_TABS_CONFIGS = (setCurrentPageTab) => {
       },
     },
     {
-      text: "Accounts",
+      text: "Account",
       onClick: () => {
-        setCurrentPageTab(OWNER_PAGE_TABS.ACCOUNTS);
+        setCurrentPageTab(OWNER_PAGE_TABS.ACCOUNT);
       },
       getIsDisabled: () => {
         return false;
