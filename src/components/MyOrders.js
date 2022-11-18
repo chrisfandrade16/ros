@@ -49,20 +49,20 @@ export default function ViewOrder() {
 
     return (
         <div className="view-orders">
-            <h1 className="title-header">My Orders (Sorted by Status)</h1>
+            <h1 className="title-header">My Orders</h1>
             <div className="view-order-container">
                 <h1 className="status-heading">Preparing Food</h1>
                 <Dropdown>
-                    <Dropdown.Toggle className="dropdown-toggle">
-                        Order #224
+                    <Dropdown.Toggle className="dropdown-toggle" title="Click to see detailed Information about your order!">
+                        Order #224: 3 items, $34.08
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <MyOrdersItem items={[items[0], items[1], items[2]]} status="Preparing Food"></MyOrdersItem>
                     </Dropdown.Menu>
                 </Dropdown>
                 <Dropdown>
-                    <Dropdown.Toggle className="dropdown-toggle">
-                        Order #225
+                    <Dropdown.Toggle className="dropdown-toggle" title="Click to see detailed Information about your order!">
+                        Order #225: 2 items, $5.70
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <MyOrdersItem items={[items[3]]} status="Preparing Food"></MyOrdersItem>
@@ -73,8 +73,8 @@ export default function ViewOrder() {
             <div className="view-order-container">
                 <h1 className="status-heading">Delivering to Table</h1>
                 <Dropdown>
-                    <Dropdown.Toggle className="dropdown-toggle">
-                        Order #223
+                    <Dropdown.Toggle className="dropdown-toggle" title="Click to see detailed Information about your order!">
+                        Order #223: 6 items, $17.10
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <MyOrdersItem items={[items[4], items[5]]} status="Delivering to Table"></MyOrdersItem>
@@ -85,8 +85,8 @@ export default function ViewOrder() {
             <div className="view-order-container">
                 <h1 className="status-heading">Completed</h1>
                 <Dropdown>
-                    <Dropdown.Toggle className="dropdown-toggle">
-                        Order #222
+                    <Dropdown.Toggle className="dropdown-toggle" title="Click to see detailed Information about your order!">
+                        Order #222: 3 items, $17.39
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <MyOrdersItem items={[items[6], items[7]]} status="Completed"></MyOrdersItem>
