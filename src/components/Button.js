@@ -6,6 +6,8 @@ const Button = (props) => {
     onClick = () => {},
     color = "blue",
     disabled = false,
+    height = "",
+    width = "",
   } = props;
 
   return (
@@ -20,7 +22,7 @@ const Button = (props) => {
           : color === "green"
           ? "hover:tw-border-[#9ed8db] hover:tw-text-[#9ed8db]"
           : ""
-      }`}
+      } ${height ? `tw-h-${height}` : ""} ${width ? `tw-w-${width}` : ""}`}
       onClick={disabled ? () => {} : onClick}
     >
       {content}

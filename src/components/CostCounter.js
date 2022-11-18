@@ -38,7 +38,8 @@ export default function CostCounter({
         >
           <span>
             <Button
-              content={<MinusIcon />}
+              content={<MinusIcon w={3} h={3} />}
+              height="8"
               color="red"
               disabled={count === 0}
               onClick={(e) => {
@@ -63,7 +64,8 @@ export default function CostCounter({
         >
           <span>
             <Button
-              content={<AddIcon />}
+              content={<AddIcon w={3} h={3} />}
+              height="8"
               color="green"
               onClick={(e) => {
                 let multi = e.ctrlKey ? 5 : 1;
