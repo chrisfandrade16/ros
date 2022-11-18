@@ -30,7 +30,8 @@
 
 .status-heading {
     margin-bottom: 1vw;
-    font-size: 2vh
+    font-size: 2vh;
+
 }
 
 .item-listing {
@@ -42,11 +43,14 @@
 .title-header {
     font-size: 3vh;
     margin-bottom: 2vh;
+    font-weight: bold;
+    color: white;
 }
 
 .dropdown-toggle {
-    background-color: white !important;
-    color: black !important;
+    background-color: #272838 !important;
+    color: #FFCDB2 !important;
+    border-color: white !important;
     width: 47vw;
     height: 4vh;
     font-size: 2vh !important;
@@ -54,7 +58,7 @@
 }
 
 .dropdown-toggle:hover {
-    background-color: black !important;
+    background-color: #7e7f9a !important;
     color: white !important;
     width: 47vw;
     height: 4vh;
