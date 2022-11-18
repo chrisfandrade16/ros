@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "components/Button";
 import "../styles/Menu.scss";
 import { Tooltip } from "@chakra-ui/react";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 export default function CostCounter({
   name,
@@ -37,8 +38,8 @@ export default function CostCounter({
         >
           <span>
             <Button
-              width="8"
-              content="-"
+              content={<MinusIcon w={3} h={3} />}
+              height="8"
               color="red"
               disabled={count === 0}
               onClick={(e) => {
@@ -63,8 +64,8 @@ export default function CostCounter({
         >
           <span>
             <Button
-              width="8"
-              content="+"
+              content={<AddIcon w={3} h={3} />}
+              height="8"
               color="green"
               onClick={(e) => {
                 let multi = e.ctrlKey ? 5 : 1;

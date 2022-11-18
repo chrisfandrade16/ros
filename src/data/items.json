@@ -98,7 +98,7 @@
     {
         "name": "Chicken Tenders",
         "cost": 8.33,
-		"ingredients": [""],
+		"ingredients": ["Chicken"],
 		"size": "",
         "img": "../img/app1.png",
         "low": "../img/low_app1.jpg"
@@ -106,7 +106,7 @@
     {
         "name": "Chicken Wings",
         "cost": 6.57,
-		"ingredients": [""],
+		"ingredients": ["Chicken"],
 		"size": "",
         "img": "../img/app3.png",
         "low": "../img/low_app3.jpg"
