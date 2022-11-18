@@ -21,6 +21,8 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { matchSorter } from "match-sorter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function Menu({ data, setCurrentPageTab }) {
   const currentRestaurant = storage.restaurants[storage.currentRestaurant];
@@ -67,6 +69,27 @@ export default function Menu({ data, setCurrentPageTab }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
 
+  const [otherPatterns, setOtherPatterns] = useState([]);
+
+  useEffect(() => {
+    if (search.length > 2)
+      setOtherPatterns(
+        data
+          .getOtherCategoryPattern(currentCategoryTab)
+          .map((patterns) => {
+            if (
+              matchSorter(patterns.pattern, search, {
+                keys: ["name", "ingredients"],
+              }).length
+            )
+              return patterns.category;
+            return null;
+          })
+          .filter((name) => name)
+      );
+    else setOtherPatterns([]);
+  }, [search, data, currentCategoryTab]);
+
   return (
     <div id="menu-container">
       <Navigator
@@ -85,6 +108,7 @@ export default function Menu({ data, setCurrentPageTab }) {
         activeTab={currentCategoryTab}
         activePointerTab={true}
         useTextAsId={true}
+        lowlightTabs={otherPatterns}
       />
       <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
         {matchSorter(data.getCategoryPattern(currentCategoryTab), search, {
@@ -92,6 +116,7 @@ export default function Menu({ data, setCurrentPageTab }) {
         }).length > 0
           ? matchSorter(data.getCategoryPattern(currentCategoryTab), search, {
               keys: ["name", "ingredients"],
+              sorter: (rankedItems) => rankedItems,
             }).map((obj) => (
               <MenuItem
                 key={obj.name}
@@ -101,7 +126,7 @@ export default function Menu({ data, setCurrentPageTab }) {
                 clear={clear}
               />
             ))
-          : "No matching items found :("}
+          : `No matching items found. Found in ${otherPatterns.length} other categories.`}
       </Scrollbars>
       <div className="menu-footer tw-flex tw-justify-around">
         <InputGroup style={{ width: "20%" }}>
@@ -187,7 +212,12 @@ export default function Menu({ data, setCurrentPageTab }) {
           <span>
             <Button
               color="green"
-              content="Go to Cart"
+              content={
+                <>
+                  <p>Go to Cart - </p>
+                  <FontAwesomeIcon icon={faCartShopping} />
+                </>
+              }
               onClick={() => setCurrentPageTab(constants.PAGE_TABS.CART)}
               disabled={totalItems === 0}
             />
