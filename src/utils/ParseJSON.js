@@ -38,17 +38,16 @@ class ParseJSON {
     }
   }
   getOtherCategoryPattern(name) {
-    let categories = [];
+    let objListList = [];
     for (const key of this.categoryJSON) {
       if (key.name !== name) {
-        for (const item of key.items) {
-          for (const k of this.itemJSON) {
-            if (k.name === item) categories.push(key.name);
-          }
-        }
-        return categories;
+        objListList.push({
+          category: key.name,
+          pattern: this.getCategoryPattern(key.name),
+        });
       }
     }
+    return objListList;
   }
   getItemInfo(name) {
     for (const key of this.itemJSON) {
