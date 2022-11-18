@@ -17,7 +17,7 @@ const Header = (props) => {
 
   return (
     <div className="tw-flex tw-flex-row tw-mb-[20px] tw-items-center">
-      {flags.isSignedIn ? (
+      {flags.isCustomerSignedIn ? (
         <>
           <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-justify-center tw-mr-auto">
             <div className="tw-text-sm">
@@ -26,6 +26,12 @@ const Header = (props) => {
             <div className="tw-text-sm">
               Table Number: {storage.currentCustomerTable}
             </div>
+          </div>
+        </>
+      ) : null}
+      {flags.isEmployeeSignedIn ? (
+        <>
+          <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-justify-center tw-mr-auto">
           </div>
         </>
       ) : null}
@@ -39,7 +45,7 @@ const Header = (props) => {
         </div>
         <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} />
       </div>
-      {flags.isSignedIn ? (
+      {flags.isCustomerSignedIn ? (
         <div className="tw-flex tw-flex-1 tw-justify-end tw-ml-auto">
           <Button
             color="blue"
@@ -53,7 +59,18 @@ const Header = (props) => {
           ></Button>
         </div>
       ) : null}
-    </div>
+      {flags.isEmployeeSignedIn ? (
+        <div className="tw-flex tw-flex-1 tw-justify-end tw-ml-auto">
+          <Button
+            color="blue"
+            content={"Logout"}
+            onClick={() => {
+              setHome(true)
+            }}
+          ></Button>
+        </div>
+      ) : null}
+    </div >
   );
 };
 

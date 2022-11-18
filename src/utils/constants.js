@@ -21,7 +21,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.MENU);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
     {
@@ -30,7 +30,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.CART);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
     {
@@ -39,7 +39,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.MY_ORDERS);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
     {
@@ -48,7 +48,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.ABOUT_US);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
   ];
