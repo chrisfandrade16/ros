@@ -1,19 +1,11 @@
-import * as constants from "utils/constants";
-import Navigator from "components/Navigatior";
-import { storage } from "utils/storage";
-import { useState } from "react";
 import Button from "components/Button";
-import edit_pencil from "images/image_edit_pencil.png";
 
-const Modal = (props) => {
+const Modal2 = (props) => {
   const {
     title = "",
     onClose,
-    onConfirm,
-    confirmDisabled = false,
-    onReset,
-    resetDisabled = false,
     renderBody = () => { },
+    renderFooter = () => { }
   } = props;
 
   return (
@@ -32,31 +24,14 @@ const Modal = (props) => {
           ) : null}
         </div>
         <div className="tw-flex tw-py-[20px]">{renderBody()}</div>
-        {onReset || onConfirm ? (
+        <div className="tw-flex tw-py-[20px]">{
           <div className="tw-flex tw-flex-row tw-justify-end tw-gap-[20px] tw-pt-[12px] tw-pb-[18px] tw-border-t-[2px] tw-border-solid tw-border-[#CBD5E1]">
-            {onReset ? (
-              <Button
-                color="blue"
-                content={"Reset"}
-                onClick={onReset}
-                disabled={resetDisabled}
-                className="tw-self-start"
-              />
-            ) : null}
-            <Button color="red" content={"Cancel"} onClick={onClose} />
-            {onConfirm ? (
-              <Button
-                color="green"
-                content={"Confirm"}
-                onClick={onConfirm}
-                disabled={confirmDisabled}
-              />
-            ) : null}
+            {renderFooter()}
           </div>
-        ) : null}
+        }</div>
       </div>
     </>
   );
 };
 
-export default Modal;
+export default Modal2;

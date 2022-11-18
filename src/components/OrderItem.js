@@ -3,10 +3,10 @@ import "../styles/Menu.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Button from "components/Button";
 import {
-  Table, Tbody, Tr, Td, TableContainer,
-  Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter
+  Table, Tbody, Tr, Td, TableContainer
 } from '@chakra-ui/react';
 import Select from "react-select";
+import Modal2 from "components/Modal2";
 
 export default function OrderItem({ info, data, setData }) {
   const options = [
@@ -95,13 +95,12 @@ export default function OrderItem({ info, data, setData }) {
           onClick={cancelOrderShow}
         />
 
-        <Modal isOpen={viewItems} onClose={viewItemsClose} isCentered>
-          <ModalOverlay />
-          <div className="order-table">
-            <ModalContent>
-              <ModalHeader>Order: #{info.order}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
+        {viewItems ? (
+          <Modal2
+            title={"Order: #".concat(info.order)}
+            onClose={viewItemsClose}
+            renderBody={() => {
+              return (
                 <Table>
                   <Tr>
                     <th>Item</th>
@@ -110,43 +109,54 @@ export default function OrderItem({ info, data, setData }) {
                   </Tr>
                   {createItemRows()}
                 </Table>
-              </ModalBody>
+              );
+            }}
+            renderFooter={() => {
+              return (
+                <div>
+                  <p>
+                    Status: {info.status}
+                  </p>
+                  <p>
+                    Total: ${info.total}
+                  </p>
+                </div>
+              );
+            }}
+          />
+        ) : null}
 
-              <ModalFooter>
-                Status: {info.status}
-                Total: ${info.total}
-              </ModalFooter>
-            </ModalContent>
-          </div>
-        </Modal>
-
-        <Modal className="order-table" isOpen={cancelOrder} onClose={cancelOrderClose} isCentered>
-          <ModalOverlay />
-          <div className="order-table">
-            <ModalContent>
-              <ModalHeader>Order: #{info.order}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                Are you sure you would like to cancel this order?
-              </ModalBody>
-
-              <ModalFooter>
+        {cancelOrder ? (
+          <Modal2
+            title={"Order: #".concat(info.order)}
+            onClose={cancelOrderClose}
+            renderBody={() => {
+              return (
+                <p>
+                  Are you sure you would like to cancel this order?
+                </p>
+              );
+            }}
+            renderFooter={() => {
+              return (
+                <div>
                 <Button
-                  color="blue"
-                  content="Yes"
-                  disabled={false}
-                  onClick={onCancelOrder}
-                />
-                <Button
-                  color="green"
+                  color="red"
                   content="No"
                   disabled={false}
                   onClick={cancelOrderClose}
                 />
-              </ModalFooter>
-            </ModalContent>
-          </div>
-        </Modal>
+                  <Button
+                    color="blue"
+                    content="Yes"
+                    disabled={false}
+                    onClick={onCancelOrder}
+                  />
+                </div>
+              );
+            }}
+          />
+        ) : null}
       </div>
     </div>
   );
