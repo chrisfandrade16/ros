@@ -31,5 +31,6 @@ export const storage = {
 };
 
 export const flags = {
-  isSignedIn: false,
+  isCustomerSignedIn: false,
+  isEmployeeSignedIn: false,
 };

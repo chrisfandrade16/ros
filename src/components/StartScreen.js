@@ -29,7 +29,7 @@ export default function StartScreen({ setCurrentPageTab }) {
       }
       else {
         setError(false);
-        flags.isSignedIn = true;
+        flags.isCustomerSignedIn = true;
         setCurrentPageTab(constants.PAGE_TABS.MENU);
       }
     }
