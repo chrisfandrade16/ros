@@ -114,10 +114,7 @@ export default function Basket({ data, setCurrentPageTab }) {
     setTotalCost(
       (prevTotal) => Math.round((prevTotal - quantity * cost) * 100) / 100
     );
-    sessionStorage.setItem(
-      "totalItems",
-      parseInt(sessionStorage.getItem("totalItems")) - quantity
-    );
+    setTotalItems((prevTotal) => prevTotal - quantity);
     toast({
       title: `${name} removed`,
       status: "info",

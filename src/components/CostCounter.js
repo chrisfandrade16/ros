@@ -11,6 +11,7 @@ export default function CostCounter({
   setQuantity = () => {},
   setTotalCost,
   setTotalItems,
+  removeItem = () => {},
   clear,
   hideCost,
 }) {
@@ -48,7 +49,8 @@ export default function CostCounter({
               color="red"
               disabled={count === 0}
               onClick={(e) => {
-                if (count > 0) {
+                if (count === 1) removeItem(name, count, cost);
+                else if (count > 1) {
                   let multi = e.ctrlKey ? (count < 5 ? count : 5) : 1;
                   setCount(count - 1 * multi);
                   setTotalCost(
@@ -65,7 +67,7 @@ export default function CostCounter({
           value={count}
           onChange={(newValue) => {
             const regex = new RegExp("^[0-9]+$");
-            if (!regex.test(newValue) && newValue != "") {
+            if (!regex.test(newValue) && newValue !== "") {
               return;
             }
             const newCount = newValue !== "" ? parseInt(newValue) : 0;

@@ -5,7 +5,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import delete_trash from "images/image_delete_trash.png";
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import CostCounter from "./CostCounter";
 
 export default function CartItem({
@@ -63,6 +62,7 @@ export default function CartItem({
           setQuantity={setQuantity}
           setTotalCost={setTotalCost}
           setTotalItems={setTotalItems}
+          removeItem={removeItem}
           clear={false}
         />
         <div className="basketLeft tw-ml-auto tw-mr-[50px]">
