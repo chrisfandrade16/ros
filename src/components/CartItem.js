@@ -8,7 +8,12 @@ import delete_trash from "images/image_delete_trash.png";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import CostCounter from "./CostCounter";
 
-export default function CartItem({ info, setTotalCost, removeItem }) {
+export default function CartItem({
+  info,
+  setTotalCost,
+  setTotalItems,
+  removeItem,
+}) {
   const [quantity, setQuantity] = useState(
     parseFloat(sessionStorage.getItem(info.name))
   );
@@ -57,7 +62,7 @@ export default function CartItem({ info, setTotalCost, removeItem }) {
           hideCost={true}
           setQuantity={setQuantity}
           setTotalCost={setTotalCost}
-          setTotalItems={() => {}}
+          setTotalItems={setTotalItems}
           clear={false}
         />
         <div className="basketLeft tw-ml-auto tw-mr-[50px]">

@@ -29,7 +29,10 @@ import CartItem from "./CartItem";
 export default function Basket({ data, setCurrentPageTab }) {
   const toast = useToast();
   const [totalCost, setTotalCost] = useState(
-    parseFloat(sessionStorage.getItem("totalCost"))
+    parseFloat(sessionStorage.getItem("totalCost")) || 0
+  );
+  const [totalItems, setTotalItems] = useState(
+    parseInt(sessionStorage.getItem("totalItems")) || 0
   );
   const taxPrice = totalCost * 0.13;
   const [tipPercentage, setTipPercentage] = useState(0);
@@ -49,6 +52,7 @@ export default function Basket({ data, setCurrentPageTab }) {
 
   useEffect(() => {
     sessionStorage.setItem("totalCost", totalCost);
+    sessionStorage.setItem("totalItems", totalItems);
     setCartItems(
       Object.keys(sessionStorage).filter(
         (item) =>
@@ -145,12 +149,18 @@ export default function Basket({ data, setCurrentPageTab }) {
         </div>
       ) : null}
       <Divider orientation="horizontal" />
-      <Scrollbars renderThumbVertical={renderThumb}>
+      <Scrollbars
+        renderThumbVertical={renderThumb}
+        autoHeight
+        autoHeightMin={100}
+        autoHeightMax={500}
+      >
         {cartItems.map((item) => (
           <CartItem
             key={item}
             info={data.getItemInfo(item)}
             setTotalCost={setTotalCost}
+            setTotalItems={setTotalItems}
             removeItem={removeItem}
           />
         ))}
