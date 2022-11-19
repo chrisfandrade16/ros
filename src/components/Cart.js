@@ -134,7 +134,7 @@ export default function Basket({ data, setCurrentPageTab }) {
 
   return (
     <div className="basket">
-      {cartItems.length == 0 ? (
+      {cartItems.length !== 0 ? (
         <div className="cartHeader">
           <div className="itemNameHeader">ITEM NAME</div>
           <div className="itemCostHeader">ITEM COST</div>
