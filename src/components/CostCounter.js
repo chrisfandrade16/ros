@@ -80,7 +80,7 @@ export default function CostCounter({
             setCount(newValue);
           }}
           onBlur={() => {
-            if (count == "") {
+            if (count === "") {
               setCount(0);
             }
           }}

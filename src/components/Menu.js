@@ -156,7 +156,7 @@ export default function Menu({ data, setCurrentPageTab }) {
               />
             </span>
           </Tooltip>
-          <div className="tw-w-[150px] tw-mx-2">
+          <div className="tw-w-[175px] tw-mx-2">
             <p align="left">
               <span style={{ color: "#B5838D" }}>Total Items:</span>{" "}
               {totalItems}

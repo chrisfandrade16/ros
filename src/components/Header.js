@@ -38,6 +38,9 @@ const Header = (props) => {
               <FontAwesomeIcon
                 className="tw-cursor-pointer"
                 icon={faPenToSquare}
+                onClick={() => {
+                  setHome(true);
+                }}
               />
             </Tooltip>
           </>
