@@ -474,16 +474,17 @@ const OwnerPageAccount = (props) => {
                       <img
                         className="tw-w-[48px] tw-h-[48px] tw-brightness-0 tw-invert"
                         src={delete_trash}
-                      ></img>
+                        alt="delete trash"
+                      />
                     }
                     onClick={() => {
                       storage.restaurants[
                         storage.currentRestaurant
                       ].restaurantEmployees.splice(index, 1);
-                      console.log(
-                        storage.restaurants[storage.currentRestaurant]
-                          .restaurantEmployees
-                      );
+                      // console.log(
+                      //   storage.restaurants[storage.currentRestaurant]
+                      //     .restaurantEmployees
+                      // );
                       setForceUpdate(!forceUpdate);
                     }}
                   />

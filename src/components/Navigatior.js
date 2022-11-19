@@ -25,6 +25,7 @@ const Navigator = (props) => {
           : activeTab === index;
         return (
           <div
+            key={tab + index}
             className={`tw-relative tw-flex-1 tw-text-center tw-duration-300 ${
               lowlightTabs.length && lowlightTabs.includes(text)
                 ? "tw-bg-[#40425f]"
