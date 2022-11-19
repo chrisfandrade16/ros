@@ -1,7 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.296fe798.css",
-    "main.js": "/static/js/main.3cfa72b2.js",
+    "main.css": "/static/css/main.1a5fd87a.css",
+    "main.js": "/static/js/main.a8c46a1e.js",
+    "static/js/main.a8c46a1e.js.map": "/static/js/main.a8c46a1e.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1a5fd87a.css.map": "/static/css/main.1a5fd87a.css.map",
     "static/media/restaurant.jpg": "/static/media/restaurant.a06bacae6235483e6438.jpg",
     "static/media/waitress.jpg": "/static/media/waitress.b61d140fed82dc194057.jpg",
     "static/media/image_pizza_logo.png": "/static/media/image_pizza_logo.64033de5ed6656b4286b.png",
@@ -9,12 +12,10 @@
     "static/media/chef.jpg": "/static/media/chef.61e997228d4e84e35b9e.jpg",
     "static/media/emptyCart.png": "/static/media/emptyCart.713f204a6dd2bb386006.png",
     "static/media/image_delete_trash.png": "/static/media/image_delete_trash.539f5b124a1ccd24d88d.png",
-    "index.html": "/index.html",
-    "main.296fe798.css.map": "/static/css/main.296fe798.css.map",
-    "main.3cfa72b2.js.map": "/static/js/main.3cfa72b2.js.map"
+    "static/js/main.a8c46a1e.js.LICENSE.txt": "/static/js/main.a8c46a1e.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/css/main.296fe798.css",
-    "static/js/main.3cfa72b2.js"
+    "static/css/main.1a5fd87a.css",
+    "static/js/main.a8c46a1e.js"
   ]
 }
