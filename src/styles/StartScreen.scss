@@ -25,6 +25,7 @@ $space: 1rem;
 
 .form_field {
     width: 20vw;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -34,7 +35,7 @@ $space: 1rem;
     display: flex;
     align-self: center;
     margin-top: 0vh;
-    margin-bottom: 0.5vh;
+    margin-bottom: 12px;
 }
 
 .form_text_box {
