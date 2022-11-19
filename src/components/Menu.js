@@ -140,22 +140,33 @@ export default function Menu({ data, setCurrentPageTab }) {
             onChange={(e) => setSearch(e.target.value)}
           />
         </InputGroup>
-
-        <Tooltip
-          label="No items in cart!"
-          hasArrow
-          isDisabled={totalItems > 0}
-          openDelay={800}
-        >
-          <span>
-            <Button
-              color="red"
-              content="Clear Selections"
-              disabled={totalItems === 0}
-              onClick={onOpen}
-            />
-          </span>
-        </Tooltip>
+        <div className="tw-flex tw-flex-row tw-content-center">
+          <Tooltip
+            label="No items in cart!"
+            hasArrow
+            isDisabled={totalItems > 0}
+            openDelay={800}
+          >
+            <span>
+              <Button
+                color="red"
+                content="Clear Selections"
+                disabled={totalItems === 0}
+                onClick={onOpen}
+              />
+            </span>
+          </Tooltip>
+          <div className="tw-w-[150px] tw-mx-2">
+            <p align="left">
+              <span style={{ color: "#B5838D" }}>Total Items:</span>{" "}
+              {totalItems}
+            </p>
+            <p align="left">
+              <span style={{ color: "#B5838D" }}>Total Cost:</span>
+              &nbsp;&nbsp;&nbsp;${totalCost.toFixed(2)}
+            </p>
+          </div>
+        </div>
         <AlertDialog
           isOpen={isOpen}
           leastDestructiveRef={cancelRef}
@@ -194,15 +205,7 @@ export default function Menu({ data, setCurrentPageTab }) {
             </AlertDialogContent>
           </AlertDialogOverlay>
         </AlertDialog>
-        <div style={{ width: "150px" }}>
-          <p align="left">
-            <span style={{ color: "#B5838D" }}>Total Items:</span> {totalItems}
-          </p>
-          <p align="left">
-            <span style={{ color: "#B5838D" }}>Total Cost:</span>
-            &nbsp;&nbsp;&nbsp;${totalCost.toFixed(2)}
-          </p>
-        </div>
+
         <Tooltip
           label="No items in cart!"
           hasArrow
