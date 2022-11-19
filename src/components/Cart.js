@@ -23,8 +23,8 @@ import {
   Divider,
   useToast,
 } from "@chakra-ui/react";
-import * as chakra from "@chakra-ui/react";
 import CartItem from "./CartItem";
+import Button from "./Button";
 
 export default function Basket({ data, setCurrentPageTab }) {
   const toast = useToast();
@@ -245,15 +245,12 @@ export default function Basket({ data, setCurrentPageTab }) {
                   <option value="Inperson"> In person</option>
                 </Select>
               </div>
-              <chakra.Button
-                colorScheme="blue"
-                size="sm"
+              <Button
+                content="Submit"
                 onClick={() => {
                   submitOrder();
                 }}
-              >
-                Submit
-              </chakra.Button>
+              />
             </div>
 
             <div style={{ display: paymentAlert }} className="paymentAlert">
@@ -318,20 +315,17 @@ export default function Basket({ data, setCurrentPageTab }) {
 
           <ModalFooter>
             {["Debit", "Credit"].includes(paymentOptionSelected) && (
-              <chakra.Button
-                colorScheme="blue"
-                mr={3}
+              <Button
+                className="tw-mr-3"
+                color="green"
+                content="Complete Order"
                 onClick={() => {
                   cancel();
                   reset();
                 }}
-              >
-                Complete Order
-              </chakra.Button>
+              />
             )}
-            <chakra.Button colorScheme="gray" onClick={cancel}>
-              <p style={{ color: "black" }}>Cancel</p>
-            </chakra.Button>
+            <Button color="red" onClick={cancel} content={<p>Cancel</p>} />
           </ModalFooter>
         </ModalContent>
       </Modal>
