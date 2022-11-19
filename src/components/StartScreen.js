@@ -61,25 +61,25 @@ export default function StartScreen({ setCurrentPageTab }) {
             default_value="1"
             onChange={(e) => setTableNum(e.target.value)}
           >
-            <option key="1" value="1">
+            <option style={{ backgroundColor: "#434560" }} key="1" value="1">
               1
             </option>
-            <option key="2" value="2">
+            <option style={{ backgroundColor: "#434560" }} key="2" value="2">
               2
             </option>
-            <option key="3" value="3">
+            <option style={{ backgroundColor: "#434560" }} key="3" value="3">
               3
             </option>
-            <option key="4" value="4">
+            <option style={{ backgroundColor: "#434560" }} key="4" value="4">
               4
             </option>
-            <option key="5" value="5">
+            <option style={{ backgroundColor: "#434560" }} key="5" value="5">
               5
             </option>
-            <option key="6" value="6">
+            <option style={{ backgroundColor: "#434560" }} key="6" value="6">
               6
             </option>
-            <option key="7" value="7">
+            <option style={{ backgroundColor: "#434560" }} key="7" value="7">
               7
             </option>
           </Select>

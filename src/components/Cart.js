@@ -239,10 +239,22 @@ export default function Basket({ data, setCurrentPageTab }) {
             <div className="footerOptions">
               <div className="paymentOptions">
                 <Select size="sm" onChange={onChangePaymentOption}>
-                  <option value="">Payment Option</option>
-                  <option value="Debit">Debit</option>
-                  <option value="Credit">Credit</option>
-                  <option value="Inperson"> In person</option>
+                  <option style={{ backgroundColor: "#434560" }} value="">
+                    Payment Option
+                  </option>
+                  <option style={{ backgroundColor: "#434560" }} value="Debit">
+                    Debit
+                  </option>
+                  <option style={{ backgroundColor: "#434560" }} value="Credit">
+                    Credit
+                  </option>
+                  <option
+                    style={{ backgroundColor: "#434560" }}
+                    value="Inperson"
+                  >
+                    {" "}
+                    In person
+                  </option>
                 </Select>
               </div>
               <Button

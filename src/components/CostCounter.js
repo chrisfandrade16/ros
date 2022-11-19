@@ -11,7 +11,7 @@ export default function CostCounter({
   setQuantity = () => {},
   setTotalCost,
   setTotalItems,
-  removeItem = () => {},
+  removeItem = null,
   clear,
   hideCost,
 }) {
@@ -32,6 +32,10 @@ export default function CostCounter({
     if (clear) setCount(0);
   }, [clear]);
 
+  useEffect(() => {
+    console.log(removeItem === null);
+  });
+
   return (
     <div className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly tw-select-none">
       {!hideCost ? <p>${cost}</p> : null}
@@ -49,8 +53,8 @@ export default function CostCounter({
               color="red"
               disabled={count === 0}
               onClick={(e) => {
-                if (count === 1) removeItem(name, count, cost);
-                else if (count > 1) {
+                if (removeItem) if (count === 1) removeItem(name, count, cost);
+                if (count > (removeItem ? 1 : 0)) {
                   let multi = e.ctrlKey ? (count < 5 ? count : 5) : 1;
                   setCount(count - 1 * multi);
                   setTotalCost(
