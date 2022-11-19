@@ -20,10 +20,11 @@
 .view-order-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     width: 50vw;
-    height: 20vh;
     border: 1px solid white;
     padding: 0.5vw;
+    padding-bottom: 30px;
     flex-shrink: 1;
 
 }
@@ -52,7 +53,6 @@
     color: #FFCDB2 !important;
     border-color: white !important;
     width: 47vw;
-    height: 4vh;
     font-size: 2vh !important;
     margin-top: 0.5vh;
 }
@@ -61,7 +61,6 @@
     background-color: #7e7f9a !important;
     color: white !important;
     width: 47vw;
-    height: 4vh;
     font-size: 2vh !important;
     margin-top: 0.5vh;
 }

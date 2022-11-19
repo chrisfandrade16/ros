@@ -133,7 +133,11 @@ export default function Basket({ data, setCurrentPageTab }) {
   };
 
   return (
-    <div className="basket">
+    <div
+      className={`basket ${
+        cartItems.length !== 0 ? "tw-h-[40vh]" : "tw-h-[80vh]"
+      }`}
+    >
       {cartItems.length !== 0 ? (
         <div className="cartHeader">
           <div className="itemNameHeader">ITEM NAME</div>
