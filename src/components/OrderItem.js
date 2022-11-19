@@ -56,7 +56,7 @@ export default function OrderItem({ info, data, setData }) {
   };
 
   return (
-    <div className="menu-item">
+    <div className="menu-item tw-gap-[20px]">
       <div className="item-desc">
         <TableContainer>
           <Table variant="simple">
@@ -78,7 +78,7 @@ export default function OrderItem({ info, data, setData }) {
         </TableContainer>
       </div>
 
-      <div className="item-desc">
+      <div className="item-desc tw-w-[100px]">
         Status
         <Select
           className="form_select"
@@ -88,7 +88,7 @@ export default function OrderItem({ info, data, setData }) {
         />
       </div>
 
-      <div className="item-desc">
+      <div className="item-desc tw-flex tw-flex-col tw-gap-[20px]">
         <Button
           color="blue"
           content="View Items"
@@ -138,7 +138,7 @@ export default function OrderItem({ info, data, setData }) {
             }}
             renderFooter={() => {
               return (
-                <div>
+                <>
                   <Button
                     color="red"
                     content="No"
@@ -151,7 +151,7 @@ export default function OrderItem({ info, data, setData }) {
                     disabled={false}
                     onClick={onCancelOrder}
                   />
-                </div>
+                </>
               );
             }}
           />
