@@ -20,7 +20,7 @@ const Header = (props) => {
 
   return (
     <div className="tw-flex tw-flex-row tw-mb-[20px] tw-items-center">
-      {flags.isSignedIn ? (
+      {flags.isCustomerSignedIn ? (
         <div className="tw-flex tw-items-center">
           <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-mr-auto tw-mr-3 tw-grow">
             <div className="tw-text-sm">
@@ -41,6 +41,11 @@ const Header = (props) => {
           </Tooltip>
         </div>
       ) : null}
+      {flags.isEmployeeSignedIn ? (
+        <>
+          <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-justify-center tw-mr-auto"></div>
+        </>
+      ) : null}
       <div
         className="tw-flex tw-flex-row tw-items-center tw-grow tw-justify-center"
         onClick={() => setHome(true)}
@@ -59,6 +64,17 @@ const Header = (props) => {
               setTimeout(() => {
                 setGetHelpLabel("Get Help");
               }, 5000);
+            }}
+          ></Button>
+        </div>
+      ) : null}
+      {flags.isEmployeeSignedIn ? (
+        <div className="tw-flex tw-flex-1 tw-justify-end tw-ml-auto">
+          <Button
+            color="blue"
+            content={"Logout"}
+            onClick={() => {
+              setHome(true);
             }}
           ></Button>
         </div>

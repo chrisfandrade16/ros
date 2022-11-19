@@ -10,7 +10,7 @@ import {
 import * as chakra from '@chakra-ui/react' ;
 import Button from "components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import delete_trash from "images/image_delete_trash.png";
 
 
 export default function Basket(props) {
@@ -77,9 +77,19 @@ export default function Basket(props) {
         <Divider orientation='horizontal' />
         {cartItems.map((item) => (
             <div className="cartItem">
-              <div class="trashIcon">
-                <FontAwesomeIcon icon={faTrash} onClick={() => removeAllItems(item.name)}/>
+            <div className="tw-self-center">
+              <Button
+                color="red"
+                content={
+                  <img
+                    className="tw-w-[24px] tw-h-[24px] tw-brightness-0 tw-invert"
+                    src={delete_trash}
+                  ></img>
+                }
+                onClick={() => {removeAllItems(item.name)}}
+              />
               </div>
+
 
               <LazyLoadImage
                 src={item.img}

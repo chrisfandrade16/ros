@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/StaffLogin.scss";
 import { Input } from "@chakra-ui/react";
 import * as constants from "../utils/constants";
-import { storage } from "utils/storage";
+import { storage, flags } from "utils/storage";
 import Button from "components/Button";
 
 export default function StaffLogin({ setCurrentPageTab }) {
@@ -43,6 +43,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
               currentRestaurant.restaurantOwner.username === staffID &&
               currentRestaurant.restaurantOwner.password === staffPassword
             ) {
+              flags.isEmployeeSignedIn = true;
               setCurrentPageTab(constants.PAGE_TABS.CHANGE_MENU);
             } else if (
               currentRestaurant.restaurantEmployees.find(
@@ -51,6 +52,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
                   employee.password === staffPassword
               )
             ) {
+              flags.isEmployeeSignedIn = true;
               setCurrentPageTab(constants.PAGE_TABS.VIEW_ORDERS);
             }
           }}
