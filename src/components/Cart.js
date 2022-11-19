@@ -52,7 +52,6 @@ export default function Basket({ data, setCurrentPageTab }) {
 
   useEffect(() => {
     sessionStorage.setItem("totalCost", totalCost);
-    sessionStorage.setItem("totalItems", totalItems);
     setCartItems(
       Object.keys(sessionStorage).filter(
         (item) =>
@@ -62,6 +61,10 @@ export default function Basket({ data, setCurrentPageTab }) {
       )
     );
   }, [totalCost]);
+
+  useEffect(() => {
+    sessionStorage.setItem("totalItems", totalItems);
+  }, [totalItems]);
 
   const onChangePaymentOption = (event) => {
     setPaymentOption(event.target.value);
@@ -252,7 +255,6 @@ export default function Basket({ data, setCurrentPageTab }) {
                     style={{ backgroundColor: "#434560" }}
                     value="Inperson"
                   >
-                    {" "}
                     In person
                   </option>
                 </Select>

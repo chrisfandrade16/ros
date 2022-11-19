@@ -163,7 +163,7 @@ export default function Menu({ data, setCurrentPageTab }) {
             </p>
             <p align="left">
               <span style={{ color: "#B5838D" }}>Total Cost:</span>
-              &nbsp;&nbsp;&nbsp;${totalCost.toFixed(2)}
+              &nbsp;&nbsp;&nbsp;${Math.abs(totalCost).toFixed(2)}
             </p>
           </div>
         </div>

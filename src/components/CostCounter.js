@@ -32,10 +32,6 @@ export default function CostCounter({
     if (clear) setCount(0);
   }, [clear]);
 
-  useEffect(() => {
-    console.log(removeItem === null);
-  });
-
   return (
     <div className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly tw-select-none">
       {!hideCost ? <p>${cost}</p> : null}
@@ -70,6 +66,13 @@ export default function CostCounter({
         <Input
           value={count}
           onChange={(newValue) => {
+            newValue =
+              newValue.length > 2
+                ? newValue.substr(0, 2)
+                : newValue.length === 0
+                ? 0
+                : newValue;
+
             const regex = new RegExp("^[0-9]+$");
             if (!regex.test(newValue) && newValue !== "") {
               return;
@@ -83,7 +86,7 @@ export default function CostCounter({
               const newTotal = prevTotal - count + newCount;
               return newTotal;
             });
-            setCount(newValue);
+            setCount(parseInt(newValue));
           }}
           onBlur={() => {
             if (count === "") {
@@ -91,16 +94,21 @@ export default function CostCounter({
             }
           }}
           className="tw-w-[40px]"
-          type="text"
+          type="number"
         />
-        <Tooltip hasArrow label={`"CRTL" click to add 5`}>
+        <Tooltip
+          hasArrow
+          isDisabled={count === 99}
+          label={`"CRTL" click to add ${count > 94 ? 99 - count : 5}`}
+        >
           <span>
             <Button
               content={<AddIcon w={3} h={3} />}
               height="8"
               color="green"
+              disabled={count === 99}
               onClick={(e) => {
-                let multi = e.ctrlKey ? 5 : 1;
+                let multi = e.ctrlKey ? (count > 94 ? 99 - count : 5) : 1;
                 setCount(count + 1 * multi);
                 setTotalCost(
                   (prevTotal) =>
