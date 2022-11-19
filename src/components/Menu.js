@@ -59,7 +59,7 @@ export default function Menu({ data, setCurrentPageTab }) {
 
   const renderThumb = ({ style, ...props }) => {
     const thumbStyle = {
-      backgroundColor: `grey`,
+      backgroundColor: `#6D6875`,
     };
     return (
       <div className="bar" style={{ ...style, ...thumbStyle }} {...props} />
@@ -136,7 +136,7 @@ export default function Menu({ data, setCurrentPageTab }) {
           />
           <Input
             type="search"
-            placeholder="Search for item"
+            placeholder="Search for item..."
             onChange={(e) => setSearch(e.target.value)}
           />
         </InputGroup>
