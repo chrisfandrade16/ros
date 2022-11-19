@@ -4,7 +4,7 @@
         "cost": 19.84,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
 		"size": "16''",
-        "img": "../img/p1.png",
+        "img": "./img/p1.png",
         "count":"2"
     },
 	{
@@ -12,7 +12,7 @@
         "cost": 15.12,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
 		"size": "14''", 
-        "img": "../img/p1.png",
+        "img": "./img/p1.png",
         "count":"2"
 
     },
@@ -21,7 +21,7 @@
         "cost": 10.63,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos", "Pepperoni"],
 		"size": "12''",
-        "img": "../img/p1.png",
+        "img": "./img/p1.png",
         "count":"2"
 
     },  
@@ -30,7 +30,7 @@
         "cost": 7.73,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
 		"size": "10''",
-        "img": "../img/p1.png",
+        "img": "./img/p1.png",
         "count":"2"
 
 	},
@@ -39,7 +39,7 @@
         "cost": 19.84,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
 		"size": "16''",
-        "img": "../img/p5.png",
+        "img": "./img/p5.png",
         "count":"2"
 
     },
@@ -48,7 +48,7 @@
         "cost": 15.12,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
 		"size": "14''", 
-        "img": "../img/p5.png",
+        "img": "./img/p5.png",
         "count":"2"
 
     },
@@ -57,7 +57,7 @@
         "cost": 10.63,
 		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
 		"size": "12''",
-        "img": "../img/p5.png",
+        "img": "./img/p5.png",
         "count":"2"
 
     },  
@@ -66,7 +66,7 @@
         "cost": 7.93,
 		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "10''",
-        "img": "../img/p5.png",
+        "img": "./img/p5.png",
         "count":"2"
 
 	},
@@ -75,7 +75,7 @@
         "cost": 19.84,
 		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "16''",
-        "img": "../img/p2.png",
+        "img": "./img/p2.png",
         "count":"2"
 
     },
@@ -84,7 +84,7 @@
         "cost": 15.12,
 		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "14''", 
-        "img": "../img/p2.png",
+        "img": "./img/p2.png",
         "count":"2"
 
     },
@@ -93,7 +93,7 @@
         "cost": 10.63,
 		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "12''",
-        "img": "../img/p2.png",
+        "img": "./img/p2.png",
         "count":"2"
 
     },  
@@ -102,7 +102,7 @@
         "cost": 7.93,
 		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "10''",
-        "img": "../img/p2.png",
+        "img": "./img/p2.png",
         "count":"2"
 
 	}, 
@@ -111,7 +111,7 @@
         "cost": 8.33,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/app1.png",
+        "img": "./img/app1.png",
         "count":"2"
 
 	},
@@ -120,7 +120,7 @@
         "cost": 6.57,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/app3.png",
+        "img": "./img/app3.png",
         "count":"2"
 
 	},
@@ -129,7 +129,7 @@
         "cost": 4.99,
 		"ingredients": ["Potatos"],
 		"size": "",
-        "img": "../img/app2.png",
+        "img": "./img/app2.png",
         "count":"2"
 
 	},
@@ -138,7 +138,7 @@
         "cost": 7.41,
 		"ingredients": ["Tomatos"],
 		"size": "",
-        "img": "../img/app4.png",
+        "img": "./img/app4.png",
         "count":"2"
 
 	},
@@ -147,7 +147,7 @@
         "cost": 7.41,
 		"ingredients": ["Green stuff"],
 		"size": "",
-        "img": "../img/app5.png",
+        "img": "./img/app5.png",
         "count":"2"
 
 	},
@@ -156,7 +156,7 @@
         "cost": 2.85,
 		"ingredients": ["Buns, American cheese, Angus beef patty, Bacon"],
 		"size": "",
-        "img": "../img/burg2.png",
+        "img": "./img/burg2.png",
         "count":"2"
 
 	},
@@ -165,7 +165,7 @@
         "cost": 2.85,
 		"ingredients": ["Buns, American cheese, Angus beef patty, Lettuce"],
 		"size": "",
-        "img": "../img/burg3.png",
+        "img": "./img/burg3.png",
         "count":"2"
 
 	},
@@ -174,7 +174,7 @@
         "cost": 2.85,
 		"ingredients": ["Brioche buns, American cheese, Angus beef patty, Lettuce, Onions, Pickles, Tomatoes"],
 		"size": "",
-        "img": "../img/burg4.png",
+        "img": "./img/burg4.png",
         "count":"2"
 
 	},
@@ -183,7 +183,7 @@
         "cost": 2.85,
 		"ingredients": ["Brioche buns, Havarti cheese, Ground beef chuck, Onions, Bacon"],
 		"size": "",
-        "img": "../img/burg5.png",
+        "img": "./img/burg5.png",
         "count":"2"
 
 	},
@@ -192,7 +192,7 @@
         "cost": 2.85,
 		"ingredients": ["Buns, American cheese, Angus beef patty, Lettuce, Onions, Tomatoes"],
 		"size": "",
-        "img": "../img/burg6.png",
+        "img": "./img/burg6.png",
         "count":"2"
 
 	},
@@ -201,7 +201,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des1.png",
+        "img": "./img/des1.png",
         "count":"2"
 
 	},
@@ -210,7 +210,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des2.png",
+        "img": "./img/des2.png",
         "count":"2"
 
 	},
@@ -219,7 +219,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des3.png",
+        "img": "./img/des3.png",
         "count":"2"
 
 	},
@@ -228,7 +228,7 @@
         "cost": 2.85,
 		"ingredients": [""],
 		"size": "",
-        "img": "../img/des4.png",
+        "img": "./img/des4.png",
         "count":"2"
 
 	}
