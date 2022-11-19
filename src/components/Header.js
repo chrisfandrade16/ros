@@ -48,13 +48,12 @@ const Header = (props) => {
       ) : null}
       <div
         className="tw-flex tw-flex-row tw-items-center tw-grow tw-justify-center"
-        onClick={() => setHome(true)}
-        style={{ cursor: "pointer" }}
+        style={{ userSelect: "none" }}
       >
         <div className="tw-text-5xl">{currentRestaurant.restaurantName}</div>
         <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} alt="logo" />
       </div>
-      {flags.isSignedIn ? (
+      {flags.isCustomerSignedIn ? (
         <div className="tw-flex">
           <Button
             color="blue"

@@ -54,7 +54,9 @@ const App = () => {
         {currentPageTab === constants.PAGE_TABS.MENU && (
           <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
         )}
-        {currentPageTab === constants.PAGE_TABS.CART && <Cart data={data} />}
+        {currentPageTab === constants.PAGE_TABS.CART && (
+          <Cart data={data} setCurrentPageTab={setCurrentPageTab} />
+        )}
         {currentPageTab === constants.PAGE_TABS.MY_ORDERS && <MyOrders />}
         {currentPageTab === constants.PAGE_TABS.ABOUT_US && <AboutUs />}
         {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS && (
