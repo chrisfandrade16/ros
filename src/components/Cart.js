@@ -141,7 +141,7 @@ export default function Basket({ data, setCurrentPageTab }) {
         </div>
       ) : null}
       <Divider orientation="horizontal" />
-      <Scrollbars style={{ height: "520px" }} renderThumbVertical={renderThumb}>
+      <Scrollbars renderThumbVertical={renderThumb}>
         {cartItems.map((item) => (
           <CartItem
             key={item}
