@@ -7,10 +7,9 @@ export const PAGE_TABS = {
   MENU: 0,
   CART: 1,
   MY_ORDERS: 2,
-  ABOUT_US: 3,
-  VIEW_ORDERS: 4,
-  CHANGE_MENU: 5,
-  START_SCREEN: 6,
+  EMPLOYEE_VIEW: 3,
+  OWNER_VIEW: 4,
+  START_SCREEN: 5,
 };
 
 export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
@@ -37,15 +36,6 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
       text: "My Orders",
       onClick: () => {
         setCurrentPageTab(PAGE_TABS.MY_ORDERS);
-      },
-      getIsDisabled: () => {
-        return !flags.isCustomerSignedIn;
-      },
-    },
-    {
-      text: "About Us",
-      onClick: () => {
-        setCurrentPageTab(PAGE_TABS.ABOUT_US);
       },
       getIsDisabled: () => {
         return !flags.isCustomerSignedIn;

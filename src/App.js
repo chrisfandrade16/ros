@@ -27,8 +27,8 @@ const App = () => {
       <div className="ros tw-px-[40px] tw-py-[30px]">
         <Header setCurrentPageTab={setCurrentPageTab} />
         {currentPageTab !== constants.PAGE_TABS.START_SCREEN &&
-          currentPageTab !== constants.PAGE_TABS.VIEW_ORDERS &&
-          currentPageTab !== constants.PAGE_TABS.CHANGE_MENU && (
+          currentPageTab !== constants.PAGE_TABS.EMPLOYEE_VIEW &&
+          currentPageTab !== constants.PAGE_TABS.OWNER_VIEW && (
             <Navigator
               tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
               activeTab={currentPageTab}
@@ -59,14 +59,14 @@ const App = () => {
         )}
         {currentPageTab === constants.PAGE_TABS.MY_ORDERS && <MyOrders />}
         {currentPageTab === constants.PAGE_TABS.ABOUT_US && <AboutUs />}
-        {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS && (
+        {currentPageTab === constants.PAGE_TABS.EMPLOYEE_VIEW && (
           <Staff
             setCurrentPageTab={setCurrentPageTab}
             data={data}
             setData={setData}
           />
         )}
-        {currentPageTab === constants.PAGE_TABS.CHANGE_MENU && <OwnerPage />}
+        {currentPageTab === constants.PAGE_TABS.OWNER_VIEW && <OwnerPage />}
       </div>
     </ChakraProvider>
   );

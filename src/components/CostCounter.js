@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Input from "components/Input";
 import Button from "components/Button";
 import "../styles/Menu.scss";
 import { Tooltip } from "@chakra-ui/react";
@@ -7,13 +8,20 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 export default function CostCounter({
   name,
   cost,
+  setQuantity = () => {},
   setTotalCost,
   setTotalItems,
   clear,
+  hideCost,
 }) {
-  const [count, setCount] = useState(
+  const [count, setTheCount] = useState(
     parseInt(sessionStorage.getItem(name)) || 0
   );
+
+  const setCount = (val) => {
+    setQuantity(val);
+    setTheCount(val);
+  };
 
   useEffect(() => {
     sessionStorage.setItem(name, count);
@@ -25,7 +33,7 @@ export default function CostCounter({
 
   return (
     <div className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly tw-select-none">
-      <p>${cost}</p>
+      {!hideCost ? <p>${cost}</p> : null}
       <div className="tw-flex tw-flex-row tw-gap-[12px] tw-items-center">
         <Tooltip
           hasArrow
@@ -53,9 +61,32 @@ export default function CostCounter({
             />
           </span>
         </Tooltip>
-        <div className="tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-w-[30px]">
-          {count}
-        </div>
+        <Input
+          value={count}
+          onChange={(newValue) => {
+            const regex = new RegExp("^[0-9]+$");
+            if (!regex.test(newValue) && newValue != "") {
+              return;
+            }
+            const newCount = newValue !== "" ? parseInt(newValue) : 0;
+            setTotalCost((prevTotal) => {
+              const newTotal = prevTotal - count * cost + newCount * cost;
+              return newTotal;
+            });
+            setTotalItems((prevTotal) => {
+              const newTotal = prevTotal - count + newCount;
+              return newTotal;
+            });
+            setCount(newValue);
+          }}
+          onBlur={() => {
+            if (count == "") {
+              setCount(0);
+            }
+          }}
+          className="tw-w-[40px]"
+          type="text"
+        />
         <Tooltip hasArrow label={`"CRTL" click to add 5`}>
           <span>
             <Button

@@ -1,9 +1,13 @@
 .cartItem{
-    height: 164px;
-    margin: 0.5%;
-    padding: 0.5%;
-    display: flex;
+    height: 150px;
+    width: 100%;
     border: 2px solid #73454E;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .cartHeader{
@@ -30,7 +34,7 @@
 }
 
 .basket{
-    background: #242434;
+    background: #272838;
 }
 
 .basketMiddle{

@@ -134,10 +134,12 @@ export default function Basket({ data, setCurrentPageTab }) {
 
   return (
     <div className="basket">
-      <div className="cartHeader">
-        <div className="itemNameHeader">ITEM NAME</div>
-        <div className="itemCostHeader">ITEM COST</div>
-      </div>
+      {cartItems.length == 0 ? (
+        <div className="cartHeader">
+          <div className="itemNameHeader">ITEM NAME</div>
+          <div className="itemCostHeader">ITEM COST</div>
+        </div>
+      ) : null}
       <Divider orientation="horizontal" />
       <Scrollbars style={{ height: "520px" }} renderThumbVertical={renderThumb}>
         {cartItems.map((item) => (

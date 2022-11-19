@@ -44,7 +44,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
               currentRestaurant.restaurantOwner.password === staffPassword
             ) {
               flags.isEmployeeSignedIn = true;
-              setCurrentPageTab(constants.PAGE_TABS.CHANGE_MENU);
+              setCurrentPageTab(constants.PAGE_TABS.OWNER_VIEW);
             } else if (
               currentRestaurant.restaurantEmployees.find(
                 (employee) =>
@@ -53,7 +53,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
               )
             ) {
               flags.isEmployeeSignedIn = true;
-              setCurrentPageTab(constants.PAGE_TABS.VIEW_ORDERS);
+              setCurrentPageTab(constants.PAGE_TABS.EMPLOYEE_VIEW);
             }
           }}
         />

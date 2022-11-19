@@ -8,6 +8,7 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { Tooltip } from "@chakra-ui/react";
 
 const Header = (props) => {
+  const { setCurrentPageTab } = props;
   const currentRestaurant = storage.restaurants[storage.currentRestaurant];
   const [getHelpLabel, setGetHelpLabel] = useState("Get Help");
   const [home, setHome] = useState(false);
@@ -20,31 +21,28 @@ const Header = (props) => {
 
   return (
     <div className="tw-flex tw-flex-row tw-mb-[20px] tw-items-center">
-      {flags.isCustomerSignedIn ? (
-        <div className="tw-flex tw-items-center">
-          <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-mr-auto tw-mr-3 tw-grow">
-            <div className="tw-text-sm">
-              <span style={{ color: "#B5838D" }}>Name: &nbsp; &nbsp;</span>
-              {storage.currentCustomerName}
+      <div className="tw-flex tw-flex-row tw-gap-[20px] tw-items-center tw-mr-auto tw-w-[33%]">
+        {flags.isCustomerSignedIn ? (
+          <>
+            <div className="tw-flex tw-flex-col">
+              <div className="tw-text-sm">
+                <span style={{ color: "#B5838D" }}>Name: &nbsp; &nbsp;</span>
+                {storage.currentCustomerName}
+              </div>
+              <div className="tw-text-sm">
+                <span style={{ color: "#B5838D" }}>Table #: </span>
+                {storage.currentCustomerTable}
+              </div>
             </div>
-            <div className="tw-text-sm">
-              <span style={{ color: "#B5838D" }}>Table #: </span>
-              {storage.currentCustomerTable}
-            </div>
-          </div>
-          <Tooltip label="Change your info" hasArrow placement="right">
-            <FontAwesomeIcon
-              className="tw-cursor-pointer"
-              icon={faPenToSquare}
-            />
-          </Tooltip>
-        </div>
-      ) : null}
-      {flags.isEmployeeSignedIn ? (
-        <>
-          <div className="tw-flex tw-flex-col tw-flex tw-flex-1 tw-justify-center tw-mr-auto"></div>
-        </>
-      ) : null}
+            <Tooltip label="Change your info" hasArrow placement="right">
+              <FontAwesomeIcon
+                className="tw-cursor-pointer"
+                icon={faPenToSquare}
+              />
+            </Tooltip>
+          </>
+        ) : null}
+      </div>
       <div
         className="tw-flex tw-flex-row tw-items-center tw-grow tw-justify-center"
         style={{ userSelect: "none" }}
@@ -52,8 +50,8 @@ const Header = (props) => {
         <div className="tw-text-5xl">{currentRestaurant.restaurantName}</div>
         <img className="tw-w-[64px] tw-h-[64px]" src={pizza_logo} alt="logo" />
       </div>
-      {flags.isCustomerSignedIn ? (
-        <div className="tw-flex">
+      <div className="tw-flex tw-flex-row tw-items-center tw-gap-[20px] tw-ml-auto tw-w-[33%] tw-justify-end">
+        {flags.isCustomerSignedIn ? (
           <Button
             color="blue"
             content={getHelpLabel}
@@ -64,10 +62,17 @@ const Header = (props) => {
               }, 5000);
             }}
           ></Button>
-        </div>
-      ) : null}
-      {flags.isEmployeeSignedIn ? (
-        <div className="tw-flex tw-flex-1 tw-justify-end tw-ml-auto">
+        ) : null}
+        {flags.isCustomerSignedIn ? (
+          <Button
+            color="blue"
+            content={"About Us"}
+            onClick={() => {
+              setCurrentPageTab(constants.PAGE_TABS.ABOUT_US);
+            }}
+          ></Button>
+        ) : null}
+        {flags.isEmployeeSignedIn ? (
           <Button
             color="blue"
             content={"Logout"}
@@ -75,8 +80,8 @@ const Header = (props) => {
               setHome(true);
             }}
           ></Button>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </div>
   );
 };
