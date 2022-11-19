@@ -1,31 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "../styles/Menu.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Button from "components/Button";
-import {
-  Table, Tbody, Tr, Td, TableContainer,
-  Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter
-} from '@chakra-ui/react';
+import { Table, Tbody, Tr, Td, TableContainer } from "@chakra-ui/react";
 import Select from "react-select";
+import Modal2 from "components/Modal2";
 
 export default function OrderItem({ info, data, setData }) {
   const options = [
     { value: "Preparing Food", label: "Preparing Food" },
     { value: "Delivering to Table", label: "Delivering to Table" },
-    { value: "Completed", label: "Completed" }
+    { value: "Completed", label: "Completed" },
   ];
 
   const createItemRows = function () {
-    return info.items.map(item => {
+    return info.items.map((item) => {
       return (
         <Tr>
           <Td>{item.name}</Td>
           <Td>{item.amount}</Td>
           <Td>{data.getItemInfo(item.name).cost}</Td>
         </Tr>
-      )
+      );
     });
-  }
+  };
 
   //View Items button stuff
   const [viewItems, setViewItems] = useState(false);
@@ -33,7 +31,9 @@ export default function OrderItem({ info, data, setData }) {
   const viewItemsShow = () => setViewItems(true);
   const onChangeOrderStatus = function (status) {
     const newData = data;
-    const index = newData.orderJSON.findIndex(order => order.order === info.order);
+    const index = newData.orderJSON.findIndex(
+      (order) => order.order === info.order
+    );
     newData.orderJSON[index].status = status;
     setData(newData);
   };
@@ -45,19 +45,21 @@ export default function OrderItem({ info, data, setData }) {
   const onCancelOrder = function () {
     cancelOrderClose();
     const newData = data;
-    const index = newData.orderJSON.findIndex(order => order.order === info.order);
+    const index = newData.orderJSON.findIndex(
+      (order) => order.order === info.order
+    );
     if (index > -1) {
       newData.orderJSON.splice(index, 1);
     }
-    console.log(newData);
+    // console.log(newData);
     setData(newData);
-  }
+  };
 
   return (
     <div className="menu-item">
       <div className="item-desc">
         <TableContainer>
-          <Table variant='simple'>
+          <Table variant="simple">
             <Tbody>
               <Tr>
                 <Td>Order: #{info.order}</Td>
@@ -78,7 +80,12 @@ export default function OrderItem({ info, data, setData }) {
 
       <div className="item-desc">
         Status
-        <Select className="form_select" defaultValue={{ value: info.status, label: info.status }} options={options} onChange={(options) => onChangeOrderStatus(options.value)} />
+        <Select
+          className="form_select"
+          defaultValue={{ value: info.status, label: info.status }}
+          options={options}
+          onChange={(options) => onChangeOrderStatus(options.value)}
+        />
       </div>
 
       <div className="item-desc">
@@ -95,13 +102,12 @@ export default function OrderItem({ info, data, setData }) {
           onClick={cancelOrderShow}
         />
 
-        <Modal isOpen={viewItems} onClose={viewItemsClose} isCentered>
-          <ModalOverlay />
-          <div className="order-table">
-            <ModalContent>
-              <ModalHeader>Order: #{info.order}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
+        {viewItems ? (
+          <Modal2
+            title={"Order: #".concat(info.order)}
+            onClose={viewItemsClose}
+            renderBody={() => {
+              return (
                 <Table>
                   <Tr>
                     <th>Item</th>
@@ -110,46 +116,47 @@ export default function OrderItem({ info, data, setData }) {
                   </Tr>
                   {createItemRows()}
                 </Table>
-              </ModalBody>
+              );
+            }}
+            renderFooter={() => {
+              return (
+                <div>
+                  <p>Status: {info.status}</p>
+                  <p>Total: ${info.total}</p>
+                </div>
+              );
+            }}
+          />
+        ) : null}
 
-              <ModalFooter>
-                Status: {info.status}
-                Total: ${info.total}
-              </ModalFooter>
-            </ModalContent>
-          </div>
-        </Modal>
-
-        <Modal className="order-table" isOpen={cancelOrder} onClose={cancelOrderClose} isCentered>
-          <ModalOverlay />
-          <div className="order-table">
-            <ModalContent>
-              <ModalHeader>Order: #{info.order}</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                Are you sure you would like to cancel this order?
-              </ModalBody>
-
-              <ModalFooter>
-                <Button
-                  color="blue"
-                  content="Yes"
-                  disabled={false}
-                  onClick={onCancelOrder}
-                />
-                <Button
-                  color="green"
-                  content="No"
-                  disabled={false}
-                  onClick={cancelOrderClose}
-                />
-              </ModalFooter>
-            </ModalContent>
-          </div>
-        </Modal>
+        {cancelOrder ? (
+          <Modal2
+            title={"Order: #".concat(info.order)}
+            onClose={cancelOrderClose}
+            renderBody={() => {
+              return <p>Are you sure you would like to cancel this order?</p>;
+            }}
+            renderFooter={() => {
+              return (
+                <div>
+                  <Button
+                    color="red"
+                    content="No"
+                    disabled={false}
+                    onClick={cancelOrderClose}
+                  />
+                  <Button
+                    color="blue"
+                    content="Yes"
+                    disabled={false}
+                    onClick={onCancelOrder}
+                  />
+                </div>
+              );
+            }}
+          />
+        ) : null}
       </div>
     </div>
   );
 }
-
-

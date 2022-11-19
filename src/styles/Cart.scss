@@ -3,9 +3,7 @@
     margin: 0.5%;
     padding: 0.5%;
     display: flex;
-    border: #868686;
-    border-style: solid;
-    border-width: 1px;
+    border: 2px solid #73454E;
 }
 
 .cartHeader{
@@ -22,7 +20,7 @@
 
 .itemCostHeader{
     margin-left: 53%;
-    border: 1px white;
+    border: 1px #FFCDB2;
 }
 
 .cartItemDesc{
@@ -46,7 +44,8 @@
 }
 
 .cartItemCount{
-    display: inline-flex;
+    display: flex;
+    align-items: center;
 }
 
 .itemCount{
@@ -110,7 +109,6 @@
 }
 
 .basketItems{
-    overflow-x: scroll;
     height: 520px;
 }
 

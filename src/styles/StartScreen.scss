@@ -3,45 +3,58 @@ $space: 1rem;
 #start-screen-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 60vw;
     height: 30vh;
-    margin-top: 20vh;
-    text-align: center;
+    margin-top: 10vh;
+    align-content: center;
+    color: white;
+}
+
+.prompt {
+    font-weight: bold;
+    font-size: 2.5vh;
+    margin-top: 0.5vh;
+    ;
+}
+
+.form {
+    margin-top: 5vh;
+    border: 1px solid #73454E;
+    padding: 2vw
 }
 
 .form_field {
-    margin-bottom: 0.5vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .form_label {
-    display: inline-block;
-    gap: 2vh;
-    margin-right: 0.5vw;
-    font-weight: 700;
-    text-align: right;
+    display: flex;
+    align-self: center;
+    margin-top: 0vh;
+    margin-bottom: 0.5vh;
 }
 
-.form_input {
-    display: block;
+.form_text_box {
+    text-align: left;
     width: 20vw;
-    margin-left: 40vw;
     border: 1px solid gray;
-    margin-bottom: 0.5%;
-    color: black;
+    margin-bottom: 0.5vh;
     font-family: inherit;
 }
 
 .form_select {
-    display: block;
-    text-align: left;
-    width: 20vw;
-    margin-left: 40vw;
     border: 1px solid gray;
-    margin-bottom: 0.5%;
-    color: black;
     font-family: inherit;
 }
 
 .error_msg {
-    color: red;
+    margin-top: 2vh;
+    color: #F7494F;
+}
+
+.submit_button {
+    margin-top: 3vh;
 }

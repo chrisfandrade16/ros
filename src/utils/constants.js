@@ -8,10 +8,9 @@ export const PAGE_TABS = {
   CART: 1,
   MY_ORDERS: 2,
   ABOUT_US: 3,
-  STAFF_LOGIN: 4,
-  VIEW_ORDERS: 5,
-  CHANGE_MENU: 6,
-  START_SCREEN: 7,
+  VIEW_ORDERS: 4,
+  CHANGE_MENU: 5,
+  START_SCREEN: 6,
 };
 
 export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
@@ -22,7 +21,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.MENU);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
     {
@@ -31,7 +30,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.CART);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
     {
@@ -40,7 +39,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.MY_ORDERS);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
     {
@@ -49,7 +48,7 @@ export const PAGE_TABS_CONFIG = (setCurrentPageTab) => {
         setCurrentPageTab(PAGE_TABS.ABOUT_US);
       },
       getIsDisabled: () => {
-        return !flags.isSignedIn;
+        return !flags.isCustomerSignedIn;
       },
     },
   ];

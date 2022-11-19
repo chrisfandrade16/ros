@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/StaffLogin.scss";
+import { Input } from "@chakra-ui/react";
 import * as constants from "../utils/constants";
-import { storage } from "utils/storage";
+import { storage, flags } from "utils/storage";
 import Button from "components/Button";
 
 export default function StaffLogin({ setCurrentPageTab }) {
@@ -12,26 +13,29 @@ export default function StaffLogin({ setCurrentPageTab }) {
 
   return (
     <div id="staff-login-container">
+      <p className="prompt">Staff Login</p>
       <div className="form">
-        <h1 className="form_header">Staff Login</h1>
         <div className="form_field" key="staffId">
           <label className="form_label">Staff ID Number</label>
-          <input
-            className="form_input"
+          <Input
+            placeholder="Enter your 8 digit staff ID number."
+            className="form_text_box"
             id="id_num"
             onChange={(e) => setStaffID(e.target.value)}
           />
         </div>
         <div className="form_field" key="password">
           <label className="form_label">Password</label>
-          <input
-            className="form_input"
+          <Input
+            className="form_text_box"
+            placeholder="Enter your password."
             type="password"
             id="password"
             onChange={(e) => setStaffPassword(e.target.value)}
           />
         </div>
         <Button
+          className="submit_button"
           colour="blue"
           content="Submit"
           onClick={() => {
@@ -39,6 +43,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
               currentRestaurant.restaurantOwner.username === staffID &&
               currentRestaurant.restaurantOwner.password === staffPassword
             ) {
+              flags.isEmployeeSignedIn = true;
               setCurrentPageTab(constants.PAGE_TABS.CHANGE_MENU);
             } else if (
               currentRestaurant.restaurantEmployees.find(
@@ -47,6 +52,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
                   employee.password === staffPassword
               )
             ) {
+              flags.isEmployeeSignedIn = true;
               setCurrentPageTab(constants.PAGE_TABS.VIEW_ORDERS);
             }
           }}

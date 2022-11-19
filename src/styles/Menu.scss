@@ -41,7 +41,7 @@
 .menu-item {
     height: 150px;
     width: 98%;
-    border: 2px solid #CBD5E1;
+    border: 2px solid #73454E;
     border-radius: 4px;
     margin-bottom: 10px;
     padding: 0.5%;
@@ -52,10 +52,11 @@
 
 .item-desc {
     flex-grow: 1;
+    user-select: none;
 }
 
 .menu-footer {
-    border: 2px solid rgb(203, 213, 225);
+    border: 2px solid #73454E;
     user-select: none;
     margin-top: 1%;
     padding: 1%;

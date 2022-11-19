@@ -26,13 +26,15 @@ const App = () => {
     <ChakraProvider>
       <div className="ros tw-px-[40px] tw-py-[30px]">
         <Header setCurrentPageTab={setCurrentPageTab} />
-        {currentPageTab !== constants.PAGE_TABS.START_SCREEN && (
-          <Navigator
-            tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
-            activeTab={currentPageTab}
-            activeHighlightTab={true}
-          />
-        )}
+        {currentPageTab !== constants.PAGE_TABS.START_SCREEN &&
+          currentPageTab !== constants.PAGE_TABS.VIEW_ORDERS &&
+          currentPageTab !== constants.PAGE_TABS.CHANGE_MENU && (
+            <Navigator
+              tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
+              activeTab={currentPageTab}
+              activeHighlightTab={true}
+            />
+          )}
         {currentPageTab === constants.PAGE_TABS.START_SCREEN && (
           <Tabs size="lg" align="center">
             <TabList>
@@ -52,7 +54,9 @@ const App = () => {
         {currentPageTab === constants.PAGE_TABS.MENU && (
           <Menu setCurrentPageTab={setCurrentPageTab} data={data} />
         )}
-        {currentPageTab === constants.PAGE_TABS.CART && <Cart data={data} />}
+        {currentPageTab === constants.PAGE_TABS.CART && (
+          <Cart data={data} setCurrentPageTab={setCurrentPageTab} />
+        )}
         {currentPageTab === constants.PAGE_TABS.MY_ORDERS && <MyOrders />}
         {currentPageTab === constants.PAGE_TABS.ABOUT_US && <AboutUs />}
         {currentPageTab === constants.PAGE_TABS.VIEW_ORDERS && (

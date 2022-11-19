@@ -7,6 +7,7 @@ const Navigator = (props) => {
     activeHighlightTab = false,
     activePointerTab = false,
     useTextAsId = false,
+    lowlightTabs = [],
   } = props;
 
   return (
@@ -24,7 +25,12 @@ const Navigator = (props) => {
           : activeTab === index;
         return (
           <div
-            className={`tw-relative tw-flex-1 tw-text-center tw-duration-300  ${
+            key={tab + index}
+            className={`tw-relative tw-flex-1 tw-text-center tw-duration-300 ${
+              lowlightTabs.length && lowlightTabs.includes(text)
+                ? "tw-bg-[#40425f]"
+                : ""
+            } ${
               isTabActive
                 ? `${
                     activePointerTab

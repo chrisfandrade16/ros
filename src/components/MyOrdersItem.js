@@ -13,16 +13,14 @@ export default function MyOrdersItem({ items, status }) {
         <div className="order-item">
             <Table striped bordered>
                 <tr>
-                    <th>Item Number</th>
                     <th>Item</th>
                     <th>Amount</th>
                     <th>Price</th>
                 </tr>
                 {
-                    items.map((item, i) => {
+                    items.map((item) => {
                         return (
                             <tr>
-                                <td>{i + 1}</td>
                                 <td>{item.name}</td>
                                 <td>{item.num}</td>
                                 <td>${item.cost.toFixed(2)}</td>
@@ -32,7 +30,6 @@ export default function MyOrdersItem({ items, status }) {
                 }
             </Table>
             <p className="item-listing">Total Cost: ${total.toFixed(2)}</p>
-            <p className="item-listing">Status: {status}</p>
         </div>
     );
 }
