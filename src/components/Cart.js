@@ -147,7 +147,6 @@ export default function Basket({ data, setCurrentPageTab }) {
 
   return (
     <div className={`basket`}>
-      <Divider orientation="horizontal" />
       <Scrollbars
         renderThumbVertical={renderThumb}
         renderThumbHorizontal={renderThumbHorizontal}
@@ -170,7 +169,6 @@ export default function Basket({ data, setCurrentPageTab }) {
           </div>
         )}
       </Scrollbars>
-      <Divider orientation="horizontal" />
       {cartItems.length !== 0 && (
         <div className="basketFooter">
           <div className="orderSummary">
