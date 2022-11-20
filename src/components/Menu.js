@@ -122,6 +122,7 @@ export default function Menu({ data, setCurrentPageTab }) {
                 key={obj.name}
                 info={data.getItemInfo(obj.name)}
                 setTotalCost={setTotalCost}
+                totalItems={totalItems}
                 setTotalItems={setTotalItems}
                 clear={clear}
               />
@@ -205,7 +206,6 @@ export default function Menu({ data, setCurrentPageTab }) {
             </AlertDialogContent>
           </AlertDialogOverlay>
         </AlertDialog>
-
         <Tooltip
           label="No items in cart!"
           hasArrow

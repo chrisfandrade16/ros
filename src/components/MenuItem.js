@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Menu.scss";
 import CostCounter from "./CostCounter";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
-export default function MenuItem({ info, setTotalCost, setTotalItems, clear }) {
+export default function MenuItem({
+  info,
+  setTotalCost,
+  totalItems,
+  setTotalItems,
+  clear,
+}) {
+  const [count, setCount] = useState(
+    parseInt(sessionStorage.getItem(info.name))
+  );
+
+  useEffect(() => {
+    setCount(parseInt(sessionStorage.getItem(info.name)));
+  }, [totalItems, info.name]);
+
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        className="menu-item"
+        className="menu-item tw-border-[2px] tw-border-solid"
+        style={{ borderColor: `${count > 0 ? "#FFB4A2" : "#73454E"}` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >

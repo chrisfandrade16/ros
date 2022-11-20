@@ -112,6 +112,15 @@ export default function Basket({ data, setCurrentPageTab }) {
     );
   };
 
+  const renderThumbHorizontal = ({ style, ...props }) => {
+    const thumbStyle = {
+      display: "none",
+    };
+    return (
+      <div className="bar" style={{ ...style, ...thumbStyle }} {...props} />
+    );
+  };
+
   const removeItem = (name, quantity, cost) => {
     sessionStorage.setItem(name, 0);
     setTotalCost(
@@ -147,6 +156,7 @@ export default function Basket({ data, setCurrentPageTab }) {
       <Divider orientation="horizontal" />
       <Scrollbars
         renderThumbVertical={renderThumb}
+        renderThumbHorizontal={renderThumbHorizontal}
         autoHeight
         autoHeightMin={100}
         autoHeightMax="45vh"
