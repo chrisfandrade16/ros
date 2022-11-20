@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/Menu.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Button from "components/Button";
-import { Table, Tbody, Tr, Td, TableContainer } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
-import Modal2 from "components/Modal2";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
+  Table,
+  Tbody,
+  Tr,
+  Td,
+  TableContainer
+} from "@chakra-ui/react";
 
 export default function OrderItem({ info, data, setData }) {
   const createItemRows = function () {
@@ -36,18 +48,6 @@ export default function OrderItem({ info, data, setData }) {
   const [cancelOrder, setCancelOrder] = useState(false);
   const cancelOrderClose = () => setCancelOrder(false);
   const cancelOrderShow = () => setCancelOrder(true);
-  const onCancelOrder = function () {
-    cancelOrderClose();
-    const newData = data;
-    const index = newData.orderJSON.findIndex(
-      (order) => order.order === info.order
-    );
-    if (index > -1) {
-      newData.orderJSON.splice(index, 1);
-    }
-    // console.log(newData);
-    setData(newData);
-  };
 
   return (
     <div className="menu-item tw-gap-[20px]">
@@ -76,7 +76,7 @@ export default function OrderItem({ info, data, setData }) {
         Status
         <Select
           className="form_select"
-          defaultValue={{ value: info.status, label: info.status }}
+          value={info.status}
           onChange={(options) => onChangeOrderStatus(options.value)}
         >
           <option style={{ backgroundColor: "#434560" }} key="Cooking" value="Cooking">
@@ -105,12 +105,24 @@ export default function OrderItem({ info, data, setData }) {
           onClick={cancelOrderShow}
         />
 
-        {viewItems ? (
-          <Modal2
-            title={"Order: #".concat(info.order)}
-            onClose={viewItemsClose}
-            renderBody={() => {
-              return (
+        <AlertDialog
+          isCentered
+          isOpen={viewItems}
+          onClose={viewItemsClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent
+              style={{ color: "#FFCDB2", backgroundColor: "#272838" }}
+            >
+              <AlertDialogHeader
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ color: "#B5838D" }}
+              >
+                {"Order: #".concat(info.order)}
+                <AlertDialogCloseButton />
+              </AlertDialogHeader>
+              <AlertDialogBody>
                 <Table>
                   <Tr>
                     <th>Item</th>
@@ -119,46 +131,63 @@ export default function OrderItem({ info, data, setData }) {
                   </Tr>
                   {createItemRows()}
                 </Table>
-              );
-            }}
-            renderFooter={() => {
-              return (
-                <div>
+              </AlertDialogBody>
+              <AlertDialogFooter>
+                <div className="tw-flex tw-flex-row">
                   <p>Status: {info.status}</p>
                   <p>Total: ${info.total}</p>
                 </div>
-              );
-            }}
-          />
-        ) : null}
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
 
-        {cancelOrder ? (
-          <Modal2
-            title={"Order: #".concat(info.order)}
-            onClose={cancelOrderClose}
-            renderBody={() => {
-              return <p>Are you sure you would like to cancel this order?</p>;
-            }}
-            renderFooter={() => {
-              return (
-                <>
-                  <Button
-                    color="red"
-                    content="No"
-                    disabled={false}
-                    onClick={cancelOrderClose}
-                  />
-                  <Button
-                    color="blue"
-                    content="Yes"
-                    disabled={false}
-                    onClick={onCancelOrder}
-                  />
-                </>
-              );
-            }}
-          />
-        ) : null}
+        <AlertDialog
+          isCentered
+          isOpen={cancelOrder}
+          onClose={cancelOrderClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent
+              style={{ color: "#FFCDB2", backgroundColor: "#272838" }}
+            >
+              <AlertDialogHeader
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ color: "#B5838D" }}
+              >
+                {"Order: #".concat(info.order)}
+              </AlertDialogHeader>
+              <AlertDialogBody>
+                Are you sure you would like to cancel this order?
+              </AlertDialogBody>
+              <AlertDialogFooter>
+                <Button
+                  onClick={cancelOrderClose}
+                  content="No"
+                  color="red"
+                  className="tw-mx-3"
+                />
+                <Button
+                  onClick={() => {
+                    cancelOrderClose();
+                    const newData = data;
+                    const index = newData.orderJSON.findIndex(
+                      (order) => order.order === info.order
+                    );
+                    if (index > -1) {
+                      newData.orderJSON.splice(index, 1);
+                    }
+                    // console.log(newData);
+                    setData(newData);
+                  }}
+                  content="Yes"
+                  color="green"
+                />
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
       </div>
     </div>
   );
