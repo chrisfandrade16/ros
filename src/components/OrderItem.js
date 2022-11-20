@@ -79,11 +79,11 @@ export default function OrderItem({ info, data, setData }) {
           defaultValue={{ value: info.status, label: info.status }}
           onChange={(options) => onChangeOrderStatus(options.value)}
         >
-          <option style={{ backgroundColor: "#434560" }} key="Preparing Food" value="Preparing Food">
-            Preparing Food
+          <option style={{ backgroundColor: "#434560" }} key="Cooking" value="Cooking">
+            Cooking
           </option>
-          <option style={{ backgroundColor: "#434560" }} key="Delivering to Table" value="Delivering to Table">
-            Delivering to Table
+          <option style={{ backgroundColor: "#434560" }} key="Serving" value="Serving">
+            Serving
           </option>
           <option style={{ backgroundColor: "#434560" }} key="Completed" value="Completed">
             Completed

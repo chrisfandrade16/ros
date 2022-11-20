@@ -2,7 +2,7 @@
     {
         "order": 615847,
         "total": 61.23,
-        "status": "Preparing Food",
+        "status": "Cooking",
         "customer": "John",
         "table": 6,
         "server": "James",
@@ -25,7 +25,7 @@
     {
         "order": 218426,
         "total": 12.84,
-        "status": "Preparing Food",
+        "status": "Cooking",
         "customer": "Sarah",
         "table": 2,
         "server": "Bill",
@@ -44,7 +44,7 @@
     {
         "order": 419857,
         "total": 16.48,
-        "status": "Delivering to Table",
+        "status": "Serving",
         "customer": "Tom",
         "table": 5,
         "server": "Emily",
