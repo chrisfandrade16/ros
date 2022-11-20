@@ -46,6 +46,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    transition-property: border-color;
+    transition-duration: 0.4s;
 }
 
 .item-desc {
