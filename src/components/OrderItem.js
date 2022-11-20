@@ -101,7 +101,7 @@ export default function OrderItem({ info, data, setData }) {
         <Button
           color="red"
           content="Cancel Order"
-          disabled={false}
+          disabled={info.status === 'Completed'}
           onClick={cancelOrderShow}
         />
 
