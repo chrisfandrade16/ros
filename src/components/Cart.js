@@ -183,7 +183,6 @@ export default function Basket({ data, setCurrentPageTab }) {
 
     }
     if(cardExpiryMonth == "" || cardExpiryYear == ""){
-      console.log("test12")
       setCardExpiryError("Expiry is required")
       isValidated = false
     }
