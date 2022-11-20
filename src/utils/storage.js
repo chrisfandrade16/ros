@@ -8,8 +8,8 @@ export const storage = {
     McPizza_North_Hamilton: {
       restaurantName: "McPizza",
       restaurantOwner: {
-        username: "John",
-        password: "Johnny",
+        username: "john",
+        password: "johnny",
         firstName: "John",
         lastName: "King",
         phone: "844-310-3300",
@@ -17,12 +17,12 @@ export const storage = {
       },
       restaurantEmployees: [
         {
-          username: "Bob",
-          password: "Bobbie",
+          username: "bob",
+          password: "bobbie",
         },
         {
-          username: "Joe",
-          password: "Biden",
+          username: "joe",
+          password: "biden",
         },
       ],
       restaurantMenu: {},
