@@ -436,7 +436,7 @@ const OwnerPageAccount = (props) => {
             content={"Cancel"}
             onClick={() => {
               setAccountUsername(currentRestaurant.restaurantOwner.username);
-              setAccountPassword("");
+              setAccountPassword(currentRestaurant.restaurantOwner.password);
               setIsEditingOwnerAccount(false);
             }}
           />
