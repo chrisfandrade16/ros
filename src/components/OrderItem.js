@@ -3,16 +3,10 @@ import "../styles/Menu.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Button from "components/Button";
 import { Table, Tbody, Tr, Td, TableContainer } from "@chakra-ui/react";
-import Select from "react-select";
+import { Select } from "@chakra-ui/react";
 import Modal2 from "components/Modal2";
 
 export default function OrderItem({ info, data, setData }) {
-  const options = [
-    { value: "Preparing Food", label: "Preparing Food" },
-    { value: "Delivering to Table", label: "Delivering to Table" },
-    { value: "Completed", label: "Completed" },
-  ];
-
   const createItemRows = function () {
     return info.items.map((item) => {
       return (
@@ -83,9 +77,18 @@ export default function OrderItem({ info, data, setData }) {
         <Select
           className="form_select"
           defaultValue={{ value: info.status, label: info.status }}
-          options={options}
           onChange={(options) => onChangeOrderStatus(options.value)}
-        />
+        >
+          <option style={{ backgroundColor: "#434560" }} key="Cooking" value="Cooking">
+            Cooking
+          </option>
+          <option style={{ backgroundColor: "#434560" }} key="Serving" value="Serving">
+            Serving
+          </option>
+          <option style={{ backgroundColor: "#434560" }} key="Completed" value="Completed">
+            Completed
+          </option>
+        </Select>
       </div>
 
       <div className="item-desc tw-flex tw-flex-col tw-gap-[20px]">

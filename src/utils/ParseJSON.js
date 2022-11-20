@@ -76,7 +76,7 @@ class ParseJSON {
   getOrderCategoryItems(name) {
     let search = [];
     if (name === "In Progress") {
-      search = ["Preparing Food", "Delivering to Table"];
+      search = ["Cooking", "Serving"];
     } else {
       search = ["Completed"];
     }

@@ -217,7 +217,7 @@ export default function Menu({ data, setCurrentPageTab }) {
               color="green"
               content={
                 <>
-                  <p>Go to Cart - </p>
+                  <p>Go to Cart&nbsp;&nbsp;</p>
                   <FontAwesomeIcon icon={faCartShopping} />
                 </>
               }

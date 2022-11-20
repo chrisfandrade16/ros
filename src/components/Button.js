@@ -20,17 +20,11 @@ const Button = (props) => {
         disabled
           ? "!tw-cursor-not-allowed tw-border-[#7e7f9a] tw-text-[#7e7f9a]"
           : color === "blue"
-          ? `hover:tw-border-[#90ddf0] ${
-              /*hover:tw-text-[#90ddf0]*/ ""
-            } hover:tw-bg-[#90ddf0]`
+          ? `hover:tw-border-[#90ddf0] hover:tw-text-[#272838] hover:tw-bg-[#90ddf0]`
           : color === "red"
-          ? `hover:tw-border-[#eb9486] ${
-              /*hover:tw-text-[#eb9486]*/ ""
-            } hover:tw-bg-[#eb9486]`
+          ? `hover:tw-border-[#eb9486] hover:tw-text-[#272838] hover:tw-bg-[#eb9486]`
           : color === "green"
-          ? `hover:tw-border-[#9ed8db] ${
-              /*hover:tw-text-[#9ed8db]*/ ""
-            } hover:tw-bg-[#9ed8db]`
+          ? `hover:tw-border-[#9ed8db] hover:tw-text-[#272838] hover:tw-bg-[#9ed8db]`
           : ""
       } ${height ? `tw-h-${height}` : ""} ${
         width ? `tw-w-${width}` : ""

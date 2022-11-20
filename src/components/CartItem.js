@@ -51,14 +51,21 @@ export default function CartItem({
           effect="blur"
         />
         <div className="cartItemDesc" style={{ userSelect: "none" }}>
-          <div>{info.name}</div>
-          {info.size && <div>Size: {info.size}</div>}
+          <div>
+            <span style={{ color: "#B5838D" }}>Name: </span>
+            {info.name}
+          </div>
+          {info.size ?
+            <div>
+              <span style={{ color: "#B5838D" }}>Size: </span>
+              {info.size}
+            </div>
+          : null}
         </div>
 
         <CostCounter
           name={info.name}
           cost={info.cost}
-          hideCost={true}
           setQuantity={setQuantity}
           setTotalCost={setTotalCost}
           setTotalItems={setTotalItems}

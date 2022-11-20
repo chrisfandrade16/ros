@@ -51,13 +51,13 @@ export default function ViewOrder() {
         <div className="view-orders">
             <h1 className="title-header">My Orders</h1>
             <div className="view-order-container">
-                <h1 className="status-heading">Preparing Food</h1>
+                <h1 className="status-heading">Cooking</h1>
                 <Dropdown>
                     <Dropdown.Toggle className="dropdown-toggle" title="Click to see detailed Information about your order!">
                         Order #224: 3 items, $34.08
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <MyOrdersItem items={[items[0], items[1], items[2]]} status="Preparing Food"></MyOrdersItem>
+                        <MyOrdersItem items={[items[0], items[1], items[2]]} status="Cooking"></MyOrdersItem>
                     </Dropdown.Menu>
                 </Dropdown>
                 <Dropdown>
@@ -65,19 +65,19 @@ export default function ViewOrder() {
                         Order #225: 2 items, $5.70
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <MyOrdersItem items={[items[3]]} status="Preparing Food"></MyOrdersItem>
+                        <MyOrdersItem items={[items[3]]} status="Cooking"></MyOrdersItem>
                     </Dropdown.Menu>
                 </Dropdown>
 
             </div>
             <div className="view-order-container">
-                <h1 className="status-heading">Delivering to Table</h1>
+                <h1 className="status-heading">Serving</h1>
                 <Dropdown>
                     <Dropdown.Toggle className="dropdown-toggle" title="Click to see detailed Information about your order!">
                         Order #223: 6 items, $17.10
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <MyOrdersItem items={[items[4], items[5]]} status="Delivering to Table"></MyOrdersItem>
+                        <MyOrdersItem items={[items[4], items[5]]} status="Serving"></MyOrdersItem>
                     </Dropdown.Menu>
                 </Dropdown>
 
