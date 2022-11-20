@@ -22,9 +22,11 @@ import {
   InputGroup,
   Divider,
   useToast,
+  FormErrorMessage
 } from "@chakra-ui/react";
 import CartItem from "./CartItem";
 import Button from "./Button";
+
 
 export default function Basket({ data, setCurrentPageTab }) {
   const toast = useToast();
@@ -87,8 +89,18 @@ export default function Basket({ data, setCurrentPageTab }) {
     }
   };
 
-  const cancel = (event) => {
+  const cancel = () => {
     setOpen(false);
+    setCardholderNameError("")
+    setCardExpiryError("")
+    setCardNumberError("")
+    setCardCVCError("")
+    setCardholderNameError("")
+    setCardholderName("")
+    setCardExpiryMonth("")
+    setCardExpiryYear("")
+    setCardNumber("")
+    setCardCVC("")
   };
 
   const theme = extendTheme({
@@ -144,6 +156,76 @@ export default function Basket({ data, setCurrentPageTab }) {
     });
     setCurrentPageTab(constants.PAGE_TABS.MENU);
   };
+
+  const [cardholderNameError,setCardholderNameError] = useState("")
+  const [cardExpiryError,setCardExpiryError] = useState("")
+  const [cardNumberError,setCardNumberError] = useState("")
+  const [cardCVCError,setCardCVCError] = useState("")
+
+  const [cardholderName,setCardholderName] = useState("")
+  const [cardExpiryMonth,setCardExpiryMonth] = useState("")
+  const [cardExpiryYear,setCardExpiryYear] = useState("")
+  const [cardNumber,setCardNumber] = useState("")
+  const [cardCVC,setCardCVC] = useState("")
+
+ const validatePaymentInfo = () => {
+    setCardholderNameError("")
+    setCardExpiryError("")
+    setCardNumberError("")
+    setCardCVCError("")
+    setCardholderNameError("")
+    setCardholderName("")
+    setCardExpiryMonth("")
+    setCardExpiryYear("")
+    setCardNumber("")
+    setCardCVC("")
+
+    var isValidated = true
+
+    if(cardholderName == ""){
+      setCardholderNameError("Cardholder Name is required")
+      isValidated = false
+    }
+    if(cardExpiryMonth == "" || cardExpiryYear == ""){
+      setCardExpiryError("Expiry is required")
+      isValidated = false
+    }
+    else if(parseInt(cardExpiryMonth) > 12 || parseInt(cardExpiryMonth) < 1){
+      setCardExpiryError("Expiry month is invalid")
+      isValidated = false
+    }
+    else if(cardExpiryYear.length !== 4 ){
+      setCardExpiryError("Expiry year is invalid")
+      isValidated = false
+    }
+
+    if(cardNumber == "" ){
+      setCardNumberError("Card Number is required")
+      isValidated = false
+
+    }
+    else if(cardNumber.length < 10){
+      setCardNumberError("Card Number should be more than 10 digits")
+      isValidated = false
+    }
+
+    if(cardCVC == "" ){
+      setCardCVCError("Card CVC is required")
+      isValidated = false
+
+    }
+    else if(cardCVC.length < 3 || cardCVC.length > 5){
+      setCardCVCError("Card CVCshould be 3 to 4 digits")
+      isValidated = false
+    }
+
+    if(isValidated){
+      reset();
+      cancel();
+    }
+
+  
+  }
 
   return (
     <div className={`basket`}>
@@ -294,33 +376,38 @@ export default function Basket({ data, setCurrentPageTab }) {
                 <div className="cardDetailsRow">
                   <FormControl isRequired>
                     <FormLabel>Cardholder Name</FormLabel>
-                    <Input placeholder="Cardholder Name" />
+                    <Input 
+                    placeholder="Cardholder Name" 
+                    onChange={(e) => setCardholderName(e.target.value)}
+                    />
+                    <p className="paymentVerificationError">{cardholderNameError}</p>
                   </FormControl>
                   <FormControl style={{ paddingLeft: "10px" }} isRequired>
                     <FormLabel>Expiry</FormLabel>
                     <div style={{ display: "flex" }}>
                       <div style={{ paddingRight: "10px" }}>
-                        <Input placeholder="Month" />
+                        <Input placeholder="MM" onChange={(e) => setCardExpiryMonth(e.target.value)}/>
                       </div>
                       <div>
-                        <Input placeholder="Year" />
+                        <Input placeholder="YYYY" onChange={(e) => setCardExpiryYear(e.target.value)}/>
                       </div>
                     </div>
+                    <p className="paymentVerificationError">{cardExpiryError}</p>
                   </FormControl>
                 </div>
 
                 <div className="cardDetailsRow">
                   <FormControl isRequired>
                     <FormLabel>Card Number</FormLabel>
-                    <Input placeholder="Card Number" />
+                    <Input placeholder="Card Number" onChange={(e) => setCardNumber(e.target.value)} />
+                    <p className="paymentVerificationError">{cardNumberError}</p>
                   </FormControl>
                   <FormControl style={{ paddingLeft: "10px" }} isRequired>
                     <FormLabel>CVC</FormLabel>
-                    <div>
                       <div>
-                        <Input placeholder="CVC" />
+                        <Input placeholder="CVC" onChange={(e) => setCardCVC(e.target.value)}/>
+                        <p className="paymentVerificationError">{cardCVCError}</p>
                       </div>
-                    </div>
                   </FormControl>
                 </div>
               </div>
@@ -334,8 +421,7 @@ export default function Basket({ data, setCurrentPageTab }) {
                 color="green"
                 content="Complete Order"
                 onClick={() => {
-                  cancel();
-                  reset();
+                  validatePaymentInfo();
                 }}
               />
             )}

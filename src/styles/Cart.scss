@@ -116,6 +116,8 @@
 .cartEmpty{
     margin: auto;
     padding-top: 59px;
+    max-width: 300px;
+    height: 200px;
 
 }
 
@@ -142,4 +144,9 @@
     font-size: 11px;
     padding-top: 5px;
     font-family: sans-serif;
+}
+
+.paymentVerificationError{
+    color: #F7494F;
+    font-size: 14px;
 }
