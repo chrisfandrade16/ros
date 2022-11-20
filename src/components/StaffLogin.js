@@ -21,7 +21,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
             placeholder="Enter your username here."
             className="form_text_box"
             id="id_num"
-            onChange={(e) => setStaffID(e.target.value)}
+            onChange={(e) => setStaffID(e.target.value.toLowerCase())}
           />
         </div>
         <div className="form_field" key="password">
@@ -31,7 +31,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
             placeholder="Enter your password here."
             type="password"
             id="password"
-            onChange={(e) => setStaffPassword(e.target.value)}
+            onChange={(e) => setStaffPassword(e.target.value.toLowerCase())}
           />
         </div>
         <Button
