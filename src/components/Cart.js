@@ -20,10 +20,14 @@ import {
   extendTheme,
   InputRightAddon,
   InputGroup,
-  Divider,
   useToast,
-  FormErrorMessage
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from "@chakra-ui/react";
+
 import CartItem from "./CartItem";
 import Button from "./Button";
 
@@ -215,7 +219,7 @@ export default function Basket({ data, setCurrentPageTab }) {
       isValidated = false
 
     }
-    else if(cardCVC.length < 3 || cardCVC.length > 5){
+    else if(cardCVC.length < 3 || cardCVC.length > 4){
       setCardCVCError("Card CVCshould be 3 to 4 digits")
       isValidated = false
     }else{
@@ -387,10 +391,10 @@ export default function Basket({ data, setCurrentPageTab }) {
                     <FormLabel>Expiry</FormLabel>
                     <div style={{ display: "flex" }}>
                       <div style={{ paddingRight: "10px" }}>
-                        <Input placeholder="MM" onChange={(e) => setCardExpiryMonth(e.target.value)}/>
+                        <NumberInput> <NumberInputField placeholder="MM" onChange={(e) => setCardExpiryMonth(e.target.value)} /> </NumberInput>
                       </div>
                       <div>
-                        <Input placeholder="YYYY" onChange={(e) => setCardExpiryYear(e.target.value)}/>
+                        <NumberInput> <NumberInputField placeholder="YYYY" onChange={(e) => setCardExpiryYear(e.target.value)}/> </NumberInput>
                       </div>
                     </div>
                     <p className="paymentVerificationError">{cardExpiryError}</p>
@@ -400,17 +404,18 @@ export default function Basket({ data, setCurrentPageTab }) {
                 <div className="cardDetailsRow">
                   <FormControl isRequired>
                     <FormLabel>Card Number</FormLabel>
-                    <Input placeholder="Card Number" onChange={(e) => setCardNumber(e.target.value)} />
+                    <NumberInput > <NumberInputField placeholder="Card Number" onChange={(e) => setCardNumber(e.target.value)} />  </NumberInput>
                     <p className="paymentVerificationError">{cardNumberError}</p>
                   </FormControl>
                   <FormControl style={{ paddingLeft: "10px" }} isRequired>
                     <FormLabel>CVC</FormLabel>
                       <div>
-                        <Input placeholder="CVC" onChange={(e) => setCardCVC(e.target.value)}/>
+                        <NumberInput > <NumberInputField placeholder="CVC" onChange={(e) => setCardCVC(e.target.value)} /> </NumberInput>
                         <p className="paymentVerificationError">{cardCVCError}</p>
                       </div>
                   </FormControl>
                 </div>
+                
               </div>
             )}
           </ModalBody>
