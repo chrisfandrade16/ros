@@ -221,23 +221,23 @@ const OwnerPageMenuModal = (props) => {
             </div>
             {isEdit ? (
               <div className="tw-ml-auto tw-self-center">
-              <Button
-                color="red"
-                content={
-                  <img
-                    className="tw-w-[48px] tw-h-[48px] tw-brightness-0 tw-invert"
-                    src={delete_trash}
-                  ></img>
-                }
-                onClick={() => {
-                  storage.restaurants[storage.currentRestaurant].restaurantMenu[
-                    editingItem.key
-                  ].splice(editingItem.index, 1);
-                  setEditingItem(null);
-                }}
-              />
-            </div>              
-            ) : null}            
+                <Button
+                  color="red"
+                  content={
+                    <img
+                      className="tw-w-[48px] tw-h-[48px] tw-brightness-0 tw-invert"
+                      src={delete_trash}
+                    ></img>
+                  }
+                  onClick={() => {
+                    storage.restaurants[storage.currentRestaurant].restaurantMenu[
+                      editingItem.key
+                    ].splice(editingItem.index, 1);
+                    setEditingItem(null);
+                  }}
+                />
+              </div>
+            ) : null}
           </div>
         );
       }}
@@ -375,14 +375,19 @@ const OwnerPageAccount = (props) => {
   return (
     <div className="tw-flex tw-flex-col tw-gap-[10px]">
       {!isEditingOwnerAccount ? (
-        <Button
-          color="blue"
-          content="Edit Restaurant Owner Account"
-          onClick={() => {
-            setIsEditingOwnerAccount(true);
-          }}
-          className="tw-w-[350px]"
-        />
+        <div className="tw-flex tw-flex-col tw-gap-[20px]">
+          <div className="tw-text-2xl tw-underline tw-mb-[10px]">
+            Restaurant Owner Account
+          </div>
+          <Button
+            color="blue"
+            content="Edit Restaurant Owner Account"
+            onClick={() => {
+              setIsEditingOwnerAccount(true);
+            }}
+            className="tw-w-[350px]"
+          />
+        </div>
       ) : null}
       <div className="tw-flex tw-flex-col tw-gap-[6px] tw-mb-[30px]">
         {isEditingOwnerAccount ? (
