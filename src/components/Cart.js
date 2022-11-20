@@ -86,21 +86,23 @@ export default function Basket({ data, setCurrentPageTab }) {
     } else {
       showPaymentAlert("none");
       setOpen(true);
+
+      setCardholderNameError("")
+      setCardCVCError("")
+      setCardExpiryError("")
+      setCardNumberError("")
+
+      setCardholderName("")
+      setCardNumber("")
+      setCardCVC("")
+      setCardExpiryMonth("")
+      setCardExpiryYear("")
+      
     }
   };
 
   const cancel = () => {
     setOpen(false);
-    setCardholderNameError("")
-    setCardExpiryError("")
-    setCardNumberError("")
-    setCardCVCError("")
-    setCardholderNameError("")
-    setCardholderName("")
-    setCardExpiryMonth("")
-    setCardExpiryYear("")
-    setCardNumber("")
-    setCardCVC("")
   };
 
   const theme = extendTheme({
@@ -169,16 +171,6 @@ export default function Basket({ data, setCurrentPageTab }) {
   const [cardCVC,setCardCVC] = useState("")
 
  const validatePaymentInfo = () => {
-    setCardholderNameError("")
-    setCardExpiryError("")
-    setCardNumberError("")
-    setCardCVCError("")
-    setCardholderNameError("")
-    setCardholderName("")
-    setCardExpiryMonth("")
-    setCardExpiryYear("")
-    setCardNumber("")
-    setCardCVC("")
 
     var isValidated = true
 
@@ -186,7 +178,12 @@ export default function Basket({ data, setCurrentPageTab }) {
       setCardholderNameError("Cardholder Name is required")
       isValidated = false
     }
+    else{
+      setCardholderNameError("")
+
+    }
     if(cardExpiryMonth == "" || cardExpiryYear == ""){
+      console.log("test12")
       setCardExpiryError("Expiry is required")
       isValidated = false
     }
@@ -198,6 +195,9 @@ export default function Basket({ data, setCurrentPageTab }) {
       setCardExpiryError("Expiry year is invalid")
       isValidated = false
     }
+    else{
+      setCardExpiryError("")
+    }
 
     if(cardNumber == "" ){
       setCardNumberError("Card Number is required")
@@ -207,6 +207,8 @@ export default function Basket({ data, setCurrentPageTab }) {
     else if(cardNumber.length < 10){
       setCardNumberError("Card Number should be more than 10 digits")
       isValidated = false
+    }else{
+      setCardNumberError("")
     }
 
     if(cardCVC == "" ){
@@ -217,6 +219,8 @@ export default function Basket({ data, setCurrentPageTab }) {
     else if(cardCVC.length < 3 || cardCVC.length > 5){
       setCardCVCError("Card CVCshould be 3 to 4 digits")
       isValidated = false
+    }else{
+      setCardCVCError("")
     }
 
     if(isValidated){
