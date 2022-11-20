@@ -49,7 +49,7 @@ export default function StartScreen({ setCurrentPageTab }) {
           <label className="form_label">Name</label>
           <Input
             className="form_text_box"
-            placeholder="Enter your name here"
+            placeholder="Enter your name here."
             id="name"
             onChange={(e) => setName(e.target.value)}
           ></Input>

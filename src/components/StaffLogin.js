@@ -16,9 +16,9 @@ export default function StaffLogin({ setCurrentPageTab }) {
       <p className="prompt">Staff Login</p>
       <div className="form">
         <div className="form_field" key="staffId">
-          <label className="form_label">Staff ID Number</label>
+          <label className="form_label">Staff Username</label>
           <Input
-            placeholder="Enter your 8 digit staff ID number."
+            placeholder="Enter your username here."
             className="form_text_box"
             id="id_num"
             onChange={(e) => setStaffID(e.target.value)}
@@ -28,7 +28,7 @@ export default function StaffLogin({ setCurrentPageTab }) {
           <label className="form_label">Password</label>
           <Input
             className="form_text_box"
-            placeholder="Enter your password."
+            placeholder="Enter your password here."
             type="password"
             id="password"
             onChange={(e) => setStaffPassword(e.target.value)}
