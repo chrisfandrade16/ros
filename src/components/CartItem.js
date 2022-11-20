@@ -33,7 +33,7 @@ export default function CartItem({
             color="red"
             content={
               <img
-                className="tw-w-[24px] tw-h-[24px] tw-brightness-0 tw-invert"
+                className="tw-w-[14px] tw-h-[14px] tw-brightness-0 tw-invert"
                 src={delete_trash}
                 alt="delete item"
               />
@@ -44,7 +44,7 @@ export default function CartItem({
         </div>
         <LazyLoadImage
           src={info.img}
-          width={150}
+          width={125}
           alt={info.name}
           style={{ alignSelf: "center", marginRight: "30px" }}
           placeholderSrc={info.low}

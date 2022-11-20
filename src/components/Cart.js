@@ -137,11 +137,7 @@ export default function Basket({ data, setCurrentPageTab }) {
   };
 
   return (
-    <div
-      className={`basket ${
-        cartItems.length !== 0 ? "tw-h-[40vh]" : "tw-h-[80vh]"
-      }`}
-    >
+    <div className={`basket`}>
       {cartItems.length !== 0 ? (
         <div className="cartHeader">
           <div className="itemNameHeader">ITEM NAME</div>
@@ -153,7 +149,7 @@ export default function Basket({ data, setCurrentPageTab }) {
         renderThumbVertical={renderThumb}
         autoHeight
         autoHeightMin={100}
-        autoHeightMax={500}
+        autoHeightMax="45vh"
       >
         {cartItems.map((item) => (
           <CartItem
@@ -241,7 +237,7 @@ export default function Basket({ data, setCurrentPageTab }) {
 
             <div className="footerOptions">
               <div className="paymentOptions">
-                <Select size="sm" onChange={onChangePaymentOption}>
+                <Select onChange={onChangePaymentOption}>
                   <option style={{ backgroundColor: "#434560" }} value="">
                     Payment Option
                   </option>
