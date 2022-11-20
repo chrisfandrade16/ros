@@ -74,9 +74,18 @@ const OwnerPageMenu = (props) => {
                 <div className="tw-p-[20px] tw-flex tw-flex-row tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-gap-[15px] tw-mb-[15px]">
                   <img className="tw-w-[125px]" src={item.img}></img>
                   <div className="tw-flex tw-flex-col tw-gap-[3px]">
-                    <div>Name: {item.name}</div>
-                    <div>Description: {item.description}</div>
-                    <div>Cost: ${item.cost}</div>
+                    <div>
+                      <span style={{ color: "#B5838D" }}>Name: </span>
+                      {item.name}
+                    </div>
+                    <div>
+                      <span style={{ color: "#B5838D" }}>Description: </span>
+                      {item.description}
+                    </div>
+                    <div>
+                      <span style={{ color: "#B5838D" }}>Cost: </span>
+                      ${item.cost}
+                    </div>
                   </div>
                   <div className="tw-ml-auto tw-self-center">
                     <Button

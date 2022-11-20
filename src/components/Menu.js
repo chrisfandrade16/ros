@@ -169,6 +169,7 @@ export default function Menu({ data, setCurrentPageTab }) {
           </div>
         </div>
         <AlertDialog
+          isCentered
           isOpen={isOpen}
           leastDestructiveRef={cancelRef}
           onClose={onClose}
@@ -185,7 +186,7 @@ export default function Menu({ data, setCurrentPageTab }) {
                 Clear {totalItems} Items?
               </AlertDialogHeader>
               <AlertDialogBody>
-                Are you sure? You can't undo this action afterwards.
+                Are you sure? You can not undo this action afterwards.
               </AlertDialogBody>
               <AlertDialogFooter>
                 <Button
