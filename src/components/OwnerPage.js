@@ -45,12 +45,14 @@ const OwnerPageMenu = (props) => {
         <OwnerPageMenuModal
           editingItem={editingItem}
           setEditingItem={setEditingItem}
+          isEdit={true}
         />
       ) : null}
       {addingItem ? (
         <OwnerPageMenuModal
           editingItem={addingItem}
           setEditingItem={setAddingItem}
+          isEdit={false}
         />
       ) : null}
       <Button
@@ -106,17 +108,17 @@ const OwnerPageMenu = (props) => {
 };
 
 const OwnerPageMenuModal = (props) => {
-  const { editingItem, setEditingItem } = props;
+  const { editingItem, setEditingItem, isEdit } = props;
   return (
     <Modal
-      title="Edit Item"
+      title={isEdit ? "Edit Menu Item" : "Add Menu Item"}
       onClose={() => {
         setEditingItem(null);
       }}
       onReset={() => {
         setEditingItem({
           ...storage.restaurants[storage.currentRestaurant].restaurantMenu[
-            editingItem.category
+          editingItem.category
           ][editingItem.index],
           category: editingItem.category,
           index: editingItem.index,
@@ -129,7 +131,7 @@ const OwnerPageMenuModal = (props) => {
           ][editingItem.index] = editingItem;
         } else if (
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
-            editingItem.category
+          editingItem.category
           ]
         ) {
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
@@ -217,7 +219,8 @@ const OwnerPageMenuModal = (props) => {
                 errorMessage={"Cost field cannot be empty"}
               />
             </div>
-            <div className="tw-ml-auto tw-self-center">
+            {isEdit ? (
+              <div className="tw-ml-auto tw-self-center">
               <Button
                 color="red"
                 content={
@@ -233,7 +236,8 @@ const OwnerPageMenuModal = (props) => {
                   setEditingItem(null);
                 }}
               />
-            </div>
+            </div>              
+            ) : null}            
           </div>
         );
       }}
