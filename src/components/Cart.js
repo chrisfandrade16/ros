@@ -181,7 +181,7 @@ export default function Basket({ data, setCurrentPageTab }) {
     } else {
       setCardholderNameError("");
     }
-    if (cardExpiryMonth == "" || cardExpiryYear === "") {
+    if (cardExpiryMonth === "" || cardExpiryYear === "") {
       setCardExpiryError("Expiry is required");
       isValidated = false;
     } else if (
@@ -190,7 +190,7 @@ export default function Basket({ data, setCurrentPageTab }) {
     ) {
       setCardExpiryError("Expiry month is invalid");
       isValidated = false;
-    } else if (cardExpiryYear.length !== 4) {
+    } else if (cardExpiryYear < 22) {
       setCardExpiryError("Expiry year is invalid");
       isValidated = false;
     } else {
