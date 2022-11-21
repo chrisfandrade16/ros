@@ -175,13 +175,13 @@ export default function Basket({ data, setCurrentPageTab }) {
   const validatePaymentInfo = () => {
     var isValidated = true;
 
-    if (cardholderName == "") {
+    if (cardholderName === "") {
       setCardholderNameError("Cardholder Name is required");
       isValidated = false;
     } else {
       setCardholderNameError("");
     }
-    if (cardExpiryMonth == "" || cardExpiryYear == "") {
+    if (cardExpiryMonth == "" || cardExpiryYear === "") {
       setCardExpiryError("Expiry is required");
       isValidated = false;
     } else if (
@@ -197,17 +197,17 @@ export default function Basket({ data, setCurrentPageTab }) {
       setCardExpiryError("");
     }
 
-    if (cardNumber == "") {
+    if (cardNumber === "") {
       setCardNumberError("Card Number is required");
       isValidated = false;
     } else if (cardNumber.length < 10) {
-      setCardNumberError("Card Number should be more than 10 digits");
+      setCardNumberError("Card Number should be 16 digits");
       isValidated = false;
     } else {
       setCardNumberError("");
     }
 
-    if (cardCVC == "") {
+    if (cardCVC === "") {
       setCardCVCError("Card CVC is required");
       isValidated = false;
     } else if (cardCVC.length < 3 || cardCVC.length > 4) {
