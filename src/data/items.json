@@ -122,7 +122,7 @@
     {
         "name": "Red Soup",
         "cost": 7.41,
-		"ingredients": ["Tomatos"],
+		"ingredients": ["Tomatoes"],
 		"size": "",
         "img": "./img/app4.png",
         "low": "./img/low_app4.jpg"
@@ -130,7 +130,7 @@
     {
         "name": "Green Soup",
         "cost": 7.41,
-		"ingredients": ["Green stuff"],
+		"ingredients": ["Onions, Salt, Arborio rice, Kale, Spinach, Cayenne pepper"],
 		"size": "",
         "img": "./img/app5.png",
         "low": "./img/low_app5.jpg"
@@ -170,7 +170,7 @@
     {
         "name": "Chocolate Cake",
         "cost": 2.85,
-		"ingredients": [""],
+		"ingredients": ["Chocolate, Sugar, Eggs, Milk, Salt, Flour"],
 		"size": "",
         "img": "./img/des1.png",
         "low": "./img/low_des1.jpg"
@@ -178,7 +178,7 @@
     {
         "name": "Tiramisu",
         "cost": 2.85,
-		"ingredients": [""],
+		"ingredients": ["Cocoa powder, Ladyfingers, Mascarpone, Vanilla, Cream, Milk, Egg"],
 		"size": "",
         "img": "./img/des2.png",
         "low": "./img/low_des2.jpg"
@@ -186,7 +186,7 @@
     {
         "name": "Assorted Macaroons",
         "cost": 2.85,
-		"ingredients": [""],
+		"ingredients": ["Sugar, Salt, Flour, Heavy cream, Food coloring"],
 		"size": "",
         "img": "./img/des3.png",
         "low": "./img/low_des3.jpg"
@@ -194,9 +194,57 @@
     {
         "name": "Pancake",
         "cost": 2.85,
-		"ingredients": [""],
+		"ingredients": ["Powdered sugar, Raspberry, Egg, Flour, Milk, Butter"],
 		"size": "",
         "img": "./img/des4.png",
         "low": "./img/low_des4.jpg"
+	},
+    {
+        "name": "Coke",
+        "cost": 1.00,
+		"ingredients": [],
+		"size": "",
+        "img": "./img/d1.png",
+        "low": "./img/low_d1.jpg"
+	},
+    {
+        "name": "Pepsi",
+        "cost": 1.00,
+		"ingredients": [],
+		"size": "",
+        "img": "./img/d2.png",
+        "low": "./img/low_d2.jpg"
+	},
+    {
+        "name": "Iced Tea",
+        "cost": 1.00,
+		"ingredients": [],
+		"size": "",
+        "img": "./img/d3.png",
+        "low": "./img/low_d3.jpg"
+	},
+    {
+        "name": "Root Beer",
+        "cost": 1.00,
+		"ingredients": [],
+		"size": "",
+        "img": "./img/d5.png",
+        "low": "./img/low_d5.jpg"
+	},
+    {
+        "name": "Dr. Pepper",
+        "cost": 1.00,
+		"ingredients": [],
+		"size": "",
+        "img": "./img/d6.png",
+        "low": "./img/low_d6.jpg"
+	},
+    {
+        "name": "Arizona Tea",
+        "cost": 1.00,
+		"ingredients": [],
+		"size": "",
+        "img": "./img/d4.png",
+        "low": "./img/low_d4.jpg"
 	}
 ]

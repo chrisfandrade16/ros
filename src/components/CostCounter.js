@@ -37,7 +37,7 @@ export default function CostCounter({
 
   return (
     <div className="cost-counter tw-flex tw-flex-col tw-items-center tw-justify-evenly tw-select-none">
-      {!hideCost ? <p>${cost}</p> : null}
+      {!hideCost ? <p>${cost.toFixed(2)}</p> : null}
       <div className="tw-flex tw-flex-row tw-gap-[12px] tw-items-center">
         <Tooltip
           hasArrow

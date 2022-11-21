@@ -41,10 +41,12 @@ export default function MenuItem({
             <p style={{ color: "#B5838D" }}>Name:</p>
             <p>&nbsp;{info.name}</p>
           </div>
-          <div className="tw-flex tw-justify-center">
-            <p style={{ color: "#B5838D" }}>Ingredients:&nbsp;</p>
-            <p>{info.ingredients.join(", ")}</p>
-          </div>
+          {info.ingredients.length > 0 && (
+            <div className="tw-flex tw-justify-center">
+              <p style={{ color: "#B5838D" }}>Ingredients:&nbsp;</p>
+              <p>{info.ingredients.join(", ")}</p>
+            </div>
+          )}
           {info.size && (
             <div className="tw-flex tw-justify-center">
               <p style={{ color: "#B5838D" }}>Size:&nbsp;</p>

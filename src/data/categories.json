@@ -17,7 +17,7 @@
     },
 	{
         "name": "Drinks",
-        "items": ["Small Pepperoni Pizza"]
+        "items": ["Coke", "Pepsi", "Iced Tea", "Root Beer", "Dr. Pepper", "Arizona Tea"]
     },
 	{
         "name": "Desserts",
