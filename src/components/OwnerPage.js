@@ -7,6 +7,7 @@ import Modal from "components/Modal";
 import edit_pencil from "images/image_edit_pencil.png";
 import delete_trash from "images/image_delete_trash.png";
 import Input from "components/Input";
+import { Select } from "@chakra-ui/react";
 
 const OwnerPage = (props) => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -38,6 +39,8 @@ const OwnerPageMenu = (props) => {
 
   const [editingItem, setEditingItem] = useState(null);
   const [addingItem, setAddingItem] = useState(null);
+  const [addingCategory, setAddingCategory] = useState(null);
+  const [removingCategory, setRemovingCategory] = useState(null);
 
   return (
     <div className="tw-flex tw-flex-col tw-gap-[20px]">
@@ -55,63 +58,147 @@ const OwnerPageMenu = (props) => {
           isEdit={false}
         />
       ) : null}
-      <Button
-        color="blue"
-        content="Add Menu Item"
-        onClick={() => {
-          setAddingItem({});
-        }}
-        className="tw-w-[350px]"
-      />
-      {Object.keys(currentRestaurant.restaurantMenu).map((category) => {
-        return (
-          <div className="tw-mb-[20px]">
-            <div className="tw-text-2xl tw-underline tw-mb-[10px]">
-              {category}
+      {addingCategory ? (
+        <Modal
+          title={"Add Category"}
+          onClose={() => {
+            setAddingCategory(null);
+          }}
+          onConfirm={() => {
+            storage.restaurants[storage.currentRestaurant].restaurantMenu[
+              addingCategory.name
+            ] = [];
+            setAddingCategory(null);
+          }}
+          confirmDisabled={!addingCategory}
+          renderBody={() => {
+            return (
+              <Input
+                value={addingCategory.name}
+                onChange={(value) => {
+                  setAddingCategory({
+                    name: value,
+                  });
+                }}
+                hasError={
+                  !addingCategory.name ||
+                  Object.keys(currentRestaurant.restaurantMenu).includes(
+                    addingCategory.name
+                  )
+                }
+                errorMessage={
+                  !addingCategory.name
+                    ? "Category field cannot be empty"
+                    : "Category already exists"
+                }
+              />
+            );
+          }}
+        />
+      ) : null}
+      {removingCategory ? (
+        <Modal
+          title={`Remove Category: ${removingCategory}`}
+          onClose={() => {
+            setRemovingCategory(null);
+          }}
+          onConfirm={() => {
+            delete storage.restaurants[storage.currentRestaurant]
+              .restaurantMenu[removingCategory];
+            setRemovingCategory(null);
+          }}
+          renderBody={() => {
+            return (
+              <div>{`Are you sure you want to remove the category "${removingCategory}"?`}</div>
+            );
+          }}
+        />
+      ) : null}
+      <div className="tw-flex tw-flex-row tw-gap-[20px]">
+        <Button
+          color="blue"
+          content="Add Menu Item"
+          onClick={() => {
+            setAddingItem({});
+          }}
+          className="tw-w-[350px]"
+        />
+        <Button
+          color="blue"
+          content="Add Category"
+          onClick={() => {
+            setAddingCategory({});
+          }}
+          className="tw-w-[350px]"
+        />
+      </div>
+      {Object.keys(currentRestaurant.restaurantMenu)
+        .reverse()
+        .map((category) => {
+          return (
+            <div className="tw-mb-[20px]">
+              <div className="tw-flex tw-flex-row tw-gap-[20px] tw-mb-[20px]">
+                <div className="tw-text-2xl tw-underline">{category}</div>
+                <Button
+                  className="tw-w-[32px] tw-h-[32px]"
+                  color="red"
+                  content={"X"}
+                  onClick={() => {
+                    setRemovingCategory(category);
+                  }}
+                />
+              </div>
+              {currentRestaurant.restaurantMenu[category].length ? (
+                currentRestaurant.restaurantMenu[category].map(
+                  (item, index) => {
+                    return (
+                      <div className="tw-p-[20px] tw-flex tw-flex-row tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-gap-[15px] tw-mb-[15px]">
+                        <img className="tw-w-[125px]" src={item.img}></img>
+                        <div className="tw-flex tw-flex-col tw-gap-[3px]">
+                          <div>
+                            <span style={{ color: "#B5838D" }}>Name: </span>
+                            {item.name}
+                          </div>
+                          <div>
+                            <span style={{ color: "#B5838D" }}>
+                              Description:{" "}
+                            </span>
+                            {item.description}
+                          </div>
+                          <div>
+                            <span style={{ color: "#B5838D" }}>Cost: </span>$
+                            {item.cost}
+                          </div>
+                        </div>
+                        <div className="tw-ml-auto tw-self-center">
+                          <Button
+                            color="blue"
+                            content={
+                              <img
+                                className="tw-w-[48px] tw-h-[48px] tw-brightness-0 tw-invert"
+                                src={edit_pencil}
+                              ></img>
+                            }
+                            onClick={() => {
+                              setEditingItem({
+                                ...item,
+                                key: category,
+                                category: category,
+                                index: index,
+                              });
+                            }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+                )
+              ) : (
+                <div className="tw-italic">No items added in category</div>
+              )}
             </div>
-            {currentRestaurant.restaurantMenu[category].map((item, index) => {
-              return (
-                <div className="tw-p-[20px] tw-flex tw-flex-row tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-gap-[15px] tw-mb-[15px]">
-                  <img className="tw-w-[125px]" src={item.img}></img>
-                  <div className="tw-flex tw-flex-col tw-gap-[3px]">
-                    <div>
-                      <span style={{ color: "#B5838D" }}>Name: </span>
-                      {item.name}
-                    </div>
-                    <div>
-                      <span style={{ color: "#B5838D" }}>Description: </span>
-                      {item.description}
-                    </div>
-                    <div>
-                      <span style={{ color: "#B5838D" }}>Cost: </span>
-                      ${item.cost}
-                    </div>
-                  </div>
-                  <div className="tw-ml-auto tw-self-center">
-                    <Button
-                      color="blue"
-                      content={
-                        <img
-                          className="tw-w-[48px] tw-h-[48px] tw-brightness-0 tw-invert"
-                          src={edit_pencil}
-                        ></img>
-                      }
-                      onClick={() => {
-                        setEditingItem({
-                          ...item,
-                          key: category,
-                          category: category,
-                          index: index,
-                        });
-                      }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };
@@ -127,7 +214,7 @@ const OwnerPageMenuModal = (props) => {
       onReset={() => {
         setEditingItem({
           ...storage.restaurants[storage.currentRestaurant].restaurantMenu[
-          editingItem.category
+            editingItem.category
           ][editingItem.index],
           category: editingItem.category,
           index: editingItem.index,
@@ -140,9 +227,18 @@ const OwnerPageMenuModal = (props) => {
           ][editingItem.index] = editingItem;
         } else if (
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
-          editingItem.category
+            editingItem.category
           ]
         ) {
+          if (
+            storage.restaurants[storage.currentRestaurant].restaurantMenu[
+              editingItem.key
+            ]
+          ) {
+            storage.restaurants[storage.currentRestaurant].restaurantMenu[
+              editingItem.key
+            ].splice(editingItem.index, 1);
+          }
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
             editingItem.category
           ].unshift(editingItem);
@@ -195,14 +291,45 @@ const OwnerPageMenuModal = (props) => {
               }
             </div>
             <div className="tw-flex tw-flex-col tw-gap-[12px]">
-              <Input
-                value={editingItem.category}
-                onChange={(value) => {
-                  setEditingItem({ ...editingItem, category: value });
-                }}
-                hasError={!editingItem.category}
-                errorMessage={"Category field cannot be empty"}
-              />
+              <div className="tw-flex tw-flex-row tw-gap-[20px]">
+                <div className="tw-mt-[8px]">Category:</div>
+                <div className="tw-flex tw-flex-col tw-gap-[12px]">
+                  <Select
+                    className="tw-px-[8px] tw-py-[4px] tw-text-ellipsis focus:tw-rounded focus:tw-border-[2px] focus:tw-border-solid focus:tw-border-[#90ddf0] tw-border-[2px] tw-border-transparent focus:tw-outline-none tw-shadow-none tw-bg-transparent tw-border-b-solid tw-border-b-[#CBD5E1] hover:tw-border-b-[#90ddf0] tw-duration-200"
+                    value={editingItem.category}
+                    defaultValue={editingItem.category}
+                    placeholder={"Select category"}
+                    onChange={(event) => {
+                      setEditingItem({
+                        ...editingItem,
+                        category: event.target.value,
+                      });
+                    }}
+                  >
+                    {Object.keys(
+                      storage.restaurants[storage.currentRestaurant]
+                        .restaurantMenu
+                    )
+                      .reverse()
+                      .map((category) => {
+                        return (
+                          <option
+                            style={{ backgroundColor: "#434560" }}
+                            key={category}
+                            value={category}
+                          >
+                            {category}
+                          </option>
+                        );
+                      })}
+                  </Select>
+                  {!editingItem.category ? (
+                    <div className="tw-text-xs tw-text-[#eb9486]">
+                      Category field cannot be emppty
+                    </div>
+                  ) : null}
+                </div>
+              </div>
               <Input
                 value={editingItem.name}
                 onChange={(value) => {
@@ -239,9 +366,12 @@ const OwnerPageMenuModal = (props) => {
                     ></img>
                   }
                   onClick={() => {
-                    storage.restaurants[storage.currentRestaurant].restaurantMenu[
-                      editingItem.key
-                    ].splice(editingItem.index, 1);
+                    storage.restaurants[
+                      storage.currentRestaurant
+                    ].restaurantMenu[editingItem.key].splice(
+                      editingItem.index,
+                      1
+                    );
                     setEditingItem(null);
                   }}
                 />
@@ -499,10 +629,6 @@ const OwnerPageAccount = (props) => {
                       storage.restaurants[
                         storage.currentRestaurant
                       ].restaurantEmployees.splice(index, 1);
-                      // console.log(
-                      //   storage.restaurants[storage.currentRestaurant]
-                      //     .restaurantEmployees
-                      // );
                       setForceUpdate(!forceUpdate);
                     }}
                   />

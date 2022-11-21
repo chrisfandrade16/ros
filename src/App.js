@@ -32,7 +32,7 @@ const App = () => {
             <Navigator
               tabs={constants.PAGE_TABS_CONFIG(setCurrentPageTab)}
               activeTab={currentPageTab}
-              activeHighlightTab={true}
+              activeNextTab={true}
             />
           )}
         {currentPageTab === constants.PAGE_TABS.START_SCREEN && (
