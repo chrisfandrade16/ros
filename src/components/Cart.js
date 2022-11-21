@@ -31,7 +31,6 @@ import {
 import CartItem from "./CartItem";
 import Button from "./Button";
 
-
 export default function Basket({ data, setCurrentPageTab }) {
   const toast = useToast();
   const [totalCost, setTotalCost] = useState(
@@ -91,17 +90,16 @@ export default function Basket({ data, setCurrentPageTab }) {
       showPaymentAlert("none");
       setOpen(true);
 
-      setCardholderNameError("")
-      setCardCVCError("")
-      setCardExpiryError("")
-      setCardNumberError("")
+      setCardholderNameError("");
+      setCardCVCError("");
+      setCardExpiryError("");
+      setCardNumberError("");
 
-      setCardholderName("")
-      setCardNumber("")
-      setCardCVC("")
-      setCardExpiryMonth("")
-      setCardExpiryYear("")
-      
+      setCardholderName("");
+      setCardNumber("");
+      setCardCVC("");
+      setCardExpiryMonth("");
+      setCardExpiryYear("");
     }
   };
 
@@ -163,76 +161,67 @@ export default function Basket({ data, setCurrentPageTab }) {
     setCurrentPageTab(constants.PAGE_TABS.MENU);
   };
 
-  const [cardholderNameError,setCardholderNameError] = useState("")
-  const [cardExpiryError,setCardExpiryError] = useState("")
-  const [cardNumberError,setCardNumberError] = useState("")
-  const [cardCVCError,setCardCVCError] = useState("")
+  const [cardholderNameError, setCardholderNameError] = useState("");
+  const [cardExpiryError, setCardExpiryError] = useState("");
+  const [cardNumberError, setCardNumberError] = useState("");
+  const [cardCVCError, setCardCVCError] = useState("");
 
-  const [cardholderName,setCardholderName] = useState("")
-  const [cardExpiryMonth,setCardExpiryMonth] = useState("")
-  const [cardExpiryYear,setCardExpiryYear] = useState("")
-  const [cardNumber,setCardNumber] = useState("")
-  const [cardCVC,setCardCVC] = useState("")
+  const [cardholderName, setCardholderName] = useState("");
+  const [cardExpiryMonth, setCardExpiryMonth] = useState("");
+  const [cardExpiryYear, setCardExpiryYear] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardCVC, setCardCVC] = useState("");
 
- const validatePaymentInfo = () => {
+  const validatePaymentInfo = () => {
+    var isValidated = true;
 
-    var isValidated = true
-
-    if(cardholderName == ""){
-      setCardholderNameError("Cardholder Name is required")
-      isValidated = false
+    if (cardholderName === "") {
+      setCardholderNameError("Cardholder Name is required");
+      isValidated = false;
+    } else {
+      setCardholderNameError("");
     }
-    else{
-      setCardholderNameError("")
-
-    }
-    if(cardExpiryMonth == "" || cardExpiryYear == ""){
-      setCardExpiryError("Expiry is required")
-      isValidated = false
-    }
-    else if(parseInt(cardExpiryMonth) > 12 || parseInt(cardExpiryMonth) < 1){
-      setCardExpiryError("Expiry month is invalid")
-      isValidated = false
-    }
-    else if(cardExpiryYear.length !== 4 ){
-      setCardExpiryError("Expiry year is invalid")
-      isValidated = false
-    }
-    else{
-      setCardExpiryError("")
+    if (cardExpiryMonth === "" || cardExpiryYear === "") {
+      setCardExpiryError("Expiry is required");
+      isValidated = false;
+    } else if (
+      parseInt(cardExpiryMonth) > 12 ||
+      parseInt(cardExpiryMonth) < 1
+    ) {
+      setCardExpiryError("Expiry month is invalid");
+      isValidated = false;
+    } else if (cardExpiryYear < 22) {
+      setCardExpiryError("Expiry year is invalid");
+      isValidated = false;
+    } else {
+      setCardExpiryError("");
     }
 
-    if(cardNumber == "" ){
-      setCardNumberError("Card Number is required")
-      isValidated = false
-
-    }
-    else if(cardNumber.length < 10){
-      setCardNumberError("Card Number should be more than 10 digits")
-      isValidated = false
-    }else{
-      setCardNumberError("")
+    if (cardNumber === "") {
+      setCardNumberError("Card Number is required");
+      isValidated = false;
+    } else if (cardNumber.length < 10) {
+      setCardNumberError("Card Number should be 16 digits");
+      isValidated = false;
+    } else {
+      setCardNumberError("");
     }
 
-    if(cardCVC == "" ){
-      setCardCVCError("Card CVC is required")
-      isValidated = false
-
-    }
-    else if(cardCVC.length < 3 || cardCVC.length > 4){
-      setCardCVCError("Card CVCshould be 3 to 4 digits")
-      isValidated = false
-    }else{
-      setCardCVCError("")
+    if (cardCVC === "") {
+      setCardCVCError("Card CVC is required");
+      isValidated = false;
+    } else if (cardCVC.length < 3 || cardCVC.length > 4) {
+      setCardCVCError("Card CVC should be 3 to 4 digits");
+      isValidated = false;
+    } else {
+      setCardCVCError("");
     }
 
-    if(isValidated){
+    if (isValidated) {
       reset();
       cancel();
     }
-
-  
-  }
+  };
 
   return (
     <div className={`basket`}>
@@ -369,7 +358,7 @@ export default function Basket({ data, setCurrentPageTab }) {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>
+          <ModalHeader style={{ color: "#B5838D" }}>
             {["Debit", "Credit"].includes(paymentOptionSelected) && (
               <div>Enter payment information</div>
             )}
@@ -381,45 +370,92 @@ export default function Basket({ data, setCurrentPageTab }) {
                 <div className="cardDetailsRow">
                   <FormControl isRequired>
                     <FormLabel>Cardholder Name</FormLabel>
-                    <Input 
-                    placeholder="Cardholder Name" 
-                    onChange={(e) => setCardholderName(e.target.value)}
+                    <Input
+                      placeholder="Cardholder Name"
+                      onChange={(e) => setCardholderName(e.target.value)}
                     />
-                    <p className="paymentVerificationError">{cardholderNameError}</p>
+                    <p className="paymentVerificationError">
+                      {cardholderNameError}
+                    </p>
                   </FormControl>
                   <FormControl style={{ paddingLeft: "10px" }} isRequired>
                     <FormLabel>Expiry</FormLabel>
                     <div style={{ display: "flex" }}>
                       <div style={{ paddingRight: "10px" }}>
-                        <NumberInput> <NumberInputField placeholder="MM" onChange={(e) => setCardExpiryMonth(e.target.value)} /> </NumberInput>
+                        <NumberInput>
+                          <NumberInputField
+                            placeholder="MM"
+                            onChange={(e) => {
+                              e.target.value =
+                                e.target.value.length > 2
+                                  ? e.target.value.substring(0, 2)
+                                  : e.target.value;
+                              setCardExpiryMonth(e.target.value);
+                            }}
+                          />
+                        </NumberInput>
                       </div>
                       <div>
-                        <NumberInput> <NumberInputField placeholder="YYYY" onChange={(e) => setCardExpiryYear(e.target.value)}/> </NumberInput>
+                        <NumberInput>
+                          <NumberInputField
+                            placeholder="YY"
+                            onChange={(e) => {
+                              e.target.value =
+                                e.target.value.length > 2
+                                  ? e.target.value.substring(0, 2)
+                                  : e.target.value;
+                              setCardExpiryYear(e.target.value);
+                            }}
+                          />
+                        </NumberInput>
                       </div>
                     </div>
-                    <p className="paymentVerificationError">{cardExpiryError}</p>
+                    <p className="paymentVerificationError">
+                      {cardExpiryError}
+                    </p>
                   </FormControl>
                 </div>
-
                 <div className="cardDetailsRow">
                   <FormControl isRequired>
                     <FormLabel>Card Number</FormLabel>
-                    <NumberInput > <NumberInputField placeholder="Card Number" onChange={(e) => setCardNumber(e.target.value)} />  </NumberInput>
-                    <p className="paymentVerificationError">{cardNumberError}</p>
+                    <NumberInput>
+                      <NumberInputField
+                        placeholder="Card Number"
+                        onChange={(e) => {
+                          e.target.value =
+                            e.target.value.length > 16
+                              ? e.target.value.substring(0, 16)
+                              : e.target.value;
+                          setCardNumber(e.target.value);
+                        }}
+                      />
+                    </NumberInput>
+                    <p className="paymentVerificationError">
+                      {cardNumberError}
+                    </p>
                   </FormControl>
                   <FormControl style={{ paddingLeft: "10px" }} isRequired>
                     <FormLabel>CVC</FormLabel>
-                      <div>
-                        <NumberInput > <NumberInputField placeholder="CVC" onChange={(e) => setCardCVC(e.target.value)} /> </NumberInput>
-                        <p className="paymentVerificationError">{cardCVCError}</p>
-                      </div>
+                    <div>
+                      <NumberInput>
+                        <NumberInputField
+                          placeholder="CVC"
+                          onChange={(e) => {
+                            e.target.value =
+                              e.target.value.length > 4
+                                ? e.target.value.substring(0, 4)
+                                : e.target.value;
+                            setCardCVC(e.target.value);
+                          }}
+                        />
+                      </NumberInput>
+                      <p className="paymentVerificationError">{cardCVCError}</p>
+                    </div>
                   </FormControl>
                 </div>
-                
               </div>
             )}
           </ModalBody>
-
           <ModalFooter>
             {["Debit", "Credit"].includes(paymentOptionSelected) && (
               <Button
