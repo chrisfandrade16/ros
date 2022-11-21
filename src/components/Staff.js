@@ -106,42 +106,39 @@ export default function Staff({ data }) {
         <h1 style={{ fontSize: "1.1em" }}>Tables Requesting Help</h1>
         <div className="tw-flex tw-flex-row tw-self-center tw-gap-[30px]">
           <Button
-            color="red"
+            color="blue"
             content="Table 3"
-            onClick={() => {
-
-            }}
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 14"
           />
           <Button
-            color="red"
-            content="Table 3"
+            color="blue"
+            content="Table 10"
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 6"
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 13"
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 12"
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 9"
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 2"
           />
           <Button
-            color="red"
+            color="blue"
             content="Table 8"
           />
         </div>
