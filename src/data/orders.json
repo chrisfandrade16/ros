@@ -1,4 +1,35 @@
-[
+[   
+    {
+        "order": 601875,
+        "total": 26.15,
+        "status": "Cooking",
+        "customer": "Eve",
+        "table": 14,
+        "server": "Hope",
+        "orderTime": "5:50 pm",
+        "items": [
+            {
+                "name": "Fries",
+                "amount": 6
+            },
+            {
+                "name": "Chicken Tenders",
+                "amount": 4
+            },
+            {
+                "name": "Cheese Burger",
+                "amount": 10
+            },
+            {
+                "name": "Smash Burger",
+                "amount": 1
+            },
+            {
+                "name": "Pancake",
+                "amount": 3
+            }
+        ]
+    },
     {
         "order": 615847,
         "total": 61.23,
@@ -10,14 +41,64 @@
         "items": [
             {
                 "name": "Extra Large Pepperoni Pizza",
-                "amount": 1
+                "amount": 3
             },
             {
                 "name": "Extra Large Hawaiian Pizza",
-                "amount": 1
+                "amount": 2
             },
             {
                 "name": "Large Vegetarian Pizza",
+                "amount": 5
+            }
+        ]
+    },
+    {
+        "order": 605247,
+        "total": 61.23,
+        "status": "Cooking",
+        "customer": "Jill",
+        "table": 11,
+        "server": "Bill",
+        "orderTime": "5:44 pm",
+        "items": [
+            {
+                "name": "Chicken Wings",
+                "amount": 10
+            },
+            {
+                "name": "Large Vegetarian Pizza",
+                "amount": 10
+            },
+            {
+                "name": "Small Hawaiian Pizza",
+                "amount": 10
+            },
+            {
+                "name": "Small Vegetarian Pizza",
+                "amount": 10
+            }
+        ]
+    },
+    {
+        "order": 518943,
+        "total": 42.61,
+        "status": "Serving",
+        "customer": "Larry",
+        "table": 2,
+        "server": "Sarah",
+        "orderTime": "5:43 pm",
+        "items": [
+            {
+                "name": "Small Pepperoni Pizza",
+                "amount": 4
+            },
+            {
+                "name": "Extra Large Hawaiian Pizza",
+                "amount": 2
+            },
+            {
+                "name": "Green Soup",
                 "amount": 1
             }
         ]
@@ -25,7 +106,7 @@
     {
         "order": 218426,
         "total": 12.84,
-        "status": "Cooking",
+        "status": "Serving",
         "customer": "Sarah",
         "table": 2,
         "server": "Bill",
@@ -52,7 +133,7 @@
         "items": [
             {
                 "name": "Green Soup",
-                "amount": 1
+                "amount": 5
             },
             {
                 "name": "Smash Burger",
@@ -69,6 +150,29 @@
         ]
     },
     {
+        "order": 507914,
+        "total": 14.68,
+        "status": "Completed",
+        "customer": "Jim",
+        "table": 13,
+        "server": "Jackie",
+        "orderTime": "5:28 pm",
+        "items": [
+            {
+                "name": "Double Cheese Burger with Bacon",
+                "amount": 2
+            },
+            {
+                "name": "Smash Burger",
+                "amount": 2
+            },
+            {
+                "name": "Cheese Burger",
+                "amount": 5
+            }
+        ]
+    },
+    {
         "order": 910347,
         "total": 5.68,
         "status": "Completed",
@@ -80,6 +184,29 @@
             {
                 "name": "Double Cheese Burger with Bacon",
                 "amount": 3
+            }
+        ]
+    },
+    {
+        "order": 604815,
+        "total": 62.54,
+        "status": "Completed",
+        "customer": "Rick",
+        "table": 8,
+        "server": "Jose",
+        "orderTime": "5:18 pm",
+        "items": [
+            {
+                "name": "Cheese Burger",
+                "amount": 4
+            },
+            {
+                "name": "Double Cheese Burger with Bacon",
+                "amount": 3
+            },            
+            {
+                "name": "Small Vegetarian Pizza",
+                "amount": 5
             }
         ]
     },
@@ -103,6 +230,21 @@
             {
                 "name": "Smash Burger",
                 "amount": 3
+            }
+        ]
+    },
+    {
+        "order": 605187,
+        "total": 2.99,
+        "status": "Completed",
+        "customer": "Poppy",
+        "table": 14,
+        "server": "Jackie",
+        "orderTime": "5:07 pm",
+        "items": [
+            {
+                "name": "Smash Burger",
+                "amount": 10
             }
         ]
     },
