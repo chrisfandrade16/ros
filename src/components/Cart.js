@@ -388,7 +388,7 @@ export default function Basket({ data, setCurrentPageTab }) {
                             onChange={(e) => {
                               e.target.value =
                                 e.target.value.length > 2
-                                  ? e.target.value.substr(0, 2)
+                                  ? e.target.value.substring(0, 2)
                                   : e.target.value;
                               setCardExpiryMonth(e.target.value);
                             }}
@@ -402,7 +402,7 @@ export default function Basket({ data, setCurrentPageTab }) {
                             onChange={(e) => {
                               e.target.value =
                                 e.target.value.length > 2
-                                  ? e.target.value.substr(0, 2)
+                                  ? e.target.value.substring(0, 2)
                                   : e.target.value;
                               setCardExpiryYear(e.target.value);
                             }}

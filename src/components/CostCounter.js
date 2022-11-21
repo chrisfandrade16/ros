@@ -69,7 +69,8 @@ export default function CostCounter({
         <Input
           value={count}
           onChange={(newValue) => {
-            newValue = newValue.length > 2 ? newValue.substr(0, 2) : newValue;
+            newValue =
+              newValue.length > 2 ? newValue.substring(0, 2) : newValue;
             if (newValue.length === 0 || newValue === "0") {
               newValue = 0;
               if (showToast)
