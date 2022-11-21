@@ -55,7 +55,7 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
   }
 
   return (
-    <div className="menu-item tw-gap-[20px]">
+    <div className="menu-item tw-gap-[20px] tw-border-[2px]" style={{ borderColor: "#73454E" }}>
       <div className="item-desc">
         <TableContainer>
           <Table variant="simple">
