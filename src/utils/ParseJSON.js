@@ -61,33 +61,11 @@ class ParseJSON {
     }
     return items;
   }
-  getOrderInfo(order) {
-    for (const key of this.orderJSON) {
-      if (key.order === order) return key;
-    }
-  }
   getOrders() {
     let orders = [];
     for (const key of this.orderJSON) {
       orders.push(key);
     }
-    return orders;
-  }
-  getOrderCategoryItems(name) {
-    let search = [];
-    if (name === "In Progress") {
-      search = ["Cooking", "Serving"];
-    } else {
-      search = ["Completed"];
-    }
-
-    const orders = [];
-    for (const key of this.orderJSON) {
-      if (search.includes(key.status)) {
-        orders.push(key.order);
-      }
-    }
-
     return orders;
   }
   getCost(name) {

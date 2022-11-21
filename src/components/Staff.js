@@ -3,8 +3,53 @@ import "../styles/Menu.scss";
 import OrderItem from "./OrderItem";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import Navigator from "./Navigatior";
+import ParseJSON from "../utils/ParseJSON";
 
-export default function Staff({ data, setData }) {
+export default function Staff({ data }) {
+  const [orderJSON, setOrderJSON] = useState(new ParseJSON().orderJSON);
+
+  const getOrderInfo = function (order) {
+    for (const key of orderJSON) {
+      if (key.order === order) return key;
+    }
+  }
+
+  const updateOrderJSON = function (orderInfo) {
+    const jsonString = JSON.stringify(orderJSON)
+    let newOrderJSON = JSON.parse(jsonString);
+    const index = newOrderJSON.findIndex(
+      (order) => order.order === orderInfo.order
+    );
+
+    if (orderInfo.status === null) {
+      if (index > -1) {
+        newOrderJSON.splice(index, 1);
+      }
+    } else {
+      newOrderJSON[index] = orderInfo;
+    }
+
+    setOrderJSON(newOrderJSON);
+  }
+
+  const getOrderCategoryItems = function (name) {
+    let search = [];
+    if (name === "In Progress") {
+      search = ["Cooking", "Serving"];
+    } else {
+      search = ["Completed"];
+    }
+
+    const orders = [];
+    for (const key of orderJSON) {
+      if (search.includes(key.status)) {
+        orders.push(key.order);
+      }
+    }
+
+    return orders;
+  }
+
   const [activeCategory, setActiveCategory] = useState("In Progress");
 
   const renderThumb = ({ style, ...props }) => {
@@ -37,12 +82,12 @@ export default function Staff({ data, setData }) {
       />
 
       <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
-        {data.getOrderCategoryItems(activeCategory).map((order) => (
+        {getOrderCategoryItems(activeCategory).map((order) => (
           <OrderItem
             key={order}
-            info={data.getOrderInfo(order)}
+            orderInfo={getOrderInfo(order)}
+            updateOrderJSON={updateOrderJSON}
             data={data}
-            setData={setData}
           />
         ))}
       </Scrollbars>
