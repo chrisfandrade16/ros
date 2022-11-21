@@ -7,7 +7,7 @@ import Modal from "components/Modal";
 import edit_pencil from "images/image_edit_pencil.png";
 import delete_trash from "images/image_delete_trash.png";
 import Input from "components/Input";
-import { Select } from "@chakra-ui/react";
+import { Textarea, Select } from "@chakra-ui/react";
 
 const OwnerPage = (props) => {
   const [currentPageTab, setCurrentPageTab] = useState(
@@ -403,19 +403,22 @@ const OwnerPageContact = (props) => {
       ) : null}
       <div className="tw-flex tw-flex-col tw-gap-[6px] tw-mb-[30px]">
         {isEditing ? (
-          <Input
+          <Textarea
             value={contactInfo.aboutUs}
-            onChange={(value) => {
-              setContactInfo({ ...contactInfo, aboutUs: value });
+            onChange={(e) => {
+              setContactInfo({ ...contactInfo, aboutUs: e.target.value });
             }}
             hasError={!contactInfo.aboutUs}
             errorMessage={"About Us field cannot be empty"}
             className="tw-w-[50%]"
+            focusBorderColor="blue.100"
+            size="s"
+            style={{ width: "50%", height: "30vh", padding: "1%" }}
           />
         ) : (
           <div>
-            <span style={{ color: "#B5838D" }}>About Us: </span>
-            {currentRestaurant.restaurantOwner.aboutUs}
+            <p style={{ color: "#B5838D" }}>About Us: </p>
+            <p className="tw-w-[45%] mb-[3%]">{currentRestaurant.restaurantOwner.aboutUs}</p>
           </div>
         )}
         {isEditing ? (
@@ -430,8 +433,8 @@ const OwnerPageContact = (props) => {
           />
         ) : (
           <div>
-            <span style={{ color: "#B5838D" }}>Location: </span>
-            {currentRestaurant.restaurantOwner.location}
+            <p style={{ color: "#B5838D" }}>Location:</p>
+            <p className="mb-[3%]"> {currentRestaurant.restaurantOwner.location}</p>
           </div>
         )}
         {isEditing ? (
@@ -446,8 +449,8 @@ const OwnerPageContact = (props) => {
           />
         ) : (
           <div>
-            <span style={{ color: "#B5838D" }}>Email: </span>
-            {currentRestaurant.restaurantOwner.email}
+            <p style={{ color: "#B5838D" }}>Email: </p>
+            <p className="mb-[3%]"> {currentRestaurant.restaurantOwner.email}</p>
           </div>
         )}
         {isEditing ? (
@@ -462,49 +465,51 @@ const OwnerPageContact = (props) => {
           />
         ) : (
           <div>
-            <span style={{ color: "#B5838D" }}>Phone: </span>
-            {currentRestaurant.restaurantOwner.phone}
+            <p style={{ color: "#B5838D" }}>Phone: </p>
+            <p className="mb-[3%]">{currentRestaurant.restaurantOwner.phone}</p>
           </div>
         )}
       </div>
-      {isEditing ? (
-        <div className="tw-flex tw-flex-row tw-justify-end tw-gap-[20px] tw-p-[12px] tw-border-t-[2px] tw-border-solid tw-border-[#CBD5E1]">
-          <Button
-            color="blue"
-            content={"Reset"}
-            onClick={() => {
-              setContactInfo({ ...currentRestaurant.restaurantOwner });
-            }}
-            className="tw-self-start"
-          />
-          <Button
-            color="red"
-            content={"Cancel"}
-            onClick={() => {
-              setContactInfo({ ...currentRestaurant.restaurantOwner });
-              setIsEditing(false);
-            }}
-          />
-          <Button
-            color="green"
-            content={"Confirm"}
-            onClick={() => {
-              storage.restaurants[storage.currentRestaurant].restaurantOwner = {
-                ...currentRestaurant.restaurantOwner,
-                ...contactInfo,
-              };
-              setIsEditing(false);
-            }}
-            disabled={
-              !contactInfo.aboutUs ||
-              !contactInfo.location ||
-              !contactInfo.email ||
-              !contactInfo.phone
-            }
-          />
-        </div>
-      ) : null}
-    </div>
+      {
+        isEditing ? (
+          <div className="tw-flex tw-flex-row tw-justify-end tw-gap-[20px] tw-p-[12px] tw-border-t-[2px] tw-border-solid tw-border-[#CBD5E1]">
+            <Button
+              color="blue"
+              content={"Reset"}
+              onClick={() => {
+                setContactInfo({ ...currentRestaurant.restaurantOwner });
+              }}
+              className="tw-self-start"
+            />
+            <Button
+              color="red"
+              content={"Cancel"}
+              onClick={() => {
+                setContactInfo({ ...currentRestaurant.restaurantOwner });
+                setIsEditing(false);
+              }}
+            />
+            <Button
+              color="green"
+              content={"Confirm"}
+              onClick={() => {
+                storage.restaurants[storage.currentRestaurant].restaurantOwner = {
+                  ...currentRestaurant.restaurantOwner,
+                  ...contactInfo,
+                };
+                setIsEditing(false);
+              }}
+              disabled={
+                !contactInfo.aboutUs ||
+                !contactInfo.location ||
+                !contactInfo.email ||
+                !contactInfo.phone
+              }
+            />
+          </div>
+        ) : null
+      }
+    </div >
   );
 };
 
