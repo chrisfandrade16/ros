@@ -2,7 +2,7 @@
     {
         "name": "Extra Large Pepperoni Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos","Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Jalapenos","Pepperoni"],
 		"size": "16''",
         "img": "./img/p1.png",
         "low": "./img/low_p1.jpg"
@@ -10,7 +10,7 @@
 	{
         "name": "Large Pepperoni Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos","Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Jalapenos","Pepperoni"],
 		"size": "14''", 
         "img": "./img/p1.png",
         "low": "./img/low_p1.jpg"
@@ -18,7 +18,7 @@
 	{
         "name": "Medium Pepperoni Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos", "Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Jalapenos", "Pepperoni"],
 		"size": "12''",
         "img": "./img/p1.png",
         "low": "./img/low_p1.jpg"
@@ -26,7 +26,7 @@
 	{
         "name": "Small Pepperoni Pizza",
         "cost": 7.73,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos","Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Jalapenos","Pepperoni"],
 		"size": "10''",
         "img": "./img/p1.png",
         "low": "./img/low_p1.jpg"
@@ -34,7 +34,7 @@
     {
         "name": "Extra Large Hawaiian Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Tomato slices", "Mozzarella Cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "16''",
         "img": "./img/p5.png",
         "low": "./img/low_p5.jpg"
@@ -42,7 +42,7 @@
 	{
         "name": "Large Hawaiian Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Tomato slices", "Mozzarella Cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "14''", 
         "img": "./img/p5.png",
         "low": "./img/low_p5.jpg"
@@ -50,7 +50,7 @@
 	{
         "name": "Medium Hawaiian Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Tomato slices", "Mozzarella Cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "12''",
         "img": "./img/p5.png",
         "low": "./img/low_p5.jpg"
@@ -58,7 +58,7 @@
 	{
         "name": "Small Hawaiian Pizza",
         "cost": 7.93,
-		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Tomato slices", "Mozzarella Cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "10''",
         "img": "./img/p5.png",
         "low": "./img/low_p5.jpg"
@@ -66,7 +66,7 @@
 	{
         "name": "Extra Large Vegetarian Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "16''",
         "img": "./img/p2.png",
         "low": "./img/low_p2.jpg"
@@ -74,7 +74,7 @@
 	{
         "name": "Large Vegetarian Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "14''", 
         "img": "./img/p2.png",
         "low": "./img/low_p2.jpg"
@@ -82,7 +82,7 @@
 	{
         "name": "Medium Vegetarian Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "12''",
         "img": "./img/p2.png",
         "low": "./img/low_p2.jpg"
@@ -90,7 +90,7 @@
 	{
         "name": "Small Vegetarian Pizza",
         "cost": 7.93,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "10''",
         "img": "./img/p2.png",
         "low": "./img/low_p2.jpg"
@@ -98,7 +98,7 @@
     {
         "name": "Chicken Tenders",
         "cost": 8.33,
-		"ingredients": ["Chicken"],
+		"ingredients": ["Chicken, Garlic Seasoning, Lemon"],
 		"size": "",
         "img": "./img/app1.png",
         "low": "./img/low_app1.jpg"
@@ -106,7 +106,7 @@
     {
         "name": "Chicken Wings",
         "cost": 6.57,
-		"ingredients": ["Chicken"],
+		"ingredients": ["Chicken, BBQ Sauce"],
 		"size": "",
         "img": "./img/app3.png",
         "low": "./img/low_app3.jpg"
@@ -114,7 +114,7 @@
     {
         "name": "Fries",
         "cost": 4.99,
-		"ingredients": ["Potatos"],
+		"ingredients": ["Potatos, Salt"],
 		"size": "",
         "img": "./img/app2.png",
         "low": "./img/low_app2.jpg"
@@ -122,7 +122,7 @@
     {
         "name": "Red Soup",
         "cost": 7.41,
-		"ingredients": ["Tomatoes"],
+		"ingredients": ["Tomatoes, Salt, Pepper"],
 		"size": "",
         "img": "./img/app4.png",
         "low": "./img/low_app4.jpg"
@@ -130,7 +130,7 @@
     {
         "name": "Green Soup",
         "cost": 7.41,
-		"ingredients": ["Onions, Salt, Arborio rice, Kale, Spinach, Cayenne pepper"],
+		"ingredients": ["Onions, Salt, Arborio Rice, Kale, Spinach, Cayenne pepper"],
 		"size": "",
         "img": "./img/app5.png",
         "low": "./img/low_app5.jpg"
@@ -138,7 +138,7 @@
     {
         "name": "Double Cheese Burger with Bacon",
         "cost": 2.85,
-		"ingredients": ["Buns, American cheese, Angus beef patty, Bacon"],
+		"ingredients": ["Buns, American Cheese, Angus Beef Patty, Bacon"],
 		"size": "",
         "img": "./img/burg2.png",
         "low": "./img/low_burg2.jpg"
@@ -146,7 +146,7 @@
     {
         "name": "Cheese Burger",
         "cost": 2.85,
-		"ingredients": ["Buns, American cheese, Angus beef patty, Lettuce"],
+		"ingredients": ["Buns, American Cheese, Angus Beef Patty, Lettuce"],
 		"size": "",
         "img": "./img/burg3.png",
         "low": "./img/low_burg3.jpg"
@@ -154,7 +154,7 @@
     {
         "name": "Deluxe Burger",
         "cost": 2.85,
-		"ingredients": ["Brioche buns, American cheese, Angus beef patty, Lettuce, Onions, Pickles, Tomatoes"],
+		"ingredients": ["Brioche buns, American Cheese, Angus Beef Patty, Lettuce, Onions, Pickles, Tomatoes"],
 		"size": "",
         "img": "./img/burg4.png",
         "low": "./img/low_burg4.jpg"
@@ -162,7 +162,7 @@
     {
         "name": "Smash Burger",
         "cost": 2.85,
-		"ingredients": ["Brioche buns, Havarti cheese, Ground beef chuck, Onions, Bacon"],
+		"ingredients": ["Brioche buns, Havarti Cheese, Ground Beef chuck, Onions, Bacon"],
 		"size": "",
         "img": "./img/burg5.png",
         "low": "./img/low_burg5.jpg"
@@ -186,7 +186,7 @@
     {
         "name": "Assorted Macaroons",
         "cost": 2.85,
-		"ingredients": ["Sugar, Salt, Flour, Heavy cream, Food coloring"],
+		"ingredients": ["Sugar, Salt, Flour, Heavy Cream, Food Coloring"],
 		"size": "",
         "img": "./img/des3.png",
         "low": "./img/low_des3.jpg"
@@ -194,7 +194,7 @@
     {
         "name": "Pancake",
         "cost": 2.85,
-		"ingredients": ["Powdered sugar, Raspberry, Egg, Flour, Milk, Butter"],
+		"ingredients": ["Powdered Sugar, Raspberry, Egg, Flour, Milk, Butter"],
 		"size": "",
         "img": "./img/des4.png",
         "low": "./img/low_des4.jpg"

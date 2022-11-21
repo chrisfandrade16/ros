@@ -2,7 +2,7 @@
     {
         "name": "Extra Large Pepperoni Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Pepperoni"],
 		"size": "16''",
         "img": "./img/p1.png",
         "count":"2"
@@ -10,7 +10,7 @@
 	{
         "name": "Large Pepperoni Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Pepperoni"],
 		"size": "14''", 
         "img": "./img/p1.png",
         "count":"2"
@@ -19,7 +19,7 @@
 	{
         "name": "Medium Pepperoni Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Jalapenos", "Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Jalapenos", "Pepperoni"],
 		"size": "12''",
         "img": "./img/p1.png",
         "count":"2"
@@ -28,7 +28,7 @@
 	{
         "name": "Small Pepperoni Pizza",
         "cost": 7.73,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Pepperoni"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Pepperoni"],
 		"size": "10''",
         "img": "./img/p1.png",
         "count":"2"
@@ -37,7 +37,7 @@
     {
         "name": "Extra Large Hawaiian Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Ham", "Pineapple"],
 		"size": "16''",
         "img": "./img/p5.png",
         "count":"2"
@@ -46,7 +46,7 @@
 	{
         "name": "Large Hawaiian Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Ham", "Pineapple"],
 		"size": "14''", 
         "img": "./img/p5.png",
         "count":"2"
@@ -55,7 +55,7 @@
 	{
         "name": "Medium Hawaiian Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Mozzarella cheese", "Ham", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Mozzarella Cheese", "Ham", "Pineapple"],
 		"size": "12''",
         "img": "./img/p5.png",
         "count":"2"
@@ -64,7 +64,7 @@
 	{
         "name": "Small Hawaiian Pizza",
         "cost": 7.93,
-		"ingredients": ["Tomato sauce", "Tomato slices", "Mozzarella cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
+		"ingredients": ["Tomato Sauce", "Tomato slices", "Mozzarella Cheese", "Peppers", "Olives", "Pepperoni", "Pineapple"],
 		"size": "10''",
         "img": "./img/p5.png",
         "count":"2"
@@ -73,7 +73,7 @@
 	{
         "name": "Extra Large Vegetarian Pizza",
         "cost": 19.84,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "16''",
         "img": "./img/p2.png",
         "count":"2"
@@ -82,7 +82,7 @@
 	{
         "name": "Large Vegetarian Pizza",
         "cost": 15.12,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "14''", 
         "img": "./img/p2.png",
         "count":"2"
@@ -91,7 +91,7 @@
 	{
         "name": "Medium Vegetarian Pizza",
         "cost": 10.63,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "12''",
         "img": "./img/p2.png",
         "count":"2"
@@ -100,7 +100,7 @@
 	{
         "name": "Small Vegetarian Pizza",
         "cost": 7.93,
-		"ingredients": ["Tomato sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
+		"ingredients": ["Tomato Sauce", "Tomato slices","Yellow peppers", "Mushrooms", "Olives"],
 		"size": "10''",
         "img": "./img/p2.png",
         "count":"2"
@@ -154,7 +154,7 @@
     {
         "name": "Double Cheese Burger with Bacon",
         "cost": 2.85,
-		"ingredients": ["Buns, American cheese, Angus beef patty, Bacon"],
+		"ingredients": ["Buns, American Cheese, Angus Beef Patty, Bacon"],
 		"size": "",
         "img": "./img/burg2.png",
         "count":"2"
@@ -163,7 +163,7 @@
     {
         "name": "Cheese Burger",
         "cost": 2.85,
-		"ingredients": ["Buns, American cheese, Angus beef patty, Lettuce"],
+		"ingredients": ["Buns, American Cheese, Angus Beef Patty, Lettuce"],
 		"size": "",
         "img": "./img/burg3.png",
         "count":"2"
@@ -172,7 +172,7 @@
     {
         "name": "Deluxe Burger",
         "cost": 2.85,
-		"ingredients": ["Brioche buns, American cheese, Angus beef patty, Lettuce, Onions, Pickles, Tomatoes"],
+		"ingredients": ["Brioche buns, American Cheese, Angus Beef Patty, Lettuce, Onions, Pickles, Tomatoes"],
 		"size": "",
         "img": "./img/burg4.png",
         "count":"2"
@@ -181,7 +181,7 @@
     {
         "name": "Smash Burger",
         "cost": 2.85,
-		"ingredients": ["Brioche buns, Havarti cheese, Ground beef chuck, Onions, Bacon"],
+		"ingredients": ["Brioche buns, Havarti Cheese, Ground Beef chuck, Onions, Bacon"],
 		"size": "",
         "img": "./img/burg5.png",
         "count":"2"
@@ -190,7 +190,7 @@
     {
         "name": "Beast Burger",
         "cost": 2.85,
-		"ingredients": ["Buns, American cheese, Angus beef patty, Lettuce, Onions, Tomatoes"],
+		"ingredients": ["Buns, American Cheese, Angus Beef Patty, Lettuce, Onions, Tomatoes"],
 		"size": "",
         "img": "./img/burg6.png",
         "count":"2"
