@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "./static/css/main.8fd5e02f.css",
+    "main.js": "./static/js/main.e90169c9.js",
+    "static/media/restaurant.jpg": "./static/media/restaurant.a06bacae6235483e6438.jpg",
+    "static/media/waitress.jpg": "./static/media/waitress.b61d140fed82dc194057.jpg",
+    "static/media/image_pizza_logo.png": "./static/media/image_pizza_logo.64033de5ed6656b4286b.png",
+    "static/media/image_edit_pencil.png": "./static/media/image_edit_pencil.93a6172b4b122f388f70.png",
+    "static/media/chef.jpg": "./static/media/chef.61e997228d4e84e35b9e.jpg",
+    "static/media/emptyOrder.png": "./static/media/emptyOrder.e4d3e0f7ca109d77dc9f.png",
+    "static/media/emptyCart.png": "./static/media/emptyCart.713f204a6dd2bb386006.png",
+    "static/media/image_delete_trash.png": "./static/media/image_delete_trash.539f5b124a1ccd24d88d.png",
+    "index.html": "./index.html",
+    "main.8fd5e02f.css.map": "./static/css/main.8fd5e02f.css.map",
+    "main.e90169c9.js.map": "./static/js/main.e90169c9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fd5e02f.css",
+    "static/js/main.e90169c9.js"
+  ]
+}
