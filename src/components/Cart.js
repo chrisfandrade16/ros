@@ -211,7 +211,7 @@ export default function Basket({ data, setCurrentPageTab }) {
       setCardCVCError("Card CVC is required");
       isValidated = false;
     } else if (cardCVC.length < 3 || cardCVC.length > 4) {
-      setCardCVCError("Card CVCshould be 3 to 4 digits");
+      setCardCVCError("Card CVC should be 3 to 4 digits");
       isValidated = false;
     } else {
       setCardCVCError("");
@@ -421,7 +421,13 @@ export default function Basket({ data, setCurrentPageTab }) {
                     <NumberInput>
                       <NumberInputField
                         placeholder="Card Number"
-                        onChange={(e) => setCardNumber(e.target.value)}
+                        onChange={(e) => {
+                          e.target.value =
+                            e.target.value.length > 16
+                              ? e.target.value.substring(0, 16)
+                              : e.target.value;
+                          setCardNumber(e.target.value);
+                        }}
                       />
                     </NumberInput>
                     <p className="paymentVerificationError">
@@ -434,7 +440,13 @@ export default function Basket({ data, setCurrentPageTab }) {
                       <NumberInput>
                         <NumberInputField
                           placeholder="CVC"
-                          onChange={(e) => setCardCVC(e.target.value)}
+                          onChange={(e) => {
+                            e.target.value =
+                              e.target.value.length > 4
+                                ? e.target.value.substring(0, 4)
+                                : e.target.value;
+                            setCardCVC(e.target.value);
+                          }}
                         />
                       </NumberInput>
                       <p className="paymentVerificationError">{cardCVCError}</p>
