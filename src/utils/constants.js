@@ -62,7 +62,7 @@ export const OWNER_PAGE_TABS_CONFIGS = (setCurrentPageTab) => {
       },
     },
     {
-      text: "Contact Info",
+      text: "Restaurant Info",
       onClick: () => {
         setCurrentPageTab(OWNER_PAGE_TABS.CONTACT_INFO);
       },
