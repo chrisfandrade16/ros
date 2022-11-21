@@ -214,7 +214,7 @@ const OwnerPageMenuModal = (props) => {
       onReset={() => {
         setEditingItem({
           ...storage.restaurants[storage.currentRestaurant].restaurantMenu[
-            editingItem.category
+          editingItem.category
           ][editingItem.index],
           category: editingItem.category,
           index: editingItem.index,
@@ -227,12 +227,12 @@ const OwnerPageMenuModal = (props) => {
           ][editingItem.index] = editingItem;
         } else if (
           storage.restaurants[storage.currentRestaurant].restaurantMenu[
-            editingItem.category
+          editingItem.category
           ]
         ) {
           if (
             storage.restaurants[storage.currentRestaurant].restaurantMenu[
-              editingItem.key
+            editingItem.key
             ]
           ) {
             storage.restaurants[storage.currentRestaurant].restaurantMenu[
@@ -252,7 +252,6 @@ const OwnerPageMenuModal = (props) => {
       confirmDisabled={
         !editingItem.category ||
         !editingItem.name ||
-        !editingItem.description ||
         !editingItem.cost
       }
       renderBody={() => {
@@ -343,8 +342,6 @@ const OwnerPageMenuModal = (props) => {
                 onChange={(value) => {
                   setEditingItem({ ...editingItem, description: value });
                 }}
-                hasError={!editingItem.description}
-                errorMessage={"Description field cannot be empty"}
               />
               <Input
                 value={editingItem.cost}
@@ -397,7 +394,7 @@ const OwnerPageContact = (props) => {
       {!isEditing ? (
         <Button
           color="blue"
-          content="Edit Contact Info"
+          content="Edit Restaurant Info"
           onClick={() => {
             setIsEditing(true);
           }}
@@ -407,29 +404,51 @@ const OwnerPageContact = (props) => {
       <div className="tw-flex tw-flex-col tw-gap-[6px] tw-mb-[30px]">
         {isEditing ? (
           <Input
-            value={contactInfo.firstName}
+            value={contactInfo.aboutUs}
             onChange={(value) => {
-              setContactInfo({ ...contactInfo, firstName: value });
+              setContactInfo({ ...contactInfo, aboutUs: value });
             }}
-            hasError={!contactInfo.firstName}
-            errorMessage={"First name field cannot be empty"}
+            hasError={!contactInfo.aboutUs}
+            errorMessage={"About Us field cannot be empty"}
             className="tw-w-[50%]"
           />
         ) : (
-          <div>First Name: {currentRestaurant.restaurantOwner.firstName}</div>
+          <div>
+            <span style={{ color: "#B5838D" }}>About Us: </span>
+            {currentRestaurant.restaurantOwner.aboutUs}
+          </div>
         )}
         {isEditing ? (
           <Input
-            value={contactInfo.lastName}
+            value={contactInfo.location}
             onChange={(value) => {
-              setContactInfo({ ...contactInfo, lastName: value });
+              setContactInfo({ ...contactInfo, location: value });
             }}
-            hasError={!contactInfo.lastName}
-            errorMessage={"Last name field cannot be empty"}
+            hasError={!contactInfo.location}
+            errorMessage={"Location field cannot be empty"}
             className="tw-w-[50%]"
           />
         ) : (
-          <div>Last Name: {currentRestaurant.restaurantOwner.lastName}</div>
+          <div>
+            <span style={{ color: "#B5838D" }}>Location: </span>
+            {currentRestaurant.restaurantOwner.location}
+          </div>
+        )}
+        {isEditing ? (
+          <Input
+            value={contactInfo.email}
+            onChange={(value) => {
+              setContactInfo({ ...contactInfo, email: value });
+            }}
+            hasError={!contactInfo.email}
+            errorMessage={"Email field cannot be empty"}
+            className="tw-w-[50%]"
+          />
+        ) : (
+          <div>
+            <span style={{ color: "#B5838D" }}>Email: </span>
+            {currentRestaurant.restaurantOwner.email}
+          </div>
         )}
         {isEditing ? (
           <Input
@@ -442,20 +461,10 @@ const OwnerPageContact = (props) => {
             className="tw-w-[50%]"
           />
         ) : (
-          <div>Phone: {currentRestaurant.restaurantOwner.phone}</div>
-        )}
-        {isEditing ? (
-          <Input
-            value={contactInfo.address}
-            onChange={(value) => {
-              setContactInfo({ ...contactInfo, address: value });
-            }}
-            hasError={!contactInfo.address}
-            errorMessage={"Address field cannot be empty"}
-            className="tw-w-[50%]"
-          />
-        ) : (
-          <div>Address: {currentRestaurant.restaurantOwner.address}</div>
+          <div>
+            <span style={{ color: "#B5838D" }}>Phone: </span>
+            {currentRestaurant.restaurantOwner.phone}
+          </div>
         )}
       </div>
       {isEditing ? (
@@ -487,10 +496,10 @@ const OwnerPageContact = (props) => {
               setIsEditing(false);
             }}
             disabled={
-              !contactInfo.firstName ||
-              !contactInfo.lastName ||
-              !contactInfo.phone ||
-              !contactInfo.address
+              !contactInfo.aboutUs ||
+              !contactInfo.location ||
+              !contactInfo.email ||
+              !contactInfo.phone
             }
           />
         </div>
@@ -540,7 +549,10 @@ const OwnerPageAccount = (props) => {
             className="tw-w-[50%]"
           />
         ) : (
-          <div>Username: {currentRestaurant.restaurantOwner.username}</div>
+          <div>
+            <span style={{ color: "#B5838D" }}>Username: </span>
+            {currentRestaurant.restaurantOwner.username}
+          </div>
         )}
         {isEditingOwnerAccount ? (
           <Input
@@ -554,7 +566,7 @@ const OwnerPageAccount = (props) => {
           />
         ) : (
           <div>
-            Password:{" "}
+            <span style={{ color: "#B5838D" }}>Password:{" "} </span>
             {"*".repeat(currentRestaurant.restaurantOwner.password.length)}
           </div>
         )}
@@ -612,8 +624,14 @@ const OwnerPageAccount = (props) => {
             return (
               <div className="tw-p-[20px] tw-flex tw-flex-row tw-rounded tw-border-[2px] tw-border-solid tw-border-[#CBD5E1] tw-gap-[15px] tw-mb-[15px]">
                 <div className="tw-flex tw-flex-col tw-gap-[3px]">
-                  <div>Username: {employee.username}</div>
-                  <div>Password: {"*".repeat(employee.password.length)}</div>
+                  <div>
+                    <span style={{ color: "#B5838D" }}>Username: </span>
+                    {employee.username}
+                  </div>
+                  <div>
+                    <span style={{ color: "#B5838D" }}>Password: </span>
+                    {"*".repeat(employee.password.length)}
+                  </div>
                 </div>
                 <div className="tw-ml-auto tw-self-center">
                   <Button
