@@ -67,6 +67,7 @@ export default function CostCounter({
           </span>
         </Tooltip>
         <Input
+          centerText={true}
           value={count}
           onChange={(newValue) => {
             newValue =
