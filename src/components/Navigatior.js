@@ -33,7 +33,7 @@ const Navigator = (props) => {
                 : ""
             } ${
               isTabActive
-                ? `!tw-bg-white tw-text-black ${
+                ? `!tw-bg-[#9294B5] tw-text-[#272838] ${
                     activePointerTab ? "pointer-tab" : ""
                   } ${activeNextTab && !isLastTab ? "next-tab" : ""}`
                 : ""

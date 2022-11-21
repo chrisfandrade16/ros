@@ -15,7 +15,7 @@ import {
   Tbody,
   Tr,
   Td,
-  TableContainer
+  TableContainer,
 } from "@chakra-ui/react";
 
 export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
@@ -23,9 +23,13 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
     return orderInfo.items.map((item) => {
       return (
         <Tr>
-          <Td>{item.name}</Td>
-          <Td>{item.amount}</Td>
-          <Td>{data.getItemInfo(item.name).cost}</Td>
+          <Td style={{ textAlign: "left" }}>{item.name}</Td>
+          <Td isNumeric style={{ textAlign: "left" }}>
+            {item.amount}
+          </Td>
+          <Td isNumeric style={{ textAlign: "left" }}>
+            ${data.getItemInfo(item.name).cost}
+          </Td>
         </Tr>
       );
     });
@@ -36,7 +40,7 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
   const viewItemsClose = () => setViewItems(false);
   const viewItemsShow = () => setViewItems(true);
   const onChangeOrderStatus = function (status) {
-    const jsonString = JSON.stringify(orderInfo) 
+    const jsonString = JSON.stringify(orderInfo);
     let newOrderInfo = JSON.parse(jsonString);
     newOrderInfo.status = status;
     updateOrderJSON(newOrderInfo);
@@ -46,19 +50,19 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
   const [cancelOrder, setCancelOrder] = useState(false);
   const cancelOrderClose = () => setCancelOrder(false);
   const cancelOrderShow = () => setCancelOrder(true);
-  const onCancelOrder = function () {    
+  const onCancelOrder = function () {
     cancelOrderClose();
-    const jsonString = JSON.stringify(orderInfo) 
+    const jsonString = JSON.stringify(orderInfo);
     let newOrderInfo = JSON.parse(jsonString);
     newOrderInfo.status = null;
     updateOrderJSON(newOrderInfo);
-  }
+  };
 
   return (
     <div className="menu-item tw-gap-[20px]">
       <div className="item-desc">
         <TableContainer>
-          <Table variant="simple">
+          <Table variant="simple" size="sm">
             <Tbody>
               <Tr>
                 <Td>Order: #{orderInfo.order}</Td>
@@ -84,13 +88,25 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
           value={orderInfo.status}
           onChange={(event) => onChangeOrderStatus(event.target.value)}
         >
-          <option style={{ backgroundColor: "#434560" }} key="Cooking" value="Cooking">
+          <option
+            style={{ backgroundColor: "#434560" }}
+            key="Cooking"
+            value="Cooking"
+          >
             Cooking
           </option>
-          <option style={{ backgroundColor: "#434560" }} key="Serving" value="Serving">
+          <option
+            style={{ backgroundColor: "#434560" }}
+            key="Serving"
+            value="Serving"
+          >
             Serving
           </option>
-          <option style={{ backgroundColor: "#434560" }} key="Completed" value="Completed">
+          <option
+            style={{ backgroundColor: "#434560" }}
+            key="Completed"
+            value="Completed"
+          >
             Completed
           </option>
         </Select>
@@ -106,15 +122,11 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
         <Button
           color="red"
           content="Cancel Order"
-          disabled={orderInfo.status === 'Completed'}
+          disabled={orderInfo.status === "Completed"}
           onClick={cancelOrderShow}
         />
 
-        <AlertDialog
-          isCentered
-          isOpen={viewItems}
-          onClose={viewItemsClose}
-        >
+        <AlertDialog isCentered isOpen={viewItems} onClose={viewItemsClose}>
           <AlertDialogOverlay>
             <AlertDialogContent
               style={{ color: "#FFCDB2", backgroundColor: "#272838" }}
@@ -130,28 +142,36 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
               <AlertDialogBody>
                 <Table>
                   <Tr>
-                    <th>Item</th>
-                    <th>Amount</th>
-                    <th>Price</th>
+                    <Td style={{ fontWeight: "bold", fontSize: "18px" }}>
+                      Item
+                    </Td>
+                    <Td style={{ fontWeight: "bold", fontSize: "18px" }}>
+                      Amount
+                    </Td>
+                    <Td style={{ fontWeight: "bold", fontSize: "18px" }}>
+                      Price
+                    </Td>
                   </Tr>
                   {createItemRows()}
                 </Table>
               </AlertDialogBody>
               <AlertDialogFooter>
                 <div className="tw-flex tw-flex-row">
-                  <p>Status: {orderInfo.status}</p>
-                  <p>Total: ${orderInfo.total}</p>
+                  <p>
+                    <span style={{ color: "#B5838D" }}>Status: </span>
+                    {orderInfo.status}
+                  </p>
+                  <p className="tw-ml-2">
+                    <span style={{ color: "#B5838D" }}>Total: </span>$
+                    {orderInfo.total}
+                  </p>
                 </div>
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialogOverlay>
         </AlertDialog>
 
-        <AlertDialog
-          isCentered
-          isOpen={cancelOrder}
-          onClose={cancelOrderClose}
-        >
+        <AlertDialog isCentered isOpen={cancelOrder} onClose={cancelOrderClose}>
           <AlertDialogOverlay>
             <AlertDialogContent
               style={{ color: "#FFCDB2", backgroundColor: "#272838" }}
@@ -173,11 +193,7 @@ export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
                   color="red"
                   className="tw-mx-3"
                 />
-                <Button
-                  onClick={onCancelOrder}
-                  content="Yes"
-                  color="green"
-                />
+                <Button onClick={onCancelOrder} content="Yes" color="green" />
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialogOverlay>

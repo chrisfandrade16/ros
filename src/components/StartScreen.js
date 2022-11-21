@@ -52,7 +52,7 @@ export default function StartScreen({ setCurrentPageTab }) {
             placeholder="Enter your name here."
             id="name"
             onChange={(e) => setName(e.target.value)}
-          ></Input>
+          />
         </div>
         <div className="form_field" key="tablenum">
           <label className="form_label">Table Number</label>

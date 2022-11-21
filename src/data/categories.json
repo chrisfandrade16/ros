@@ -1,7 +1,7 @@
 [
     {
         "name": "Popular",
-        "items": ["Chicken Tenders"]
+        "items": ["Chicken Tenders", "Fries", "Large Hawaiian Pizza", "Extra Large Pepperoni Pizza", "Large Pepperoni Pizza", "Large Vegetarian Pizza", "Small Vegetarian Pizza", "Deluxe Burger", "Smash Burger", "Tiramisu", "Assorted Macaroons", "Coke", "Arizona Tea"]
     },
     {
         "name": "Appetizers",

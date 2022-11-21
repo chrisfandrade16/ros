@@ -36,7 +36,12 @@ const App = () => {
             />
           )}
         {currentPageTab === constants.PAGE_TABS.START_SCREEN && (
-          <Tabs size="lg" align="center">
+          <Tabs
+            size="lg"
+            align="center"
+            variant="soft-rounded"
+            colorScheme="red"
+          >
             <TabList>
               <Tab>Customer</Tab>
               <Tab>Staff</Tab>
