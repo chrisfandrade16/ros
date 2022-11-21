@@ -14,6 +14,7 @@ const Input = (props) => {
     errorMessage = "",
     className = "",
     type = "search",
+    centerText = false,
   } = props;
 
   return (
@@ -25,7 +26,9 @@ const Input = (props) => {
         }}
         onBlur={onBlur}
         type={type}
-        className={`text-center tw-px-[8px] tw-py-[4px] tw-text-ellipsis focus:tw-rounded focus:tw-border-[2px] focus:tw-border-solid focus:tw-border-[#90ddf0] tw-border-[2px] tw-border-transparent focus:tw-outline-none tw-shadow-none tw-bg-transparent tw-border-b-solid tw-border-b-[#CBD5E1] hover:tw-border-b-[#90ddf0] tw-duration-200 ${
+        className={`${
+          centerText ? "tw-text-center" : ""
+        } tw-px-[8px] tw-py-[4px] tw-text-ellipsis focus:tw-rounded focus:tw-border-[2px] focus:tw-border-solid focus:tw-border-[#90ddf0] tw-border-[2px] tw-border-transparent focus:tw-outline-none tw-shadow-none tw-bg-transparent tw-border-b-solid tw-border-b-[#CBD5E1] hover:tw-border-b-[#90ddf0] tw-duration-200 ${
           hasError
             ? "tw-border-b-[#eb9486] hover:tw-border-b-[#eb9486] focus:tw-border-[#eb9486]"
             : ""

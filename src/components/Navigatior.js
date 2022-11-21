@@ -4,8 +4,8 @@ const Navigator = (props) => {
   const {
     tabs = [],
     activeTab = null,
-    activeHighlightTab = false,
     activePointerTab = false,
+    activeNextTab = false,
     useTextAsId = false,
     lowlightTabs = [],
   } = props;
@@ -23,6 +23,7 @@ const Navigator = (props) => {
         const isTabActive = useTextAsId
           ? activeTab === text
           : activeTab === index;
+        const isLastTab = index === tabs.length - 1;
         return (
           <div
             key={tab + index}
@@ -32,13 +33,9 @@ const Navigator = (props) => {
                 : ""
             } ${
               isTabActive
-                ? `${
-                    activePointerTab
-                      ? "pointer-tab"
-                      : activeHighlightTab
-                      ? "!tw-bg-white tw-text-black"
-                      : ""
-                  }`
+                ? `!tw-bg-white tw-text-black ${
+                    activePointerTab ? "pointer-tab" : ""
+                  } ${activeNextTab && !isLastTab ? "next-tab" : ""}`
                 : ""
             } ${
               getIsDisabled()
