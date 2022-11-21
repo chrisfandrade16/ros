@@ -149,8 +149,8 @@ const Header = (props) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <label className="form_label">Name</label>
             <div className="form_field" key="name">
-              <label className="form_label">Name</label>
               <Input
                 className="form_text_box"
                 placeholder="Enter your name here."
@@ -159,11 +159,11 @@ const Header = (props) => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
+            <label className="form_label">Table Number</label>
             <div className="form_field" key="tablenum">
-              <label className="form_label">Table Number</label>
               <Select
                 className="form_select"
-                placeholder="Choose a table number"
+                value={tableNum}
                 onChange={(e) => setTableNum(e.target.value)}
               >
                 <option
