@@ -4,6 +4,7 @@ import OrderItem from "./OrderItem";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import Navigator from "./Navigatior";
 import ParseJSON from "../utils/ParseJSON";
+import emptyOrder from "images/emptyOrder.png";
 
 export default function Staff({ data }) {
   const [orderJSON, setOrderJSON] = useState(new ParseJSON().orderJSON);
@@ -81,16 +82,26 @@ export default function Staff({ data }) {
         useTextAsId={true}
       />
 
-      <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
-        {getOrderCategoryItems(activeCategory).map((order) => (
-          <OrderItem
-            key={order}
-            orderInfo={getOrderInfo(order)}
-            updateOrderJSON={updateOrderJSON}
-            data={data}
-          />
-        ))}
-      </Scrollbars>
+
+      {getOrderCategoryItems(activeCategory).length === 0 ? (
+        <div>
+          <div>
+            <img className="orderEmpty" src={emptyOrder} alt="Order empty" />
+          </div>
+          <h1 style={{fontSize: "2em"}}>Waiting for Orders...</h1>
+        </div>
+      ) :
+        <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
+          {getOrderCategoryItems(activeCategory).map((order) => (
+            <OrderItem
+              key={order}
+              orderInfo={getOrderInfo(order)}
+              updateOrderJSON={updateOrderJSON}
+              data={data}
+            />
+          ))}
+        </Scrollbars>
+      }
     </div>
   );
 }
