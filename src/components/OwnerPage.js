@@ -98,7 +98,7 @@ const OwnerPageMenu = (props) => {
       ) : null}
       {removingCategory ? (
         <Modal
-          title={`Remove Category: ${removingCategory}`}
+          title={'Remove Category'}
           onClose={() => {
             setRemovingCategory(null);
           }}
