@@ -26,17 +26,14 @@ const Header = (props) => {
   const [home, setHome] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [name, setName] = useState("");
-  const [tableNum, setTableNum] = useState(1);
+  const [name, setName] = useState(storage.currentCustomerName);
+  const [tableNum, setTableNum] = useState(storage.currentCustomerTable);
   const [start, setStart] = useState(false);
   const [error, setError] = useState(false);
   const [error_msg, setErrorMsg] = useState("");
 
   useEffect(() => {
     if (start) {
-      console.log(name, tableNum);
-      storage.currentCustomerName = name;
-      storage.currentCustomerTable = tableNum;
       if (name === "" || tableNum === null) {
         setStart(false);
         setErrorMsg("Please enter both your name and table number.");
@@ -50,6 +47,8 @@ const Header = (props) => {
       } else {
         setError(false);
         setStart(false);
+        storage.currentCustomerName = name;
+        storage.currentCustomerTable = tableNum;
         onClose();
       }
     }

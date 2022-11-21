@@ -136,7 +136,7 @@
     {
         "name": "Red Soup",
         "cost": 7.41,
-		"ingredients": ["Tomatos"],
+		"ingredients": ["Tomatoes"],
 		"size": "",
         "img": "./img/app4.png",
         "count":"2"
