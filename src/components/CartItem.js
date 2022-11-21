@@ -55,12 +55,12 @@ export default function CartItem({
             <span style={{ color: "#B5838D" }}>Name: </span>
             {info.name}
           </div>
-          {info.size ?
+          {info.size ? (
             <div>
               <span style={{ color: "#B5838D" }}>Size: </span>
               {info.size}
             </div>
-          : null}
+          ) : null}
         </div>
 
         <CostCounter
@@ -71,6 +71,7 @@ export default function CartItem({
           setTotalItems={setTotalItems}
           removeItem={removeItem}
           clear={false}
+          showToast={true}
         />
         <div className="basketLeft tw-ml-auto tw-mr-[50px]">
           <div>${(info.cost * quantity).toFixed(2)}</div>

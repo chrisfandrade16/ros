@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Input from "components/Input";
 import Button from "components/Button";
 import "../styles/Menu.scss";
-import { Tooltip } from "@chakra-ui/react";
+import { Tooltip, useToast } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 export default function CostCounter({
@@ -14,7 +14,10 @@ export default function CostCounter({
   removeItem = null,
   clear,
   hideCost,
+  showToast = false,
 }) {
+  const toast = useToast();
+
   const [count, setTheCount] = useState(
     parseInt(sessionStorage.getItem(name)) || 0
   );
@@ -66,13 +69,16 @@ export default function CostCounter({
         <Input
           value={count}
           onChange={(newValue) => {
-            newValue =
-              newValue.length > 2
-                ? newValue.substr(0, 2)
-                : newValue.length === 0
-                ? 0
-                : newValue;
-
+            newValue = newValue.length > 2 ? newValue.substr(0, 2) : newValue;
+            if (newValue.length === 0 || newValue === "0") {
+              newValue = 0;
+              if (showToast)
+                toast({
+                  title: `${name} removed`,
+                  status: "info",
+                  isClosable: true,
+                });
+            }
             const regex = new RegExp("^[0-9]+$");
             if (!regex.test(newValue) && newValue !== "") {
               return;
