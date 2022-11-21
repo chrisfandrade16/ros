@@ -163,6 +163,7 @@ const Header = (props) => {
             <div className="form_field" key="tablenum">
               <Select
                 className="form_select"
+                placeholder="Choose a table number"
                 value={tableNum}
                 onChange={(e) => setTableNum(e.target.value)}
               >
