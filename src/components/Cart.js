@@ -385,15 +385,27 @@ export default function Basket({ data, setCurrentPageTab }) {
                         <NumberInput>
                           <NumberInputField
                             placeholder="MM"
-                            onChange={(e) => setCardExpiryMonth(e.target.value)}
+                            onChange={(e) => {
+                              e.target.value =
+                                e.target.value.length > 2
+                                  ? e.target.value.substr(0, 2)
+                                  : e.target.value;
+                              setCardExpiryMonth(e.target.value);
+                            }}
                           />
                         </NumberInput>
                       </div>
                       <div>
                         <NumberInput>
                           <NumberInputField
-                            placeholder="YYYY"
-                            onChange={(e) => setCardExpiryYear(e.target.value)}
+                            placeholder="YY"
+                            onChange={(e) => {
+                              e.target.value =
+                                e.target.value.length > 2
+                                  ? e.target.value.substr(0, 2)
+                                  : e.target.value;
+                              setCardExpiryYear(e.target.value);
+                            }}
                           />
                         </NumberInput>
                       </div>
