@@ -5,6 +5,7 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import Navigator from "./Navigatior";
 import ParseJSON from "../utils/ParseJSON";
 import emptyOrder from "images/emptyOrder.png";
+import Button from "components/Button";
 
 export default function Staff({ data }) {
   const [orderJSON, setOrderJSON] = useState(new ParseJSON().orderJSON);
@@ -81,14 +82,12 @@ export default function Staff({ data }) {
         activePointerTab={true}
         useTextAsId={true}
       />
-
-
       {getOrderCategoryItems(activeCategory).length === 0 ? (
         <div>
           <div>
             <img className="orderEmpty" src={emptyOrder} alt="Order empty" />
           </div>
-          <h1 style={{fontSize: "2em"}}>Waiting for Orders...</h1>
+          <h1 style={{ fontSize: "2em" }}>Waiting for Orders...</h1>
         </div>
       ) :
         <Scrollbars id="menu-item-container" renderThumbVertical={renderThumb}>
@@ -102,6 +101,51 @@ export default function Staff({ data }) {
           ))}
         </Scrollbars>
       }
+
+      <div className="menu-footer tw-flex tw-flex-col tw-gap-[10px]">
+        <h1 style={{ fontSize: "1.1em" }}>Tables Requesting Help</h1>
+        <div className="tw-flex tw-flex-row tw-self-center tw-gap-[30px]">
+          <Button
+            color="red"
+            content="Table 3"
+            onClick={() => {
+
+            }}
+          />
+          <Button
+            color="red"
+            content="Table 14"
+          />
+          <Button
+            color="red"
+            content="Table 3"
+          />
+          <Button
+            color="red"
+            content="Table 6"
+          />
+          <Button
+            color="red"
+            content="Table 13"
+          />
+          <Button
+            color="red"
+            content="Table 12"
+          />
+          <Button
+            color="red"
+            content="Table 9"
+          />
+          <Button
+            color="red"
+            content="Table 2"
+          />
+          <Button
+            color="red"
+            content="Table 8"
+          />
+        </div>
+      </div>
     </div>
   );
 }
