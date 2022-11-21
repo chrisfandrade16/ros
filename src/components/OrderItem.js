@@ -18,9 +18,9 @@ import {
   TableContainer
 } from "@chakra-ui/react";
 
-export default function OrderItem({ info, data, setData }) {
+export default function OrderItem({ orderInfo, updateOrderJSON, data }) {
   const createItemRows = function () {
-    return info.items.map((item) => {
+    return orderInfo.items.map((item) => {
       return (
         <Tr>
           <Td>{item.name}</Td>
@@ -36,18 +36,23 @@ export default function OrderItem({ info, data, setData }) {
   const viewItemsClose = () => setViewItems(false);
   const viewItemsShow = () => setViewItems(true);
   const onChangeOrderStatus = function (status) {
-    const newData = data;
-    const index = newData.orderJSON.findIndex(
-      (order) => order.order === info.order
-    );
-    newData.orderJSON[index].status = status;
-    setData(newData);
+    const jsonString = JSON.stringify(orderInfo) 
+    let newOrderInfo = JSON.parse(jsonString);
+    newOrderInfo.status = status;
+    updateOrderJSON(newOrderInfo);
   };
 
   //Cancel order button stuff
   const [cancelOrder, setCancelOrder] = useState(false);
   const cancelOrderClose = () => setCancelOrder(false);
   const cancelOrderShow = () => setCancelOrder(true);
+  const onCancelOrder = function () {    
+    cancelOrderClose();
+    const jsonString = JSON.stringify(orderInfo) 
+    let newOrderInfo = JSON.parse(jsonString);
+    newOrderInfo.status = null;
+    updateOrderJSON(newOrderInfo);
+  }
 
   return (
     <div className="menu-item tw-gap-[20px]">
@@ -56,16 +61,16 @@ export default function OrderItem({ info, data, setData }) {
           <Table variant="simple">
             <Tbody>
               <Tr>
-                <Td>Order: #{info.order}</Td>
-                <Td>Order Time: {info.orderTime}</Td>
+                <Td>Order: #{orderInfo.order}</Td>
+                <Td>Order Time: {orderInfo.orderTime}</Td>
               </Tr>
               <Tr>
-                <Td>Customer: {info.customer}</Td>
-                <Td>Server: {info.server}</Td>
+                <Td>Customer: {orderInfo.customer}</Td>
+                <Td>Server: {orderInfo.server}</Td>
               </Tr>
               <Tr>
-                <Td>Table: #{info.table}</Td>
-                <Td>Total: ${info.total}</Td>
+                <Td>Table: #{orderInfo.table}</Td>
+                <Td>Total: ${orderInfo.total}</Td>
               </Tr>
             </Tbody>
           </Table>
@@ -76,8 +81,8 @@ export default function OrderItem({ info, data, setData }) {
         Status
         <Select
           className="form_select"
-          value={info.status}
-          onChange={(options) => onChangeOrderStatus(options.value)}
+          value={orderInfo.status}
+          onChange={(event) => onChangeOrderStatus(event.target.value)}
         >
           <option style={{ backgroundColor: "#434560" }} key="Cooking" value="Cooking">
             Cooking
@@ -101,7 +106,7 @@ export default function OrderItem({ info, data, setData }) {
         <Button
           color="red"
           content="Cancel Order"
-          disabled={info.status === 'Completed'}
+          disabled={orderInfo.status === 'Completed'}
           onClick={cancelOrderShow}
         />
 
@@ -119,7 +124,7 @@ export default function OrderItem({ info, data, setData }) {
                 fontWeight="bold"
                 style={{ color: "#B5838D" }}
               >
-                {"Order: #".concat(info.order)}
+                {"Order: #".concat(orderInfo.order)}
                 <AlertDialogCloseButton />
               </AlertDialogHeader>
               <AlertDialogBody>
@@ -134,8 +139,8 @@ export default function OrderItem({ info, data, setData }) {
               </AlertDialogBody>
               <AlertDialogFooter>
                 <div className="tw-flex tw-flex-row">
-                  <p>Status: {info.status}</p>
-                  <p>Total: ${info.total}</p>
+                  <p>Status: {orderInfo.status}</p>
+                  <p>Total: ${orderInfo.total}</p>
                 </div>
               </AlertDialogFooter>
             </AlertDialogContent>
@@ -156,7 +161,7 @@ export default function OrderItem({ info, data, setData }) {
                 fontWeight="bold"
                 style={{ color: "#B5838D" }}
               >
-                {"Order: #".concat(info.order)}
+                {"Order: #".concat(orderInfo.order)}
               </AlertDialogHeader>
               <AlertDialogBody>
                 Are you sure you would like to cancel this order?
@@ -169,18 +174,7 @@ export default function OrderItem({ info, data, setData }) {
                   className="tw-mx-3"
                 />
                 <Button
-                  onClick={() => {
-                    cancelOrderClose();
-                    const newData = data;
-                    const index = newData.orderJSON.findIndex(
-                      (order) => order.order === info.order
-                    );
-                    if (index > -1) {
-                      newData.orderJSON.splice(index, 1);
-                    }
-                    // console.log(newData);
-                    setData(newData);
-                  }}
+                  onClick={onCancelOrder}
                   content="Yes"
                   color="green"
                 />
