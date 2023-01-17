@@ -2,6 +2,8 @@
 
 A web application for customers and stuff to manage restaurant orders.
 
+<img src="./src/images/homepage.png" alt="ROS Homepage" width="700"/>
+
 # Development Process
 
 To setup the environment...
