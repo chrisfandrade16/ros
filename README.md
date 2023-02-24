@@ -1,6 +1,6 @@
 # ROS (Restaurant Ordering System)
 
-A web application for customers and stuff to manage restaurant orders.
+A web application for customers and staff to manage restaurant orders.
 
 <img src="./src/images/homepage.png" alt="ROS Homepage" width="700"/>
 
